@@ -45,17 +45,18 @@
         <!-- END NAV -->
 
         <!-- BEGIN BOX -->
+        
         <div id="box-cadastro">
-
-            <form action="#" method="POST">
+            
+            <form action="cadastroPasseador.php" method="POST">
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <input class="form-control" placeholder="Nome" style="margin-bottom:15px;margin-top:0px;">
+                        <input class="form-control" placeholder="Nome" name="add_first_name" style="margin-bottom:15px;margin-top:0px;">
                         <label><small> Data de Nascimento</small></label>
-                        <input class="form-control" type="date" placeholder="Data de nascimento" style="margin-bottom:15px;margin-top:2px;">
+                        <input class="form-control" type="date" placeholder="Data de nascimento" name="add_date" style="margin-bottom:15px;margin-top:2px;">
                     </div>
                     <div class="form-group col-md-6">
-                        <input class="form-control" placeholder="Sobrenome" style="margin-bottom:14px;margin-top:2px;">
+                        <input class="form-control" placeholder="Sobrenome"  name="add_last_name" style="margin-bottom:14px;margin-top:2px;">
                         <label><small>Gênero</small></label>
                         <br>
                         <select class="custom-select my-1 mr-sm-2">
@@ -66,21 +67,21 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="email" placeholder="E-mail" style="margin-bottom:5px;margin-top:5px;"
+                    <input class="form-control" type="email" placeholder="E-mail"  style="margin-bottom:5px;margin-top:5px;"
                         id="exampleInputEmail1">
-                    <input class="form-control" type="email" placeholder="Confirme seu e-mail" id="exampleInputEmail1">
+                    <input class="form-control" type="email" placeholder="Confirme seu e-mail" name="add_email" id="exampleInputEmail1">
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <input class="form-control" type="tel" placeholder="Celular" style="margin-bottom:5px;margin-top:5px;">
+                        <input class="form-control" type="text" placeholder="Celular" name="add_tel_movel" style="margin-bottom:5px;margin-top:5px;">
                     </div>
                     <div class="form-group col-md-6">
-                        <input class="form-control" type="text" placeholder="Fixo" style="margin-bottom:5px;margin-top:5px;">
+                        <input class="form-control" type="text" placeholder="Fixo" name="add_tel_resid" style="margin-bottom:5px;margin-top:5px;">
                     </div>
                 </div>
                 <div class="form-group">
                     <textarea class="form-control" placeholder="Escreva uma breve mensagem, o porquê gostaria de tornar-se passeador."
-                        style="margin-bottom:15px;margin-top:2px;" id="exampleFormControlTextarea1" rows="4"></textarea>
+                       name="add_message" style="margin-bottom:15px;margin-top:2px;" id="exampleFormControlTextarea1" rows="4"></textarea>
                 </div>
                 <div class="form-group form-check">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
