@@ -122,7 +122,7 @@ include_once("page-pattern/head-pattern.php");
                       <h4>Live Talk</h4>
                       </a>
                       </div>
-                     
+                    
                      
                   </div>
                   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
