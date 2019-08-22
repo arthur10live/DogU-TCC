@@ -3,9 +3,7 @@
 <?php
 include_once("page-pattern/head-pattern.php");
 ?>
-<body>
-     
-           
+<body>               
           
     <div id="wrapper">
          <!-- ENTRADA NO NAV PADRÃO  -->
