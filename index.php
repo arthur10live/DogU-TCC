@@ -2,13 +2,16 @@
 <html lang="PT-BR">
 <?php
 include_once("page-pattern/head-pattern.php");
+include_once("config/conecta_banco.php");
 ?>
-<body>               
-          
+<body>                   
     <div id="wrapper">
          <!-- ENTRADA NO NAV PADRÃO  -->
         <?php
          include_once("page-pattern/nav-pattern.php");
+         include_once("teste/teste.php");
+        $teste = $_SESSION['perm'][3][0];
+        echo "<script>alert('$teste');</script>";
         ?>
          <!-- SAIDA DO NAV PADÃO  -->
         <div id="page-wrapper" >
