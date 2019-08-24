@@ -9,7 +9,7 @@
  html,
  body {
      margin: 0;
-     font-family: Arial, Helvetica, sans-serif;
+     font-family: Helvetica, sans-serif !important;
 
  }
  
@@ -240,4 +240,15 @@
     padding-bottom:50px;
     display: flex;
     flex-wrap: nowrap; 
+}
+
+.label-cadastro{
+    margin-top: 3px !important;
+    margin-bottom: 3px !important;
+
+}
+
+.input-cadastro{
+    margin: 3px !important;
+    margin-bottom: 4px !important; 
 }
