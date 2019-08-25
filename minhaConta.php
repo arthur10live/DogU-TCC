@@ -30,13 +30,13 @@
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
             <a class="nav-link" onMouseOver="this.style.color='#594946'" onMouseOut="this.style.color='#F6705D'" style="color: #F6705D;"
-              href="index.html">Home</a>
+              href="home.php">Home</a>
           </li>
         </ul>
         <form class="form-group form-inline my-4 my-lg-1">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="minhaConta.html" onMouseOver="this.style.color='#594946'" onMouseOut="this.style.color='#01A58D'"
+              <a class="nav-link" href="minhaConta.php" onMouseOver="this.style.color='#594946'" onMouseOut="this.style.color='#01A58D'"
                 style="color: #01A58D;">Minha conta</a>
             </li>
           </ul>
@@ -64,7 +64,7 @@
         <hr />
         <p class="coral" style="font-size: 14px;">
           Ainda não é passeador?
-          <a href="cadastro.html" onMouseOver="this.style.color='#594946'" onMouseOut="this.style.color='#01A58D'"
+          <a href="cadastro.php" onMouseOver="this.style.color='#594946'" onMouseOut="this.style.color='#01A58D'"
             style="color: #01A58D;">Cadastre-se!</a>
         </p>
       </form>

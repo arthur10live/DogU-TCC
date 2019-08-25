@@ -44,7 +44,7 @@
                 <form class="form-group form-inline my-4 my-lg-1">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="minhaConta.html" onMouseOver="this.style.color='#594946'"
+                            <a class="nav-link" href="minhaConta.php" onMouseOver="this.style.color='#594946'"
                                 onMouseOut="this.style.color='#01A58D'" style="color: #01A58D;">Minha conta</a>
                         </li>
                     </ul>
