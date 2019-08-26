@@ -54,7 +54,7 @@ include_once("page-pattern/head-pattern.php");
                                     ?>
                                 </p>
                             </div>
-                            <div class="panel-footer">
+                            <div class="panel-heading">
                                 <?php
                                     echo "Endereços: ".$numend." ";
                                 ?> 
@@ -73,19 +73,28 @@ include_once("page-pattern/head-pattern.php");
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                Default Panel
-                            </div>
-                            <div class="panel-body">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
-                            </div>
-                            <div class="panel-footer">
-                                Panel Footer
+                        <div class="row text-center pad-top">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <div class="div-square">
+                                    <a href="#">
+                                        <i class="fa fa-key fa-6x"></i>
+                                        <h4>teste</h4>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>              
+                </div> 
+                <div class="row text-center pad-top">
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                        <div class="div-square">
+                            <a href="#">
+                                <i class="fa fa-key fa-5x"></i>
+                                <h4>teste</h4>
+                            </a>
+                        </div>
+                    </div>
+                </div>             
                  <!-- /. ROW  -->           
             </div>
              <!-- /. PAGE INNER  -->
