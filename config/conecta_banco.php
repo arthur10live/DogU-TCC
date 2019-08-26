@@ -13,4 +13,14 @@ if (mysqli_connect_errno())
 {
     echo "A conexão MySQLi apresentou erro: " . mysqli_connect_error();
 }
+
+//O tipo de caracteres a ser usado
+header('Content-Type: text/html; charset=utf-8');
+
+//Depois da tua conexão a base de dados insere o seguinte código abaixo.
+//Esta parte vai resolver o teu problema!
+ mysql_query("SET NAMES 'utf8'");
+ mysql_query('SET character_set_connection=utf8');
+ mysql_query('SET character_set_client=utf8');
+ mysql_query('SET character_set_results=utf8');
 ?> 
