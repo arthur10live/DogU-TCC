@@ -10,7 +10,7 @@
  body {
      margin: 0;
      font-family: Helvetica, sans-serif !important;
-
+     scroll-behavior: smooth;
  }
  
  .coral {
@@ -166,16 +166,47 @@
      margin: 10px;
  }
  
+.div-parapets{
+    background-color: #F3F2F0;
+    padding: 30px;
+    width: 100%;
+}
+
+.div-conhecaDogu{
+    background-color: #F6705D;
+    padding: 70px;
+    width: 100%;
+}
+
+.div-porqueDogu{
+    background-color: #F3F2F0;
+    padding: 30px;
+    width: 100%;
+}
+
+.rodape-home{
+    background-color: #F6705D;
+    width: 100%;
+    padding: 30px;
+    bottom: 0 !important;
+}
+
+.rodape-mapa{
+    list-style: none;
+    text-decoration: none;
+    color: #594946;
+    font-size: 26;
+}
  
  #box-minhaconta {
      background-color: #F3F2F0;
      opacity: 0.9;
      border-radius: 1rem;
      width: 400px;
-     height: 450px;
+     height: 520px;
      position: relative;
      margin: 0 auto;
-     margin-top: 100px;
+     margin-top: 30px;
      padding-top: 50px;
      padding-bottom: 50px;
      padding-left: 70px;
@@ -193,10 +224,10 @@
         opacity: 0.9;
         border-radius: 1rem;
         width: 350px;
-        height: 400px;
+        height: 520px;
         position: relative;
         margin: 0 auto;
-        margin-top: 80px;
+        margin-top: 30px;
         padding-top: 50px;
         padding-bottom: 50px;
         padding-left: 50px;
@@ -213,10 +244,10 @@
         opacity: 0.9;
         border-radius: 1rem;
         width: 320px;
-        height: 420px;
+        height: 500px;
         position: relative;
         margin: 0 auto;
-        margin-top: 50px;
+        margin-top: 10px;
         padding-top: 50px;
         padding-bottom: 40px;
         padding-left: 30px;
@@ -240,12 +271,6 @@
     padding-bottom:50px;
     display: flex;
     flex-wrap: nowrap; 
-}
-
-.label-cadastro{
-    margin-top: 3px !important;
-    margin-bottom: 3px !important;
-
 }
 
 .input-cadastro{
