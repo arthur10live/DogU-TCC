@@ -22,18 +22,24 @@ if(isset($_POST['email'])){
         if(isset($resultado_final)){
             if($_POST['tpLogin'] == "adm"){
                 $_SESSION['logado'] = 1;
+                setcookie('logado', "1", time()+600);
+                setcookie('login', MD5($resultado_final['nm_pessoa']), time()+600);
                 $_SESSION['cdAdm'] = $resultado_final['cd_administrador'];
                 $_SESSION['cdPes'] = $resultado_final['cd_pessoa'];
                 $_SESSION['nmPes'] = $resultado_final['nm_pessoa'];
                 $_SESSION['tpLogin'] = $_POST['tpLogin'];
             }else if($_POST['tpLogin'] == "pas"){
                 $_SESSION['logado'] = 1;
+                setcookie('logado', "1", time()+600);
+                setcookie('login', MD5($resultado_final['nm_pessoa']), time()+600);
                 $_SESSION['cdPas'] = $resultado_final['cd_passeador'];
                 $_SESSION['cdPes'] = $resultado_final['cd_pessoa'];
                 $_SESSION['nmPes'] = $resultado_final['nm_pessoa'];
                 $_SESSION['tpLogin'] = $_POST['tpLogin'];
             }else{
                 $_SESSION['logado'] = 1;
+                setcookie('logado', "1", time()+600);
+                setcookie('login', MD5($resultado_final['nm_pessoa']), time()+600);
                 $_SESSION['cdCli'] = $resultado_final['cd_Cliente'];
                 $_SESSION['cdPes'] = $resultado_final['cd_pessoa'];
                 $_SESSION['nmPes'] = $resultado_final['nm_pessoa'];
@@ -52,12 +58,16 @@ if(isset($_GET['sair'])){
     session_destroy();
     header("Location: home.php");  
 }
-else if(isset($_SESSION['logado'])){
+else if(isset($_SESSION['logado']) && isset($_COOKIE['logado']) && isset($_COOKIE['login'])){
     if($_SESSION['tpLogin'] == "adm"){
-        include_once("admin.php");
+        include_once("page-admin.php");
     }
 }else{
-    header("Location: home.php");  
+    if(isset($_SESSION['errocad'])){
+        header("Location: minhaConta.php");          
+    }else{
+        header("Location: index.php?sair=sim");  
+    }
 }
 
 function erroLogin($msg){

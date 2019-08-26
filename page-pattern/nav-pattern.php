@@ -21,11 +21,15 @@
         <li id="painel-funcoes">
             <a href="index.php" ><i class="fa fa-desktop "></i>Painel de Funções <span class="badge">Included</span></a>
         </li>
-        <li id="dev">
-            <a href="dev.php"><i class="fa fa-table "></i>UI Elements  <span class="badge">Included</span></a>
-        </li>
+        <?php
+        if($_SESSION['perm'][0][1] == 1){
+        echo' <li id="dev">
+                <a href="page-admin-dev.php"><i class="fa fa-table "></i>UI Elements  <span class="badge">Included</span></a>
+            </li>';
+        }
+        ?>
         <li id="page-blank">
-            <a href="blank.php"><i class="fa fa-edit "></i>Blank Page  <span class="badge">Included</span></a>
+            <a href="page-admin-blank.php"><i class="fa fa-edit "></i>Blank Page  <span class="badge">Included</span></a>
         </li>                    
     </ul>
 </div>
