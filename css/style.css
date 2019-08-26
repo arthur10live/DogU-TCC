@@ -40,7 +40,14 @@
      display: flex;
      flex-wrap: nowrap;
  }
+
+ #img-mobile{
+     padding: 40px;
+     width: 300px;
+ }
  
+ 
+
  @media only screen and (max-width: 700px) {
      #box-download {
          background-color: #F3F2F0;
@@ -75,6 +82,12 @@
          min-height: 600px;
          width: 100%;
      }
+
+     #img-mobile{
+        padding: 30px;
+        width: 260px;
+    }
+    
  }
  
  @media only screen and (max-width: 410px) {
@@ -147,6 +160,12 @@
          min-height: 500px;
          width: 100%;
      }
+     #img-mobile{
+        padding: 15px;
+        width: 230px;
+        align-content: center;
+    }
+    
  }
  
  #qrcode-box {
@@ -170,6 +189,15 @@
     background-color: #F3F2F0;
     padding: 30px;
     width: 100%;
+}
+
+.dog-circles{
+    background-color: #F6705D;
+    color: #594946;
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+
 }
 
 .div-conhecaDogu{

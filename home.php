@@ -5,6 +5,8 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>DogU ◦ App </title>
+    <link rel="icon" type="image/png" href="media/paws-dogu.ico">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- BOOTSTRAP.CSS -->
     <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.css" />
@@ -83,9 +85,42 @@
         <!-- END BOX -->
     </header>
     <article>
-        <section class="div-parapets" id="paraPets"></section>
-        <section class="div-conhecaDogu" id="conhecaDogu"></section>
-        <section class="div-porqueDogu" id="porqueDogu"></section>
+        <!-- SECTION PARA PETS -->
+        <section class="div-parapets" id="paraPets">
+            <section class="container">
+                <section class="row">
+                    <section class="col-md-3 text-center">2</section>
+                    <section class="col-md-3 text-center">2</section>
+                    <section class="col-md-3 text-center">2</section>
+                    <section class="col-md-3 text-center">2</section>
+                </section>
+            </section>
+        </section>
+
+
+        <!-- SECTION CONHEÇA A DOGU -->
+        <section class="div-conhecaDogu" id="conhecaDogu">
+            <section class="container">
+                <section class="row">
+                    <section class="col-md-4" style="background-color:black;">2</section>
+                    <section class="col-md-4" style="background-color:black;">2</section>
+                    <section class="col-md-4 text-center">
+                        <img id="img-mobile" src="media/mobile1.png">
+                    </section>
+                </section>
+            </section>
+        </section>
+
+        <!-- SECTION POR QUE A DOGU -->
+        <section class="div-porqueDogu" id="porqueDogu">
+            <section class="container">
+                <section class="row">
+                    <section class="col-md-4 text-center" style="background-color:yellow;">PITCH</section>
+                    <section class="col-md-4" style="background-color:black;">2</section>
+                    <section class="col-md-4" style="background-color:black;">2</section>
+                </section>
+            </section>
+        </section>
     </article>
     <!-- FOOTER -->
     <footer class="rodape-home">
@@ -109,9 +144,11 @@
                     <h4 class="chocolate">Newsletter</h4>
                     <form>
                         <div class="form-group">
-                            <input class="form-control" type="email" data-toggle="tooltip" data-placement="top" title="E-mail"
-                                id="exampleInputEmail1" placeholder="Digite seu e-mail" style="margin-bottom: 0px;">
-                            <small class="chocolate" style="margin-top:0px; margin-bottom: 10px;"> Digite seu e-mail e
+                            <input class="form-control" type="email" data-toggle="tooltip" data-placement="top"
+                                title="E-mail" id="exampleInputEmail1" placeholder="Digite seu e-mail"
+                                style="margin-bottom: 0px;">
+                            <small class="chocolate" style="margin-top:0px; margin-bottom: 10px;">
+                                Digite seu e-mail e
                                 fique por dentro das novidades. É grátis!</small><br>
                             <button type="submit" name="entrar" class="btn"
                                 style="margin-top:20px;padding-left: 40px; padding-right: 40px;background-color: #01A58D;color: #F3F2F0;"

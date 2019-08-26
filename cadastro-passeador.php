@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Cadastro Passeador ◦ DogU</title>
+    <link rel="icon" type="image/png" href="media/paws-dogu.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- BOOTSTRAP.CSS -->
