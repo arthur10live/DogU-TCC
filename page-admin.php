@@ -1,7 +1,17 @@
 ﻿<!DOCTYPE html>
 <html lang="PT-BR">
 <?php
-session_start();
+$_SESSION['perm'] = array();
+$cdAdm = $_SESSION['cdAdm'];
+$sql = "SELECT pe.cd_permissao, ap.ic_permitir FROM administrador_permissao as ap, tb_permissao as pe WHERE ap.cd_permissao = pe.cd_permissao AND cd_administrador = '$cdAdm';";
+$busca_permissao = $conexao->query($sql);
+if ($busca_permissao->num_rows > 0) {
+    $contador = 0;
+    while($rowbusca_permissao = $busca_permissao->fetch_assoc()) {
+        $_SESSION['perm'][$contador] = (array($rowbusca_permissao['cd_permissao'],$rowbusca_permissao['ic_permitir']));
+        $contador++;
+    }
+}
 include_once("page-pattern/head-pattern.php");
 include_once("config/conecta_banco.php");
 ?>
@@ -24,32 +34,27 @@ include_once("config/conecta_banco.php");
                 <div class="row">
                     <div class="col-lg-12 ">
                         <div class="alert alert-info">
-                             <strong>Welcome Jhon Doe ! </strong> You Have No pending Task For Today.
+                            <?php
+                             echo '<strong>Bem-vindo Administrador, '.$_SESSION['nmPes'].'! </strong> ';
+                            ?>
                         </div>
                     </div>
                 </div>
 <?php
-$_SESSION['perm'] = array();
-$cdAdm = $_SESSION['cdAdm'];
-$sql = "SELECT pe.cd_permissao, ap.ic_permitir FROM administrador_permissao as ap, tb_permissao as pe WHERE ap.cd_permissao = pe.cd_permissao AND cd_administrador = '$cdAdm';";
-$busca_permissao = $conexao->query($sql);
-if ($busca_permissao->num_rows > 0) {
-    $contador = 0;
-    while($rowbusca_permissao = $busca_permissao->fetch_assoc()) {
-        $_SESSION['perm'][$contador] = (array($rowbusca_permissao['cd_permissao'],$rowbusca_permissao['ic_permitir']));
-        $contador++;
-    }
-}
-
 $fun_buttons = array(
-array("2", "blank.php", "ADICIONAR CLIENTE", "fa-comments-o"),
-array("3", "blank.php", "ALTERAR CLIENTE", "fa-lightbulb-o"),
-array("4", "blank.php", "BUSCAR CLIENTE", "fa-users"),
-array("5", "blank.php", "ADICIONAR PASSEADOR", "fa-envelope-o"),
-array("6", "blank.php", "ALTERAR PASSEADOR", "fa-circle-o-notch"),
-array("7", "blank.php", "BUSCAR PASSEADOR", "fa-key"),
-array("8", "blank.php", "BUSCAR PASSEADOR", "fa-key"),
-array("9", "blank.php", "BUSCAR PASSEADOR", "fa-key"));
+array("2", "page-admin-blank.php", "ADICIONAR CLIENTE", "fa-comments-o"),
+array("3", "page-admin-blank.php", "ALTERAR CLIENTE", "fa-lightbulb-o"),
+array("4", "page-admin-blank.php", "BUSCAR CLIENTE", "fa-users"),
+array("5", "page-admin-blank.php", "ADICIONAR PASSEADOR", "fa-envelope-o"),
+array("6", "page-admin-blank.php", "ALTERAR PASSEADOR", "fa-circle-o-notch"),
+array("7", "page-admin-blank.php", "BUSCAR PASSEADOR", "fa-key"),
+array("8", "page-admin-blank.php", "ADICIONAR PET", "fa-key"),
+array("9", "page-admin-blank.php", "ALTERAR PET", "fa-key"),
+array("10", "page-admin-blank.php", "BUSCAR PET", "fa-key"),
+array("11", "page-admin-blank.php", "ADICIONAR ADMINISTRADOR", "fa-key"),
+array("12", "page-admin-blank.php", "ADICIONAR PERMISSÃO", "fa-key"),
+array("13", "page-admin-blank.php", "ALTERAR PERMISSÃO", "fa-key"),
+array("14", "page-admin-blank.php", "GERENCIAR PERMISSÃO", "fa-key"));
 if($_SESSION['perm'][0][1] == 1){
     $num = ceil(count($fun_buttons) / 6);
     $ca = 0;
@@ -88,7 +93,7 @@ if($_SESSION['perm'][0][1] == 1){
     $num = ceil(count($buttons_adm) / 6);
     $ca = 0;
     for ($i = 1; $i <= $num; $i++) {
-        echo "<script>alert('Teste! $i');</script>";
+        //echo "<script>alert('Teste! $i');</script>";
         echo '<div class="row text-center pad-top">';
         $ca6 = $ca + 6;        
         while ($ca != $ca6){

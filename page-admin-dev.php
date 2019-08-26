@@ -1,4 +1,15 @@
-﻿<!DOCTYPE html>
+﻿<?php
+session_start();
+include_once("config/verifica_logado.php");
+if($_SESSION['tpLogin'] != "adm"){
+    header("Location: index.php");  
+}
+if($_SESSION['perm'][0][1] != 1){
+    header("Location: index.php?sair=sim");  
+}
+?>
+
+<!DOCTYPE html>
 <html lang="PT-BR">
 <?php
 include_once("page-pattern/head-pattern.php");
