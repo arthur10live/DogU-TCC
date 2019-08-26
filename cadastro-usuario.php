@@ -67,7 +67,7 @@ session_start();
             <div class="form-row">
                 <div class="form-group col-md-12 text-center">
                     <h4 class="coral">Dados cadastrais</h4>
-                    <br>
+                    <h6>Preencha os dados abaixo e usufrua da plataforma de passeios DogU!</h6>
                 </div>
 
                 <div class="form-group col-md-6">

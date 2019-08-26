@@ -75,14 +75,15 @@ session_start();
         </button>
         <hr />
         <p class="coral" style="font-size: 14px;">
-          Quer ser um passeador?
+          Ama doguinhos e quer tornar-se passeador?
           <a href="cadastro-passeador.php" onMouseOver="this.style.color='#594946'" onMouseOut="this.style.color='#01A58D'"
             style="color: #01A58D;">Cadastre-se!</a>
         </p>
+        <br>
         <p class="coral" style="font-size: 14px;">
-          Não tem cadastro?
+          Quer solicitar passeios e não possui cadastro?
           <a href="cadastro-usuario.php" onMouseOver="this.style.color='#594946'" onMouseOut="this.style.color='#01A58D'"
-            style="color: #01A58D;">Cadastre-se!</a>
+            style="color: #01A58D;">Clique aqui!</a>
         </p>
       </form>
     </div>

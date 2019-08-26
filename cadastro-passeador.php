@@ -56,8 +56,8 @@
             <div class="form-row">
 
                 <div class="form-group col-md-12 text-center">
-                    <h4 class="coral">Dados cadastrais</h4>
-                    <br>
+                    <h4 class="coral">Torne-se passeador!</h4>
+                    <h6>Preencha os campos abaixo e retornaremos em breve.</h6>
                 </div>
 
                 <div class="form-group col-md-6">
