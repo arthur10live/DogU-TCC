@@ -10,7 +10,7 @@
  body {
      margin: 0;
      font-family: Helvetica, sans-serif !important;
-
+     scroll-behavior: smooth;
  }
  
  .coral {
@@ -166,6 +166,37 @@
      margin: 10px;
  }
  
+.div-parapets{
+    background-color: #F3F2F0;
+    padding: 30px;
+    width: 100%;
+}
+
+.div-conhecaDogu{
+    background-color: #F6705D;
+    padding: 70px;
+    width: 100%;
+}
+
+.div-porqueDogu{
+    background-color: #F3F2F0;
+    padding: 30px;
+    width: 100%;
+}
+
+.rodape-home{
+    background-color: #F6705D;
+    width: 100%;
+    padding: 30px;
+    bottom: 0 !important;
+}
+
+.rodape-mapa{
+    list-style: none;
+    text-decoration: none;
+    color: #594946;
+    font-size: 26;
+}
  
  #box-minhaconta {
      background-color: #F3F2F0;
