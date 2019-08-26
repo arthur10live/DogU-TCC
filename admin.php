@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="PT-BR">
 <?php
+session_start();
 include_once("page-pattern/head-pattern.php");
 include_once("config/conecta_banco.php");
 ?>
@@ -29,7 +30,8 @@ include_once("config/conecta_banco.php");
                 </div>
 <?php
 $_SESSION['perm'] = array();
-$sql = "SELECT pe.cd_permissao, ap.ic_permitir FROM administrador_permissao as ap, tb_permissao as pe WHERE ap.cd_permissao = pe.cd_permissao AND cd_administrador = 1;";
+$cdAdm = $_SESSION['cdAdm'];
+$sql = "SELECT pe.cd_permissao, ap.ic_permitir FROM administrador_permissao as ap, tb_permissao as pe WHERE ap.cd_permissao = pe.cd_permissao AND cd_administrador = '$cdAdm';";
 $busca_permissao = $conexao->query($sql);
 if ($busca_permissao->num_rows > 0) {
     $contador = 0;
@@ -49,11 +51,10 @@ array("7", "blank.php", "BUSCAR PASSEADOR", "fa-key"),
 array("8", "blank.php", "BUSCAR PASSEADOR", "fa-key"),
 array("9", "blank.php", "BUSCAR PASSEADOR", "fa-key"));
 if($_SESSION['perm'][0][1] == 1){
-    echo "<script>alert('A primeira foi!');</script>";
     $num = ceil(count($fun_buttons) / 6);
     $ca = 0;
     for ($i = 1; $i <= $num; $i++) {
-        echo "<script>alert('Teste! $i');</script>";
+        //echo "<script>alert('Teste! $i');</script>";
         echo '<div class="row text-center pad-top">';
         $ca6 = $ca + 6;        
         while ($ca != $ca6){

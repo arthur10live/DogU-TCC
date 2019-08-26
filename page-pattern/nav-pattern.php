@@ -11,7 +11,7 @@
         </a>
     </div>
     <span class="logout-spn" >
-      <a href="#" style="color:#fff;">LOGOUT</a>  
+      <a href="index.php?sair=sim" style="color:#fff;">LOGOUT</a>  
     </span>
 </div>
 </div>

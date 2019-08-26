@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -47,24 +50,38 @@
 
     <!-- BEGIN BOX -->
     <div id="box-minhaconta">
-      <form class="form-group">
+      <form class="form-group" action="index.php" method="POST">
+        <?php
+          if(isset($_SESSION['errocad'])){
+            echo '<div class="alert alert-danger" role="alert">';
+            echo $_SESSION['errocad'];
+            echo '</div>';
+            unset($_SESSION['errocad']);
+          }
+        ?>
         <h4 class="coral">Minha conta</h4>
         <br />
-        <input class="form-control" type="email" placeholder="E-mail" style="margin: 5px;" />
-        <input class="form-control" type="password" placeholder="Senha" style="margin: 5px;margin-bottom: 1px;" />
+        <input class="form-control" type="email" name="email" placeholder="E-mail" style="margin: 5px;" />
+        <input class="form-control" type="password" name="senha" placeholder="Senha" style="margin: 5px;margin-bottom: 1px;" />
         <small><a href="#" class="chocolate" style="margin-bottom: 5px;">Esqueceu a senha?</a></small><br />
-        <select>
-          <option>Passeador</option>
-          <option>Administrador</option>
+        <select name="tpLogin">
+          <option value="pas">Passeador</option>
+          <option value="adm">Administrador</option>
+          <option value="usu" selected>Usuário</option>
         </select>
-        <button type="submit" class="btn" style="margin-top:20px; margin-left: 120px;margin-bottom: 20px; padding-left: 40px; padding-right: 40px;background-color: #01A58D;color: #F3F2F0;"
+        <button type="submit" name="entrar" class="btn" style="margin-top:20px; margin-left: 120px;margin-bottom: 20px; padding-left: 40px; padding-right: 40px;background-color: #01A58D;color: #F3F2F0;"
           onMouseOver="this.style.color='#04e0c0'" onMouseOut="this.style.color='#F3F2F0'">
           Entrar
         </button>
         <hr />
         <p class="coral" style="font-size: 14px;">
-          Ainda não é passeador?
-          <a href="cadastro.php" onMouseOver="this.style.color='#594946'" onMouseOut="this.style.color='#01A58D'"
+          Quer ser um passeador?
+          <a href="cadastro-passeador.php" onMouseOver="this.style.color='#594946'" onMouseOut="this.style.color='#01A58D'"
+            style="color: #01A58D;">Cadastre-se!</a>
+        </p>
+        <p class="coral" style="font-size: 14px;">
+          Não tem cadastro?
+          <a href="cadastro-usuario.php" onMouseOver="this.style.color='#594946'" onMouseOut="this.style.color='#01A58D'"
             style="color: #01A58D;">Cadastre-se!</a>
         </p>
       </form>
