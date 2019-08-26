@@ -29,7 +29,7 @@
         }
         ?>
         <li id="page-blank">
-            <a href="page-admin-config.php"><i class="fa fa-edit "></i>Minhas Configurações</a>
+            <a href="page-admin-config.php"><i class="fa fa-cog "></i>Minhas Configurações</a>
         </li>                    
     </ul>
 </div>
