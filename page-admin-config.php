@@ -47,10 +47,10 @@ include_once("page-pattern/head-pattern.php");
                                 <p>
                                     <?php
                                         echo "Nome: ".$_SESSION['nmPes'].'<br>';
-                                        echo "CPF: ".$resultado_infos['cd_cpf'].'<br>';
-                                        echo "RG: ".$resultado_infos['cd_rg'].'<br>';
+                                        echo "CPF: ".substr($resultado_infos['cd_cpf'], 0, 3).".".substr($resultado_infos['cd_cpf'], 3, 3).".".substr($resultado_infos['cd_cpf'], 6, 3)."-".substr($resultado_infos['cd_cpf'], 9, 2).'<br>';
+                                        echo "RG: ".substr($resultado_infos['cd_rg'], 0, 2).".".substr($resultado_infos['cd_rg'], 2, 3).".".substr($resultado_infos['cd_rg'], 5, 3)."-".substr($resultado_infos['cd_rg'], 8, 1).'<br>';
                                         $dtNascimento = explode("-",$resultado_infos['dt_nascimento']);
-                                        echo "Data de Nascimento: ".$dtNascimento[2]."/".$dtNascimento[1]."/".$dtNascimento[0].'<br>';
+                                        echo "Data de Nascimento: ".$dtNascimento[2]."/".$dtNascimento[1]."/".$dtNascimento[0].'<br>E-mail: '.$_SESSION['email'].'<br>';
                                     ?>
                                 </p>
                             </div>
@@ -64,7 +64,7 @@ include_once("page-pattern/head-pattern.php");
                                     if ($querry_endereco->num_rows > 0) {
                                         while($row = $querry_endereco->fetch_assoc()) {
                                             echo "<h2>".utf8_encode($row['ds_tipo_endereco'])."</h2>";
-                                            echo "<p>CEP: ".$row['cd_cep']."<br>Rua: ".utf8_encode($row['ds_endereco'])."<br>Complemento: ".utf8_encode($row['ds_complemento']);
+                                            echo "<p>CEP: ".substr($row['cd_cep'], 0, 5)."-".substr($row['cd_cep'], 5, 3)."<br>Rua: ".utf8_encode($row['ds_endereco'])."<br>Complemento: ".utf8_encode($row['ds_complemento']);
                                             echo "<br>Bairro: ".utf8_encode($row['ds_bairro'])."<br>Cidade: ".utf8_encode($row['ds_cidade'])."<br>UF: (".$row['sg_uf'].") ".utf8_encode($row['ds_uf']);
                                         }
                                     }

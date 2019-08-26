@@ -19,7 +19,7 @@
 <div class="sidebar-collapse">
     <ul class="nav" id="main-menu">
         <li id="painel-funcoes">
-            <a href="index.php" ><i class="fa fa-desktop "></i>Painel de Funções <span class="badge">Included</span></a>
+            <a href="index.php" ><i class="fa fa-desktop "></i>Painel de Funções</a>
         </li>
         <?php
         if($_SESSION['perm'][0][1] == 1){
@@ -29,7 +29,7 @@
         }
         ?>
         <li id="page-blank">
-            <a href="page-admin-blank.php"><i class="fa fa-edit "></i>Blank Page  <span class="badge">Included</span></a>
+            <a href="page-admin-config.php"><i class="fa fa-edit "></i>Minhas Configurações</a>
         </li>                    
     </ul>
 </div>

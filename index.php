@@ -28,6 +28,7 @@ if(isset($_POST['email'])){
                 $_SESSION['cdPes'] = $resultado_final['cd_pessoa'];
                 $_SESSION['nmPes'] = $resultado_final['nm_pessoa'];
                 $_SESSION['tpLogin'] = $_POST['tpLogin'];
+                $_SESSION['email'] = $_POST['email'];
             }else if($_POST['tpLogin'] == "pas"){
                 $_SESSION['logado'] = 1;
                 setcookie('logado', "1", time()+600);
@@ -36,6 +37,7 @@ if(isset($_POST['email'])){
                 $_SESSION['cdPes'] = $resultado_final['cd_pessoa'];
                 $_SESSION['nmPes'] = $resultado_final['nm_pessoa'];
                 $_SESSION['tpLogin'] = $_POST['tpLogin'];
+                $_SESSION['email'] = $_POST['email'];
             }else{
                 $_SESSION['logado'] = 1;
                 setcookie('logado', "1", time()+600);
@@ -44,6 +46,7 @@ if(isset($_POST['email'])){
                 $_SESSION['cdPes'] = $resultado_final['cd_pessoa'];
                 $_SESSION['nmPes'] = $resultado_final['nm_pessoa'];
                 $_SESSION['tpLogin'] = $_POST['tpLogin'];
+                $_SESSION['email'] = $_POST['email'];
             }       
         }
         else{
@@ -58,7 +61,7 @@ if(isset($_GET['sair'])){
     session_destroy();
     header("Location: home.php");  
 }
-else if(isset($_SESSION['logado']) && isset($_COOKIE['logado']) && isset($_COOKIE['login'])){
+else if(isset($_SESSION['logado'])){
     if($_SESSION['tpLogin'] == "adm"){
         include_once("page-admin.php");
     }
