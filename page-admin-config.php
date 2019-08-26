@@ -79,7 +79,15 @@ include_once("page-pattern/head-pattern.php");
                                 <div class="div-square">
                                     <a href="#">
                                         <i class="fa fa-key fa-6x"></i>
-                                        <h4>teste</h4>
+                                        <h4>Solicitar Alterações</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <div class="div-square">
+                                    <a href="#">
+                                        <i class="fa fa-lock fa-6x"></i>
+                                        <h4>Alterar Senha</h4>
                                     </a>
                                 </div>
                             </div>
