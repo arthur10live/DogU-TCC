@@ -26,7 +26,7 @@ include_once("config/conecta_banco.php");
             <div id="page-inner">
                 <div class="row">
                     <div class="col-lg-12">
-                     <h2>ADMIN DASHBOARD</h2>   
+                     <h2>FUNÇÕES ADMINISTRADOR</h2>   
                     </div>
                 </div>              
                  <!-- /. ROW  -->
@@ -42,19 +42,19 @@ include_once("config/conecta_banco.php");
                 </div>
 <?php
 $fun_buttons = array(
-array("2", "page-admin-blank.php", "ADICIONAR CLIENTE", "fa-comments-o"),
-array("3", "page-admin-blank.php", "ALTERAR CLIENTE", "fa-lightbulb-o"),
-array("4", "page-admin-blank.php", "BUSCAR CLIENTE", "fa-users"),
-array("5", "page-admin-blank.php", "ADICIONAR PASSEADOR", "fa-envelope-o"),
-array("6", "page-admin-blank.php", "ALTERAR PASSEADOR", "fa-circle-o-notch"),
-array("7", "page-admin-blank.php", "BUSCAR PASSEADOR", "fa-key"),
-array("8", "page-admin-blank.php", "ADICIONAR PET", "fa-key"),
-array("9", "page-admin-blank.php", "ALTERAR PET", "fa-key"),
-array("10", "page-admin-blank.php", "BUSCAR PET", "fa-key"),
-array("11", "page-admin-blank.php", "ADICIONAR ADMINISTRADOR", "fa-key"),
-array("12", "page-admin-blank.php", "ADICIONAR PERMISSÃO", "fa-key"),
-array("13", "page-admin-blank.php", "ALTERAR PERMISSÃO", "fa-key"),
-array("14", "page-admin-blank.php", "GERENCIAR PERMISSÃO", "fa-key"));
+array("2", "page-admin-funcoes.php?funcao=", "Adicionar Cliente", "fa-user-plus"),
+array("3", "page-admin-funcoes.php?funcao=", "Alterar Cliente", "fa-address-card"),
+array("4", "page-admin-funcoes.php?funcao=", "Buscar Cliente", "fa-users"),
+array("5", "page-admin-funcoes.php?funcao=", "Adicionar Passeador", "fa-plus-square"),
+array("6", "page-admin-funcoes.php?funcao=", "Alterar Passeador", "fa-refresh"),
+array("7", "page-admin-funcoes.php?funcao=", "Buscar Passeador", "fa-search-plus"),
+array("8", "page-admin-funcoes.php?funcao=addpet", "Adicionar PET", "fa-paw"),
+array("9", "page-admin-funcoes.php?funcao=altpet", "Alterar PET", "fa-pencil-square-o"),
+array("10", "page-admin-funcoes.php?funcao=buscpet", "Buscar PET", "fa-search"),
+array("11", "page-admin-funcoes.php?funcao=addadm", "Adicionar Administrador", "fa-user-secret"),
+array("12", "page-admin-funcoes.php?funcao=addperm", "Adicionar Permisão", "fa-key"),
+array("13", "page-admin-funcoes.php?funcao=altperm", "Alterar Permisão", "fa-gavel"),
+array("14", "page-admin-funcoes.php?funcao=gerperm", "Gerenciar Permisões", "fa-lock"));
 if($_SESSION['perm'][0][1] == 1){
     $num = ceil(count($fun_buttons) / 6);
     $ca = 0;
@@ -130,6 +130,7 @@ if($_SESSION['perm'][0][1] == 1){
     <script>
         document.getElementById("painel-funcoes").classList.add("active-link");
     </script>
+    <script src="https://use.fontawesome.com/5cda576476.js"></script>
     <!-- JQUERY SCRIPTS -->
     <script src="assets/js/jquery-1.10.2.js"></script>
       <!-- BOOTSTRAP SCRIPTS -->
