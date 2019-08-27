@@ -21,7 +21,7 @@
     body {
         background-color: #F3F2F0;
     }
-    
+
     </style>
 </head>
 
@@ -129,7 +129,7 @@
                             Seu pet não precisa sentir por sua falta de tempo, conheça a DogU!</h3>
                     </section>
                     <section class="col-md-4 text-center">
-                        <img id="img-mobile" src="media/mobile1.png">
+                        <img id="img-mobile" src="media/mobile1.png" >
                     </section>
                 </section>
             </section>
