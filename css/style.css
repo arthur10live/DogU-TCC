@@ -43,7 +43,7 @@
 
  #img-mobile{
      padding: 40px;
-     width: 300px;
+     width: 290px;
  }
  
  
@@ -194,10 +194,19 @@
 .dog-circles{
     background-color: #F6705D;
     color: #594946;
-    width: 80px;
-    height: 80px;
-    border-radius: 50px;
+    border-radius: 10em;
+    width: 200px;
+    height: 200px;
+    margin-top:100px;
+    margin-bottom:100px;
+    padding-top: 35px;
+    padding-bottom: 20px;
+}
 
+.icons-circles{
+    font-size: 140px;
+    color: #594946;
+    text-align: center;
 }
 
 .div-conhecaDogu{
@@ -208,8 +217,15 @@
 
 .div-porqueDogu{
     background-color: #F3F2F0;
-    padding: 30px;
+    padding: 100px;
     width: 100%;
+}
+
+.img-porqueDogu-fundo{
+    background: url('https://content.thriveglobal.com/wp-content/uploads/2018/07/happy-dog.jpg?w=1550') no-repeat;
+    width: 100%;
+    opacity:0.2;
+    position: absolute;
 }
 
 .rodape-home{

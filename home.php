@@ -6,12 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>DogU ◦ App </title>
     <link rel="icon" type="image/png" href="media/paws-dogu.ico">
-    
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- BOOTSTRAP.CSS -->
     <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.css" />
     <!-- STYLE.CSS DOGU -->
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+     <!-- FONTAWESOME STYLES-->
+     <link href="assets/css/font-awesome.css" rel="stylesheet" />
     <style>
     body {
         background-color: #F3F2F0;
@@ -89,10 +91,18 @@
         <section class="div-parapets" id="paraPets">
             <section class="container">
                 <section class="row">
-                    <section class="col-md-3 text-center">2</section>
-                    <section class="col-md-3 text-center">2</section>
-                    <section class="col-md-3 text-center">2</section>
-                    <section class="col-md-3 text-center">2</section>
+                    <section class="col-md-3 text-center ">
+                        <div class="dog-circles"><i class="fa fa-paw icons-circles" aria-hidden="true"></i> </div>
+                    </section>
+                    <section class="col-md-3 text-center ">
+                        <div class="dog-circles"> <i class="fa fa-map-marker icons-circles" aria-hidden="true"></i></div>
+                    </section>
+                    <section class="col-md-3 text-center ">
+                        <div class="dog-circles"> <i class="fa fa-heart-o icons-circles" aria-hidden="true"></i></div>
+                    </section>
+                    <section class="col-md-3 text-center ">
+                        <div class="dog-circles"> <i class="fa fa-quote-left icons-circles" aria-hidden="true"></i></div>
+                    </section>
                 </section>
             </section>
         </section>
@@ -102,8 +112,16 @@
         <section class="div-conhecaDogu" id="conhecaDogu">
             <section class="container">
                 <section class="row">
-                    <section class="col-md-4" style="background-color:black;">2</section>
-                    <section class="col-md-4" style="background-color:black;">2</section>
+
+                    <section class="col-md-8 chocolate" style="margin-top: 70px;">
+                        <h3>Você sabia que os animais precisam passear e caminhar ao ar livre,
+                            mesmo com uma casa ou um grande quintal?
+                            Na rotina normal dos cães em seu habitat natural, eles mesmos procuram sua própria
+                            água e comida. Na natureza, os cães caminham em média 8h a 12h por dia, seguindo o
+                            seu líder.
+                            Todos sabem que ficamos bastante ocupados com as nossas atividades diárias.
+                            Seu pet não precisa sentir por sua falta de tempo, conheça a DogU!</h3>
+                    </section>
                     <section class="col-md-4 text-center">
                         <img id="img-mobile" src="media/mobile1.png">
                     </section>
@@ -115,9 +133,22 @@
         <section class="div-porqueDogu" id="porqueDogu">
             <section class="container">
                 <section class="row">
-                    <section class="col-md-4 text-center" style="background-color:yellow;">PITCH</section>
-                    <section class="col-md-4" style="background-color:black;">2</section>
-                    <section class="col-md-4" style="background-color:black;">2</section>
+
+                    <section class="col-md-7">
+                        <iframe width="490" height="345" src="https://www.youtube.com/embed/cekOZnD6Z4c?controls=0"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+
+                    </section>
+                    <section class="col-md-5 chocolate">
+                        <h3>
+                            Passear com seu cão além de gastar sua energia e acalmá-lo também pode trazer diversos
+                            outros benefícios como ensinar seu cão a ter paciência e não sair correndo e puxando a
+                            coleira, o ajuda também a socializar com outros cães e aprender a respeitar o espaço do
+                            outro.
+                        </h3>
+                    </section>
                 </section>
             </section>
         </section>
