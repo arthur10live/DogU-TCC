@@ -21,6 +21,7 @@
     body {
         background-color: #F3F2F0;
     }
+    
     </style>
 </head>
 
