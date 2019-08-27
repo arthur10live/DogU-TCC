@@ -12,8 +12,13 @@
     <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.css" />
     <!-- STYLE.CSS DOGU -->
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
-     <!-- FONTAWESOME STYLES-->
-     <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <!-- FONTAWESOME STYLES-->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+    <script src="js/javascript.js"></script>
+
     <style>
     body {
         background-color: #F3F2F0;
@@ -95,13 +100,15 @@
                         <div class="dog-circles"><i class="fa fa-paw icons-circles" aria-hidden="true"></i> </div>
                     </section>
                     <section class="col-md-3 text-center ">
-                        <div class="dog-circles"> <i class="fa fa-map-marker icons-circles" aria-hidden="true"></i></div>
+                        <div class="dog-circles"> <i class="fa fa-map-marker icons-circles" aria-hidden="true"></i>
+                        </div>
                     </section>
                     <section class="col-md-3 text-center ">
                         <div class="dog-circles"> <i class="fa fa-heart-o icons-circles" aria-hidden="true"></i></div>
                     </section>
                     <section class="col-md-3 text-center ">
-                        <div class="dog-circles"> <i class="fa fa-quote-left icons-circles" aria-hidden="true"></i></div>
+                        <div class="dog-circles"> <i class="fa fa-quote-left icons-circles" aria-hidden="true"></i>
+                        </div>
                     </section>
                 </section>
             </section>
@@ -192,6 +199,7 @@
                 </section>
             </section>
         </section>
+        <div id="toTop"><a href="#"><i class="fa fa-arrow-circle-up toTop" aria-hidden="true"></i></a></div>
     </footer>
 
 
