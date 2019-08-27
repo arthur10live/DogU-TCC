@@ -8,7 +8,6 @@ if($_SESSION['tpLogin'] != "adm"){
 <!DOCTYPE html>
 <html lang="PT-BR">
 <?php
-include_once("config/conecta_banco.php");
 include_once("page-pattern/head-pattern.php");
 ?>
 <body>
@@ -23,14 +22,13 @@ include_once("page-pattern/head-pattern.php");
          <!-- SAIDA DO NAV PADÃO  -->
         <div id="page-wrapper" >
             <div id="page-inner">
-               <?php           
-                    include_once("body-admin-config.php");
+                <?php
+                    include_once("body-admin-alterar_senha.php");        
                 ?>
             </div>
-             <!-- /. PAGE INNER  -->
         </div>
          <!-- /. PAGE WRAPPER  -->
-    </div>
+        </div>
         <?php
             include_once("page-pattern/footer-pattern.php");
         ?>
