@@ -245,10 +245,21 @@
 .toTop{
     color: #594946;
     font-size: 50px;
-    float: right;
+    float: left;
     position: fixed;
     bottom: 0;
     margin: 20px;
+    right: 20px;
+    text-decoration: none;
+    -webkit-border-radius: 35px;
+    -moz-border-radius: 35px;
+    border-radius: 35px;
+    display: none;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
 }
  
  #box-minhaconta {

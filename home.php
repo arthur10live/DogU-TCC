@@ -14,10 +14,8 @@
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
     <!-- FONTAWESOME STYLES-->
     <link href="assets/css/font-awesome.css" rel="stylesheet" />
-
+    <!--ANIMATE.CSS-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-
-    <script src="js/javascript.js"></script>
 
     <style>
     body {
