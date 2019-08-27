@@ -53,7 +53,7 @@
         <div class="row text-center pad-top">
             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
                 <div class="div-square">
-                    <a href="#">
+                    <a href="page-admin-config.php?page=alteracao">
                         <i class="fa fa-pencil-square-o fa-6x"></i>
                         <h4>Solicitar Alterações</h4>
                     </a>
@@ -63,7 +63,7 @@
         <div class="row text-center pad-top">
             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
                 <div class="div-square">
-                    <a href="#">
+                    <a href="page-admin-config.php?page=alterar-senha">
                         <i class="fa fa-lock fa-6x"></i>
                         <h4>Alterar Senha</h4>
                     </a>
