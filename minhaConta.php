@@ -8,6 +8,7 @@ session_start();
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Minha conta ◦ DogU</title>
+    <link rel="icon" type="image/png" href="media/paws-dogu.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- BOOTSTRAP.CSS -->
     <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.css">

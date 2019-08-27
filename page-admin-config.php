@@ -7,6 +7,7 @@ if($_SESSION['tpLogin'] != "adm"){
 ?>
 <!DOCTYPE html>
 <html lang="PT-BR">
+    
 <?php
 include_once("config/conecta_banco.php");
 include_once("page-pattern/head-pattern.php");
