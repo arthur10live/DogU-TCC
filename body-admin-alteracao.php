@@ -3,32 +3,35 @@
         <a href="page-admin-config.php?page=home" class="btn btn-primary btn-lg btn-block">Voltar</a>
     </div>
     <div class="col-md-8 text-center">
-        <h2>Alterar Senha </h2>   
+        <h2>Solicitar alterações</h2>   
     </div>
     <div class="col-md-2"></div>
 </div>
 <div class="row justify-content-center">
-    <div class="col-lg-4 col-md-4"></div>
-    <div class="col-lg-4 col-md-4">
+    <div class="col-lg-3 col-md-3"></div>
+    <div class="col-lg-6 col-md-6">
         <form class="form-group" action="page-admin-config.php" method="POST">
             <div class="form-group">
-                <label>Digite sua senha atual:</label>
-                <input name="senha" class="form-control" type="password" required/>
+                <label>Qual é o tipo da Alteração:</label>
+                <select name="opcao" class="form-control" required/>
+                    <option>Atualizar informações de Perfil</option>
+                    <option>Atualizar Endereço</option>
+                    <option>Adicionar Endereço</option>
+                    <option>Deletar Endereço</option>
+                    <option>Diversos</option>
+                    <option>Outra Opção</option>
+                <select>
             </div>
             <div class="form-group">
-                <label>Digite a senha desejada:</label>
-                <input name="novasenha1" class="form-control" type="password" autocomplete="off" required/>
+                <label>Digite a alteração desejada:</label>
+                <textarea class="form-control" name="alteracoes" rows="8" maxlength="1000" style="resize: vertical" required></textarea>
             </div>
             <div class="form-group">
-                <label>Repita a senha desejada:</label>
-                <input name="novasenha2" class="form-control" type="password" autocomplete="off" required/>
-            </div>
-            <div class="form-group">
-                <button type="submit" name="btnAlterar" class="btn btn-danger btn-lg btn-block" >ALTERAR SENHA</button>
+                <button type="submit" name="btnSolicitar" class="btn btn-danger btn-lg btn-block" >Enviar solicitação</button>
             </div>
         </form>
     </div>
-    <div class="col-lg-4 col-md-4"></div>
+    <div class="col-lg-3  col-md-3"></div>
 </div>
 <div class="row justify-content-center">
     <div class="col-lg-4 col-md-4"></div>

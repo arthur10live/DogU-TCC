@@ -24,7 +24,7 @@ body {
 
 #page-wrapper {
     padding: 15px 15px;
-    min-height: 600px;
+    min-height: 400px;
     background:#F3F3F3;
    
 }
@@ -33,7 +33,7 @@ body {
     margin:10px 20px 10px 0px;
     background-color:#fff!important;
     padding:10px;
-    min-height:1050px;
+    min-height:600px;
 }
 .pad-top {
     padding-top:15px;

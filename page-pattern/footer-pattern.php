@@ -1,7 +1,7 @@
 <div class="footer">
-    <div class="row">
+    <div class="row text-center">
         <div class="col-lg-12" >
-            &copy;  2014 yourdomain.com | Design by: <a href="http://binarytheme.com" style="color:#fff;" target="_blank">www.binarytheme.com</a>
+            &copy;  2019 DogU | Instagram: <a href="https://www.instagram.com/dogu.app/" style="color:#fff;" target="_blank">www.instagram.com/dogu.app/</a>
         </div>
     </div>
 </div> 

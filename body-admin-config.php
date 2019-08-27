@@ -51,6 +51,7 @@
     </div>
     <div class="col-lg-4 col-md-4">
         <div class="row text-center pad-top">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
                 <div class="div-square">
                     <a href="page-admin-config.php?page=alteracao">
@@ -59,8 +60,10 @@
                     </a>
                 </div>
             </div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
         </div>
         <div class="row text-center pad-top">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
                 <div class="div-square">
                     <a href="page-admin-config.php?page=alterar-senha">
@@ -69,6 +72,7 @@
                     </a>
                 </div>
             </div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
         </div>
     </div>
 </div>           
