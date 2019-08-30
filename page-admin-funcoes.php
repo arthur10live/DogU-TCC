@@ -35,19 +35,19 @@ include_once("page-pattern/head-pattern.php");
             <div id="page-inner">
                <?php    
                 if($_GET['funcao'] == "addadm"){
-                    include_once("body-admin-addadm.php");                   
+                    include_once("body-admin/home/body-admin-addadm.php");                   
                 }else if($_GET['funcao'] == "addperm"){
-                    include_once("body-admin-addperm.php");       
+                    include_once("body-admin/home/body-admin-addperm.php");       
                 }else if($_GET['funcao'] == "addpet"){
-                    include_once("body-admin-addpet.php");                   
+                    include_once("body-admin/home/body-admin-addpet.php");                   
                 }else if($_GET['funcao'] == "altperm"){
-                    include_once("body-admin-altperm.php");    
+                    include_once("body-admin/home/body-admin-altperm.php");    
                 }else if($_GET['funcao'] == "altpet"){
-                    include_once("body-admin-altpet.php");                   
+                    include_once("body-admin/home/body-admin-altpet.php");                   
                 }else if($_GET['funcao'] == "buscpet"){
-                    include_once("body-admin-buscpet.php");       
+                    include_once("body-admin/home/body-admin-buscpet.php");       
                 }else if($_GET['funcao'] == "gerperm"){
-                    include_once("body-admin-gerperm.php");                   
+                    include_once("body-admin/home/body-admin-gerperm.php");                   
                 }else{
                     header("Location: index.php");  
                 }
