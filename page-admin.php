@@ -42,12 +42,12 @@ include_once("config/conecta_banco.php");
                 </div>
 <?php
 $fun_buttons = array(
-array("2", "page-admin-funcoes.php?funcao=", "Adicionar Cliente", "fa-user-plus"),
-array("3", "page-admin-funcoes.php?funcao=", "Alterar Cliente", "fa-address-card"),
-array("4", "page-admin-funcoes.php?funcao=", "Buscar Cliente", "fa-users"),
-array("5", "page-admin-funcoes.php?funcao=", "Adicionar Passeador", "fa-plus-square"),
-array("6", "page-admin-funcoes.php?funcao=", "Alterar Passeador", "fa-refresh"),
-array("7", "page-admin-funcoes.php?funcao=", "Buscar Passeador", "fa-search-plus"),
+array("2", "page-admin-funcoes.php?funcao=addcli", "Adicionar Cliente", "fa-user-plus"),
+array("3", "page-admin-funcoes.php?funcao=altcli", "Alterar Cliente", "fa-address-card"),
+array("4", "page-admin-funcoes.php?funcao=busccli", "Buscar Cliente", "fa-users"),
+array("5", "page-admin-funcoes.php?funcao=addpas", "Adicionar Passeador", "fa-plus-square"),
+array("6", "page-admin-funcoes.php?funcao=altpas", "Alterar Passeador", "fa-refresh"),
+array("7", "page-admin-funcoes.php?funcao=buscpas", "Buscar Passeador", "fa-search-plus"),
 array("8", "page-admin-funcoes.php?funcao=addpet", "Adicionar PET", "fa-paw"),
 array("9", "page-admin-funcoes.php?funcao=altpet", "Alterar PET", "fa-pencil-square-o"),
 array("10", "page-admin-funcoes.php?funcao=buscpet", "Buscar PET", "fa-search"),
@@ -55,6 +55,14 @@ array("11", "page-admin-funcoes.php?funcao=addadm", "Adicionar Administrador", "
 array("12", "page-admin-funcoes.php?funcao=addperm", "Adicionar Permisão", "fa-key"),
 array("13", "page-admin-funcoes.php?funcao=altperm", "Alterar Permisão", "fa-gavel"),
 array("14", "page-admin-funcoes.php?funcao=gerperm", "Gerenciar Permisões", "fa-lock"));
+
+echo "<script>";
+$numteste = count($_SESSION['perm']);
+for ($contteste = 0; $contteste < $numteste; $contteste++){
+    echo "console.log(".$_SESSION['perm'][$contteste][1].");";
+}
+echo "</script>";
+
 if($_SESSION['perm'][0][1] == 1){
     $num = ceil(count($fun_buttons) / 6);
     $ca = 0;
@@ -93,7 +101,7 @@ if($_SESSION['perm'][0][1] == 1){
     $num = ceil(count($buttons_adm) / 6);
     $ca = 0;
     for ($i = 1; $i <= $num; $i++) {
-        //echo "<script>alert('Teste! $i');</script>";
+       // echo "<script>alert('Teste!');</script>";
         echo '<div class="row text-center pad-top">';
         $ca6 = $ca + 6;        
         while ($ca != $ca6){

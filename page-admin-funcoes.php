@@ -48,6 +48,18 @@ include_once("page-pattern/head-pattern.php");
                     include_once("body-admin/home/body-admin-buscpet.php");       
                 }else if($_GET['funcao'] == "gerperm"){
                     include_once("body-admin/home/body-admin-gerperm.php");                   
+                }else if($_GET['funcao'] == "addcli"){
+                    include_once("body-admin/home/body-admin-addcli.php");                   
+                }else if($_GET['funcao'] == "altcli"){
+                    include_once("body-admin/home/body-admin-altcli.php");                   
+                }else if($_GET['funcao'] == "busccli"){
+                    include_once("body-admin/home/body-admin-busccli.php");                   
+                }else if($_GET['funcao'] == "addpas"){
+                    include_once("body-admin/home/body-admin-addpas.php");                   
+                }else if($_GET['funcao'] == "altpas"){
+                    include_once("body-admin/home/body-admin-altpas.php");                   
+                }else if($_GET['funcao'] == "buscpas"){
+                    include_once("body-admin/home/body-admin-buscpas.php");                   
                 }else{
                     header("Location: index.php");  
                 }

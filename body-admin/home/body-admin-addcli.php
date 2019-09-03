@@ -1,5 +1,5 @@
 <?php
-if($_SESSION['perm'][7][1] != 1 && $_SESSION['perm'][0][1] != 1){
+if($_SESSION['perm'][1][1] != 1 && $_SESSION['perm'][0][1] != 1){
     header("Location: index.php?sair=sim");  
 }
 ?>
@@ -8,7 +8,7 @@ if($_SESSION['perm'][7][1] != 1 && $_SESSION['perm'][0][1] != 1){
         <a href="index.php" class="btn btn-primary btn-lg btn-block">Voltar</a>
     </div>
     <div class="col-md-8 text-center">
-        <h2>Adicionar PET</h2>   
+        <h2>Adicionar Cliente </h2>   
     </div>
     <div class="col-md-2"></div>
 </div>

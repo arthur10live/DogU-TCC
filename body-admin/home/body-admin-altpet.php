@@ -1,5 +1,5 @@
 <?php
-if($_SESSION['perm'][7][1] != 1){
+if($_SESSION['perm'][8][1] != 1 && $_SESSION['perm'][0][1] != 1){
     header("Location: index.php?sair=sim");  
 }
 ?>
