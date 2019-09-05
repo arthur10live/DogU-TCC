@@ -2,15 +2,15 @@
 session_start();
 include_once("config/conecta_banco.php");    
 if(isset($_POST['email'])){
-    echo "<string>alert(teste!);</string>";
-    $email = mysqli_real_escape_string($conexao, $_POST['email']);
-    $senha = mysqli_real_escape_string($conexao, $_POST['senha']);
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
     $sql = "SELECT cd_login FROM tb_login WHERE cd_email = '$email' AND cd_senha = MD5('$senha') LIMIT 1;";
-    $resultado_usuario = mysqli_query($conexao, $sql);
-    $resultado = mysqli_fetch_assoc($resultado_usuario);
-    if(isset($resultado)){
-        $_SESSION['cdLogin'] = $resultado['cd_login'];
-        $login = $resultado['cd_login'];
+    $resultado = $conexao->query($sql);
+    while ($idLogin = $resultado->fetch(PDO::FETCH_ASSOC)) {
+    $login = $idLogin['cd_login'];
+    }
+    if(isset($login)){
+        $_SESSION['cdLogin'] = $login;
         if($_POST['tpLogin'] == "adm"){
             $sql = "SELECT a.cd_administrador, p.cd_pessoa, p.nm_pessoa FROM tb_administrador AS a, tb_pessoa AS p WHERE a.cd_pessoa = p.cd_pessoa AND cd_login = '$login';";
         }else if($_POST['tpLogin'] == "pas"){
@@ -18,9 +18,8 @@ if(isset($_POST['email'])){
         }else{
             $sql = "SELECT c.cd_cliente, p.cd_pessoa, p.nm_pessoa FROM tb_cliente AS c, tb_pessoa AS p WHERE c.cd_pessoa = p.cd_pessoa AND cd_login = '$login';";
         }
-        $resultado_login = mysqli_query($conexao, $sql);
-        $resultado_final = mysqli_fetch_assoc($resultado_login);
-        if(isset($resultado_final)){
+        $resultado_login = $conexao->query($sql);
+        while ($resultado_final = $resultado_login->fetch(PDO::FETCH_ASSOC)) {
             if($_POST['tpLogin'] == "adm"){
                 $_SESSION['logado'] = 1;
                 setcookie('logado', "1", time()+600);
@@ -50,6 +49,7 @@ if(isset($_POST['email'])){
                 $_SESSION['email'] = $_POST['email'];
             }       
         }
+        if($_SESSION['logado'] == 1){}
         else{
             erroLogin("Erro ao realizar o Login! Combinação de Login e Senha inválida! ");
         }
