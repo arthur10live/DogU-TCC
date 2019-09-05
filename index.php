@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once("config/conecta_banco.php");    
+//include_once("config/conecta_banco.php");    
 if(isset($_POST['email'])){
     $email = mysqli_real_escape_string($conexao, $_POST['email']);
     $senha = mysqli_real_escape_string($conexao, $_POST['senha']);
