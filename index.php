@@ -2,6 +2,7 @@
 session_start();
 include_once("config/conecta_banco.php");    
 if(isset($_POST['email'])){
+    echo "<string>alert(teste!);</string>";
     $email = mysqli_real_escape_string($conexao, $_POST['email']);
     $senha = mysqli_real_escape_string($conexao, $_POST['senha']);
     $sql = "SELECT cd_login FROM tb_login WHERE cd_email = '$email' AND cd_senha = MD5('$senha') LIMIT 1;";
