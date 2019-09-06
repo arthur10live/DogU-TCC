@@ -54,7 +54,8 @@ array("10", "page-admin-funcoes.php?funcao=buscpet", "Buscar PET", "fa-search"),
 array("11", "page-admin-funcoes.php?funcao=addadm", "Adicionar Administrador", "fa-user-secret"),
 array("12", "page-admin-funcoes.php?funcao=addperm", "Adicionar Permisão", "fa-key"),
 array("13", "page-admin-funcoes.php?funcao=altperm", "Alterar Permisão", "fa-gavel"),
-array("14", "page-admin-funcoes.php?funcao=gerperm", "Gerenciar Permisões", "fa-lock"));
+array("14", "page-admin-funcoes.php?funcao=gerperm", "Gerenciar Permisões", "fa-lock"),
+array("15", "page-admin-funcoes.php?funcao=addtel", "Adicionar Telefone", "fa-phone"));
 
 echo "<script>";
 $numteste = count($_SESSION['perm']);

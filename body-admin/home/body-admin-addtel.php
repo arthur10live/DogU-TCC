@@ -1,63 +1,7 @@
 <?php
-if($_SESSION['perm'][10][1] != 1 && $_SESSION['perm'][0][1] != 1){
+if($_SESSION['perm'][14][1] != 1 && $_SESSION['perm'][0][1] != 1){
     header("Location: index.php?sair=sim");  
 }
-
-function validaCPF($cpf = null) {
-
-	// Verifica se um número foi informado
-	if(empty($cpf)) {
-		return false;
-	}
-
-	// Elimina possivel mascara
-	$cpf = preg_replace("/[^0-9]/", "", $cpf);
-	$cpf = str_pad($cpf, 11, '0', STR_PAD_LEFT);
-	
-	// Verifica se o numero de digitos informados é igual a 11 
-	if (strlen($cpf) != 11) {
-		return false;
-	}
-	// Verifica se nenhuma das sequências invalidas abaixo 
-	// foi digitada. Caso afirmativo, retorna falso
-	else if ($cpf == '00000000000' || 
-		$cpf == '11111111111' || 
-		$cpf == '22222222222' || 
-		$cpf == '33333333333' || 
-		$cpf == '44444444444' || 
-		$cpf == '55555555555' || 
-		$cpf == '66666666666' || 
-		$cpf == '77777777777' || 
-		$cpf == '88888888888' || 
-		$cpf == '99999999999') {
-		return false;
-	 // Calcula os digitos verificadores para verificar se o
-	 // CPF é válido
-	 } else {   
-		
-		for ($t = 9; $t < 11; $t++) {
-			
-			for ($d = 0, $c = 0; $c < $t; $c++) {
-				$d += $cpf{$c} * (($t + 1) - $c);
-			}
-			$d = ((10 * $d) % 11) % 10;
-			if ($cpf{$c} != $d) {
-				return false;
-			}
-		}
-
-		return true;
-	}
-}
-
-function verificaIdade($data){
-     list($ano, $mes, $dia) = explode('-', $data);
-     $hoje = mktime(0, 0, 0, date('m'), date('d'), date('Y'));
-     $nascimento = mktime( 0, 0, 0, $mes, $dia, $ano);
-     $idade = floor((((($hoje - $nascimento) / 60) / 60) / 24) / 365.25);
-     return $idade;
-}
-
 function validaDados() {
     if(
         !isset($_POST['nmPessoa']) ||
@@ -98,14 +42,6 @@ function apagarDados() {
     unset($_POST['novasenha2']);
     return;
 }
-function limpaCPF_RG($valor){
-    $valor = trim($valor);
-    $valor = str_replace(".", "", $valor);
-    $valor = str_replace(",", "", $valor);
-    $valor = str_replace("-", "", $valor);
-    $valor = str_replace("/", "", $valor);
-    return $valor;
-}
 
 if(isset($_POST['btnAdicionar'])){
     if(validaDados()){
@@ -141,40 +77,22 @@ if(isset($_POST['btnAdicionar'])){
                 <input name="nmPessoa" class="form-control" type="text" autocomplete="off" required/>
             </div>
             <div class="form-group">
-                <label>E-mail:</label>
-                <input name="cdEmail" class="form-control" type="email" autocomplete="off" required/>
+                <label>Nome da Pessoa:</label>
+                <input type="text" class="form-control" list="PessoasAtivas" autocomplete="off" required>
             </div>
             <div class="form-group">
                 <label>CPF:</label>
                 <input name="cdCpf" class="form-control" type="text" onKeyPress="MascaraCPF(addusuario.cdCpf);" maxlength="14" autocomplete="off" required/>
             </div>
             <div class="form-group">
-                <label>RG:</label>
-                <input name="cdRg" class="form-control" type="text" autocomplete="off" onkeyup="this.value = this.value.toUpperCase();" onKeyPress="MascaraRG(addusuario.cdRg);" maxlength="12" required/>
-            </div>
-            <div class="form-group">
-                <label>Data de Nascimento:</label>
-                <input name="dtNascimento" class="form-control" type="date" autocomplete="off" onblur='return validadata(addusuario.dtNascimento);' required/>
-            </div>
-            <div class="form-group">
-                <label>Digite uma senha:</label>
-                <input name="novasenha1" class="form-control" type="password" autocomplete="off" required/>
-            </div>
-            <div class="form-group">
-                <label>Confirme a senha:</label>
-                <input name="novasenha2" class="form-control" type="password" autocomplete="off" required/>
-            </div>
-            <div class="form-group">
                 <button type="submit" name="btnAdicionar" class="btn btn-danger btn-lg btn-block" >Adicionar Administrador</button>
             </div>
+
+            <datalist id="PessoasAtivas">
+                <option value="ARTHUR HENRIQUE CORREA COSTA - CPF: 501.993.658-81" ></option>
+            </datalist>
+
             <script>  
-                //adiciona mascara ao RG
-                function MascaraRG(rg){
-                        if(mascaraInteiroX(rg)==false){
-                                event.returnValue = false;
-                        }       
-                        return formataCampo(rg, '00.000.000-0', event);
-                }
                 //adiciona mascara ao CPF
                 function MascaraCPF(cpf){
                         if(mascaraInteiro(cpf)==false){
@@ -185,17 +103,6 @@ if(isset($_POST['btnAdicionar'])){
                 //valida numero inteiro com mascara
                 function mascaraInteiro(){
                         if (event.keyCode < 48 || event.keyCode > 57){
-                                event.returnValue = false;
-                                return false;
-                        }
-                        return true;
-                }
-                //valida numero inteiro com mascara com o X
-                function mascaraInteiroX(){
-                        if (event.keyCode == 88 || event.keyCode == 120){
-                            return true;
-                        }
-                        else if (event.keyCode < 48 || event.keyCode > 57){
                                 event.returnValue = false;
                                 return false;
                         }
@@ -232,27 +139,6 @@ if(isset($_POST['btnAdicionar'])){
                         }else { 
                                 return true; 
                         }
-                }
-                function validadata(datapega){
-                    var data = datapega.value; // pega o valor do input
-                    data = data.replace(/\//g, "-"); // substitui eventuais barras (ex. IE) "/" por hífen "-"
-                    var data_array = data.split("-"); // quebra a data em array
-                    
-                    if(data_array[0].length != 4){
-                        data = data_array[2]+"-"+data_array[1]+"-"+data_array[0]; // remonto a data no formato yyyy/MM/dd
-                    }
-                    
-                    var hoje = new Date();
-                    var nasc  = new Date(data);
-                    var idade = hoje.getFullYear() - nasc.getFullYear();
-                    var m = hoje.getMonth() - nasc.getMonth();
-                    if (m < 0 || (m === 0 && hoje.getDate() < nasc.getDate())) idade--;
-                    
-                    if(idade < 18){
-                        alert("Pessoas menores de 18 não podem se cadastrar.");
-                        return false;
-                    }                    
-                    return false;
                 }
             </script>
         </form>

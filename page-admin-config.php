@@ -60,11 +60,11 @@ include_once("page-pattern/head-pattern.php");
             <div id="page-inner">
                <?php           
                 if($_GET['page'] == "alterar-senha"){
-                    include_once("body-admin-alterar_senha.php");                   
+                    include_once("body-admin/config/body-admin-alterar_senha.php");                   
                 }else if($_GET['page'] == "alteracao"){
-                    include_once("body-admin-alteracao.php");                   
+                    include_once("body-admin/config/body-admin-alteracao.php");                   
                 }else{
-                    include_once("body-admin-config.php");
+                    include_once("body-admin/config/body-admin-config.php");
                 }
                 ?>
             </div>

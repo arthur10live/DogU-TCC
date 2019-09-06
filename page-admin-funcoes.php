@@ -60,6 +60,8 @@ include_once("page-pattern/head-pattern.php");
                     include_once("body-admin/home/body-admin-altpas.php");                   
                 }else if($_GET['funcao'] == "buscpas"){
                     include_once("body-admin/home/body-admin-buscpas.php");                   
+                }else if($_GET['funcao'] == "addtel"){
+                    include_once("body-admin/home/body-admin-addtel.php");                   
                 }else{
                     header("Location: index.php");  
                 }
