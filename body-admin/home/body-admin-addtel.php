@@ -64,7 +64,7 @@ if(isset($_POST['btnAdicionar'])){
         <a href="index.php" class="btn btn-primary btn-lg btn-block">Voltar</a>
     </div>
     <div class="col-md-8 text-center">
-        <h2>Adicionar Administrador </h2>   
+        <h2>Adicionar Telefone </h2>   
     </div>
     <div class="col-md-2"></div>
 </div>
@@ -72,12 +72,19 @@ if(isset($_POST['btnAdicionar'])){
     <div class="col-lg-4 col-md-4"></div>
     <div class="col-lg-4 col-md-4">
         <form class="form-group" name="addusuario" action="page-admin-funcoes.php?funcao=addadm" method="POST">
+                    <div class="form-group">
+                        <label>CPF:</label>
+                        <div class="row align-items-center">
+                            <div class="col-lg-8 col-md-8">
+                                <input name="nmPessoa" class="form-control" type="text" autocomplete="off" required/>
+                            </div>
+                            <div class="col-lg-3 col-md-3">
+                                <button type="submit" name="btnAdicionar" class="btn btn-danger" >BUSCAR</button>            
+                            </div>
+                        </div>
+                    </div>
             <div class="form-group">
-                <label>Nome do administrador:</label>
-                <input name="nmPessoa" class="form-control" type="text" autocomplete="off" required/>
-            </div>
-            <div class="form-group">
-                <label>Nome da Pessoa:</label>
+                <label  >Nome da Pessoa:</label>
                 <input type="text" class="form-control" list="PessoasAtivas" autocomplete="off" required>
             </div>
             <div class="form-group">
