@@ -16,7 +16,7 @@
     <link href="assets/css/font-awesome.css" rel="stylesheet" />
     <!--ANIMATE.CSS-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-
+    <script src="js/myscripts.js"></script>
     <style>
     body {
         background-color: #F3F2F0;
@@ -141,11 +141,7 @@
                 <section class="row">
 
                     <section class="col-md-7">
-                        <iframe width="490" height="345" src="https://www.youtube.com/embed/cekOZnD6Z4c?controls=0"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-
+                    <video id="videoPitch" scr="media/pitch.mp4"></video>
                     </section>
                     <section class="col-md-5 chocolate">
                         <h3>
@@ -198,7 +194,7 @@
                 </section>
             </section>
         </section>
-        <div id="toTop"><a href="#"><i class="fa fa-arrow-circle-up toTop" aria-hidden="true"></i></a></div>
+        <div><a href="#"><i class="fa fa-arrow-circle-up toTop" aria-hidden="true"></i></a></div>
     </footer>
 
 
@@ -216,6 +212,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
+ 
 </body>
 
 </html>

@@ -221,11 +221,8 @@
     width: 100%;
 }
 
-.img-porqueDogu-fundo{
-    background: url('https://content.thriveglobal.com/wp-content/uploads/2018/07/happy-dog.jpg?w=1550') no-repeat;
-    width: 100%;
-    opacity:0.2;
-    position: absolute;
+#pitch{
+ width:250px;
 }
 
 .rodape-home{
@@ -243,6 +240,7 @@
 }
 
 .toTop{
+    visibility: hidden;
     color: #594946;
     font-size: 50px;
     float: left;
@@ -251,16 +249,16 @@
     margin: 20px;
     right: 20px;
     text-decoration: none;
-    -webkit-border-radius: 35px;
-    -moz-border-radius: 35px;
     border-radius: 35px;
     display: none;
-    -webkit-transition: all 0.3s linear;
-    -moz-transition: all 0.3s ease;
-    -ms-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    transition: all 0.3s ease;
+    opacity: 0.3;
 }
+.toTop:hover{
+    opacity: 0.9;
+    transition: opacity 0.6s linear;
+}
+
+
  
  #box-minhaconta {
      background-color: #F3F2F0;
