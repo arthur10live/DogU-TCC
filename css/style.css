@@ -339,3 +339,10 @@
     margin: 3px !important;
     margin-bottom: 4px !important; 
 }
+
+/*PAGE ADMIN*/
+#page-inner{
+    border-radius: 15px;
+    background-color: #F3F2F0;
+}
+

@@ -31,7 +31,7 @@ include_once("page-pattern/head-pattern.php");
          include_once("page-pattern/nav-pattern.php");
         ?>
          <!-- SAIDA DO NAV PADÃO  -->
-        <div id="page-wrapper" >
+        <div id="page-wrapper" style="background-color: #F6705D;" >
             <div id="page-inner">
                <?php    
                 if($_GET['funcao'] == "addadm"){

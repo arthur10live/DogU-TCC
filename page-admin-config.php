@@ -56,8 +56,8 @@ include_once("page-pattern/head-pattern.php");
          include_once("page-pattern/nav-pattern.php");
         ?>
          <!-- SAIDA DO NAV PADÃO  -->
-        <div id="page-wrapper" >
-            <div id="page-inner">
+        <div id="page-wrapper" style="background-color: #F6705D;" >
+            <div id="page-inner" style="background-color: #F3F2F0; border-radius: 15px;">
                <?php           
                 if($_GET['page'] == "alterar-senha"){
                     include_once("body-admin/config/body-admin-alterar_senha.php");                   

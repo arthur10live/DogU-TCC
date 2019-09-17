@@ -1,5 +1,14 @@
 ﻿<!DOCTYPE html>
 <html lang="PT-BR">
+<head>
+<!-- STYLE.CSS DOGU -->
+<link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+<style>
+body {
+        background-color: #F6705D;
+    }
+ </style>
+</head>
 <?php
 $_SESSION['perm'] = array();
 $cdAdm = $_SESSION['cdAdm'];
@@ -22,10 +31,10 @@ include_once("config/conecta_banco.php");
          include_once("page-pattern/nav-pattern.php");
         ?>
          <!-- SAIDA DO NAV PADÃO  -->
-        <div id="page-wrapper" >
+        <div id="page-wrapper" style="background-color: #F6705D;">
             <div id="page-inner">
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-12" style="border-radius: 2em;">
                      <h2>FUNÇÕES ADMINISTRADOR</h2>   
                     </div>
                 </div>              

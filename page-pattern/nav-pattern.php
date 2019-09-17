@@ -1,4 +1,9 @@
-<div class="navbar navbar-inverse navbar-fixed-top">
+<style>
+body {
+        background-color: #F6705D;
+    }
+ </style>
+<div class="navbar navbar-inverse navbar-fixed-top" style="background-color:#F3F2F0;>
 <div class="adjust-nav">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
@@ -6,8 +11,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">
-            <img src="assets/img/logo.png" />
+        <a class="navbar-brand" >
+            <img src="assets/img/logo.png" style="margin-top:-15px; "/>
         </a>
     </div>
     <span class="logout-spn" >
@@ -15,7 +20,8 @@
     </span>
 </div>
 </div>
-<nav class="navbar-default navbar-side" role="navigation">
+
+<nav class="navbar-default navbar-side" role="navigation" style="border-radius: 15px; background-color: #F3F2F0;">
 <div class="sidebar-collapse">
     <ul class="nav" id="main-menu">
         <li id="painel-funcoes">
