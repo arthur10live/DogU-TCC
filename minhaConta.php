@@ -17,7 +17,23 @@ session_start();
 
     <style>
     body {
-        background-color: #fddaae;
+        
+margin: 0; padding: 0; width: 100%; height: 100vh ;background-image: linear-gradient(125deg,#F6705D,#FDDAAE);
+background-size: 400%; animation: bganimation 15s infinite;
+
+    }
+@keyframes bganimation{
+  0%{
+    background-position: 0% 50%;
+  }
+  50%{
+    background-position: 100% 50%;
+  }
+  100%{background-position: 0% 50%;
+
+  }
+
+
     }
     </style>
 </head>
