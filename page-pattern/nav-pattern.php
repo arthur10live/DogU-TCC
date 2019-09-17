@@ -14,6 +14,7 @@ body {
         <a class="navbar-brand" >
             <img src="assets/img/logo.png" style="margin-top:-15px; "/>
         </a>
+        
     </div>
     <span class="logout-spn" >
       <a href="index.php?sair=sim" style="color:#fff;">LOGOUT</a>  
