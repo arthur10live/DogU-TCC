@@ -1,26 +1,26 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
--- https://www.phpmyadmin.net/
+-- version 4.0.4.2
+-- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1:3306
--- Generation Time: 10-Set-2019 às 22:18
--- Versão do servidor: 10.2.25-MariaDB
--- versão do PHP: 7.2.20
+-- Máquina: localhost
+-- Data de Criação: 20-Set-2019 às 20:32
+-- Versão do servidor: 5.6.13
+-- versão do PHP: 5.4.17
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
--- Database: `u765863036_dogu`
+-- Base de Dados: `u765863036_dogu`
 --
+CREATE DATABASE IF NOT EXISTS `u765863036_dogu` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE `u765863036_dogu`;
 
 -- --------------------------------------------------------
 
@@ -28,10 +28,12 @@ SET time_zone = "+00:00";
 -- Estrutura da tabela `administrador_permissao`
 --
 
-CREATE TABLE `administrador_permissao` (
+CREATE TABLE IF NOT EXISTS `administrador_permissao` (
   `cd_permissao` int(11) NOT NULL,
   `cd_administrador` int(11) NOT NULL,
-  `ic_permitir` tinyint(1) DEFAULT NULL
+  `ic_permitir` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`cd_permissao`,`cd_administrador`),
+  KEY `pk_permissao_administrador` (`cd_administrador`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -39,20 +41,96 @@ CREATE TABLE `administrador_permissao` (
 --
 
 INSERT INTO `administrador_permissao` (`cd_permissao`, `cd_administrador`, `ic_permitir`) VALUES
-(1, 1, 1),
-(2, 1, 1),
-(3, 1, 1),
-(4, 1, 1),
-(5, 1, 1),
-(6, 1, 1),
-(7, 1, 1),
-(8, 1, 1),
-(9, 1, 1),
-(10, 1, 1),
-(11, 1, 1),
-(12, 1, 1),
-(13, 1, 1),
-(14, 1, 1);
+(1, 1, 0),
+(1, 2, 0),
+(1, 3, 0),
+(1, 4, 0),
+(1, 5, 0),
+(1, 6, 0),
+(2, 1, 0),
+(2, 2, 1),
+(2, 3, 0),
+(2, 4, 0),
+(2, 5, 0),
+(2, 6, 1),
+(3, 1, 0),
+(3, 2, 1),
+(3, 3, 0),
+(3, 4, 0),
+(3, 5, 0),
+(3, 6, 0),
+(4, 1, 0),
+(4, 2, 1),
+(4, 3, 0),
+(4, 4, 0),
+(4, 5, 0),
+(4, 6, 0),
+(5, 1, 0),
+(5, 2, 1),
+(5, 3, 0),
+(5, 4, 0),
+(5, 5, 0),
+(5, 6, 0),
+(6, 1, 0),
+(6, 2, 1),
+(6, 3, 0),
+(6, 4, 0),
+(6, 5, 0),
+(6, 6, 0),
+(7, 1, 0),
+(7, 2, 1),
+(7, 3, 0),
+(7, 4, 0),
+(7, 5, 0),
+(7, 6, 0),
+(8, 1, 0),
+(8, 2, 1),
+(8, 3, 0),
+(8, 4, 0),
+(8, 5, 0),
+(8, 6, 0),
+(9, 1, 0),
+(9, 2, 1),
+(9, 3, 0),
+(9, 4, 0),
+(9, 5, 0),
+(9, 6, 0),
+(10, 1, 0),
+(10, 2, 1),
+(10, 3, 0),
+(10, 4, 0),
+(10, 5, 0),
+(10, 6, 0),
+(11, 1, 0),
+(11, 2, 1),
+(11, 3, 0),
+(11, 4, 0),
+(11, 5, 0),
+(11, 6, 0),
+(12, 1, 0),
+(12, 2, 1),
+(12, 3, 0),
+(12, 4, 0),
+(12, 5, 0),
+(12, 6, 0),
+(13, 1, 0),
+(13, 2, 1),
+(13, 3, 0),
+(13, 4, 0),
+(13, 5, 0),
+(13, 6, 0),
+(14, 1, 0),
+(14, 2, 1),
+(14, 3, 0),
+(14, 4, 0),
+(14, 5, 0),
+(14, 6, 0),
+(16, 1, 0),
+(16, 2, 1),
+(16, 3, 0),
+(16, 4, 0),
+(16, 5, 0),
+(16, 6, 0);
 
 -- --------------------------------------------------------
 
@@ -60,9 +138,11 @@ INSERT INTO `administrador_permissao` (`cd_permissao`, `cd_administrador`, `ic_p
 -- Estrutura da tabela `cliente_pet`
 --
 
-CREATE TABLE `cliente_pet` (
+CREATE TABLE IF NOT EXISTS `cliente_pet` (
   `cd_cliente` int(11) NOT NULL,
-  `cd_pet` int(11) NOT NULL
+  `cd_pet` int(11) NOT NULL,
+  PRIMARY KEY (`cd_cliente`,`cd_pet`),
+  KEY `fk_cliente_pet` (`cd_pet`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -70,22 +150,52 @@ CREATE TABLE `cliente_pet` (
 --
 
 INSERT INTO `cliente_pet` (`cd_cliente`, `cd_pet`) VALUES
-(16, 31),
-(17, 30),
-(18, 29),
-(19, 28),
-(20, 27),
-(21, 26),
-(22, 25),
-(23, 24),
-(24, 23),
-(25, 22),
-(26, 21),
-(27, 20),
-(28, 19),
-(29, 18),
+(6, 1),
+(5, 2),
+(4, 3),
+(3, 4),
+(2, 5),
+(1, 6),
+(40, 7),
+(39, 8),
+(38, 9),
+(37, 10),
+(36, 11),
+(35, 12),
+(34, 13),
+(33, 14),
+(32, 15),
+(31, 16),
 (30, 17),
-(31, 16);
+(29, 18),
+(28, 19),
+(27, 20),
+(26, 21),
+(25, 22),
+(24, 23),
+(23, 24),
+(22, 25),
+(21, 26),
+(20, 27),
+(19, 28),
+(18, 29),
+(17, 30),
+(16, 31),
+(15, 32),
+(14, 33),
+(13, 34),
+(12, 35),
+(11, 36),
+(10, 37),
+(9, 38),
+(8, 39),
+(7, 40),
+(6, 41),
+(5, 42),
+(4, 43),
+(3, 44),
+(2, 45),
+(1, 46);
 
 -- --------------------------------------------------------
 
@@ -93,10 +203,13 @@ INSERT INTO `cliente_pet` (`cd_cliente`, `cd_pet`) VALUES
 -- Estrutura da tabela `pessoa_endereco`
 --
 
-CREATE TABLE `pessoa_endereco` (
+CREATE TABLE IF NOT EXISTS `pessoa_endereco` (
   `cd_pessoa` int(11) NOT NULL,
   `cd_endereco` int(11) NOT NULL,
-  `cd_tipo_endereco` int(11) DEFAULT NULL
+  `cd_tipo_endereco` int(11) DEFAULT NULL,
+  PRIMARY KEY (`cd_pessoa`,`cd_endereco`),
+  KEY `pk_pessoa_endereco` (`cd_endereco`),
+  KEY `pk_pessoa_tipo_endereco` (`cd_tipo_endereco`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -104,8 +217,15 @@ CREATE TABLE `pessoa_endereco` (
 --
 
 INSERT INTO `pessoa_endereco` (`cd_pessoa`, `cd_endereco`, `cd_tipo_endereco`) VALUES
+(5, 96, 1),
+(7, 94, 1),
+(8, 93, 1),
+(10, 91, 1),
+(12, 89, 1),
+(13, 88, 1),
 (16, 85, 1),
 (17, 84, 1),
+(20, 81, 1),
 (22, 79, 1),
 (25, 76, 1),
 (28, 73, 1),
@@ -133,6 +253,8 @@ INSERT INTO `pessoa_endereco` (`cd_pessoa`, `cd_endereco`, `cd_tipo_endereco`) V
 (94, 7, 1),
 (95, 6, 1),
 (98, 3, 1),
+(1, 100, 2),
+(3, 98, 2),
 (19, 82, 2),
 (21, 80, 2),
 (23, 78, 2),
@@ -165,8 +287,14 @@ INSERT INTO `pessoa_endereco` (`cd_pessoa`, `cd_endereco`, `cd_tipo_endereco`) V
 (90, 11, 2),
 (97, 4, 2),
 (100, 1, 2),
+(2, 99, 3),
+(4, 97, 3),
+(6, 95, 3),
+(9, 92, 3),
+(11, 90, 3),
+(14, 87, 3),
+(15, 86, 3),
 (18, 83, 3),
-(20, 81, 3),
 (27, 74, 3),
 (30, 71, 3),
 (31, 70, 3),
@@ -196,9 +324,11 @@ INSERT INTO `pessoa_endereco` (`cd_pessoa`, `cd_endereco`, `cd_tipo_endereco`) V
 -- Estrutura da tabela `pessoa_telefone`
 --
 
-CREATE TABLE `pessoa_telefone` (
+CREATE TABLE IF NOT EXISTS `pessoa_telefone` (
   `cd_pessoa` int(11) NOT NULL,
-  `cd_telefone` int(11) NOT NULL
+  `cd_telefone` int(11) NOT NULL,
+  PRIMARY KEY (`cd_pessoa`,`cd_telefone`),
+  KEY `fk_pessoa_telefone` (`cd_telefone`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -206,176 +336,207 @@ CREATE TABLE `pessoa_telefone` (
 --
 
 INSERT INTO `pessoa_telefone` (`cd_pessoa`, `cd_telefone`) VALUES
-(16, 85),
-(16, 185),
-(17, 84),
-(17, 184),
-(18, 83),
-(18, 183),
-(19, 82),
-(19, 182),
-(20, 81),
-(20, 181),
-(21, 80),
-(21, 180),
-(22, 79),
-(22, 179),
-(23, 78),
-(23, 178),
-(24, 77),
-(24, 177),
-(25, 76),
-(25, 176),
-(26, 75),
-(26, 175),
-(27, 74),
-(27, 174),
-(28, 73),
-(28, 173),
-(29, 72),
-(29, 172),
-(30, 71),
-(30, 171),
-(31, 70),
-(31, 170),
-(32, 69),
-(32, 169),
-(33, 68),
-(33, 168),
-(34, 67),
-(34, 167),
-(35, 66),
-(35, 166),
-(36, 65),
-(36, 165),
-(37, 64),
-(37, 164),
-(38, 63),
-(38, 163),
-(39, 62),
-(39, 162),
-(40, 61),
-(40, 161),
-(41, 60),
-(41, 160),
-(42, 59),
-(42, 159),
-(43, 58),
-(43, 158),
-(44, 57),
-(44, 157),
-(45, 56),
-(45, 156),
-(46, 55),
-(46, 155),
-(47, 54),
-(47, 154),
-(48, 53),
-(48, 153),
-(49, 52),
-(49, 152),
-(50, 51),
-(50, 151),
-(51, 50),
-(51, 150),
-(52, 49),
-(52, 149),
-(53, 48),
-(53, 148),
-(54, 47),
-(54, 147),
-(55, 46),
-(55, 146),
-(56, 45),
-(56, 145),
-(57, 44),
-(57, 144),
-(58, 43),
-(58, 143),
-(59, 42),
-(59, 142),
-(60, 41),
-(60, 141),
-(61, 40),
-(61, 140),
-(62, 39),
-(62, 139),
-(63, 38),
-(63, 138),
-(64, 37),
-(64, 137),
-(65, 36),
-(65, 136),
-(66, 35),
-(66, 135),
-(67, 34),
-(67, 134),
-(68, 33),
-(68, 133),
-(69, 32),
-(69, 132),
-(70, 31),
-(70, 131),
-(71, 30),
-(71, 130),
-(72, 29),
-(72, 129),
-(73, 28),
-(73, 128),
-(74, 27),
-(74, 127),
-(75, 26),
-(75, 126),
-(76, 25),
-(76, 125),
-(77, 24),
-(77, 124),
-(78, 23),
-(78, 123),
-(79, 22),
-(79, 122),
-(80, 21),
-(80, 121),
-(81, 20),
-(81, 120),
-(82, 19),
-(82, 119),
-(83, 18),
-(83, 118),
-(84, 17),
-(84, 117),
-(85, 16),
-(85, 116),
-(86, 15),
-(86, 115),
-(87, 14),
-(87, 114),
-(88, 13),
-(88, 113),
-(89, 12),
-(89, 112),
-(90, 11),
-(90, 111),
-(91, 10),
-(91, 110),
-(92, 9),
-(92, 109),
-(93, 8),
-(93, 108),
-(94, 7),
-(94, 107),
-(95, 6),
-(95, 106),
-(96, 5),
-(96, 105),
-(97, 4),
-(97, 104),
-(98, 3),
-(98, 103),
-(99, 2),
-(99, 102),
 (100, 1),
-(100, 101);
+(99, 2),
+(98, 3),
+(97, 4),
+(96, 5),
+(95, 6),
+(94, 7),
+(93, 8),
+(92, 9),
+(91, 10),
+(90, 11),
+(89, 12),
+(88, 13),
+(87, 14),
+(86, 15),
+(85, 16),
+(84, 17),
+(83, 18),
+(82, 19),
+(81, 20),
+(80, 21),
+(79, 22),
+(78, 23),
+(77, 24),
+(76, 25),
+(75, 26),
+(74, 27),
+(73, 28),
+(72, 29),
+(71, 30),
+(70, 31),
+(69, 32),
+(68, 33),
+(67, 34),
+(66, 35),
+(65, 36),
+(64, 37),
+(63, 38),
+(62, 39),
+(61, 40),
+(60, 41),
+(59, 42),
+(58, 43),
+(57, 44),
+(56, 45),
+(55, 46),
+(54, 47),
+(53, 48),
+(52, 49),
+(51, 50),
+(50, 51),
+(49, 52),
+(48, 53),
+(47, 54),
+(46, 55),
+(45, 56),
+(44, 57),
+(43, 58),
+(42, 59),
+(41, 60),
+(40, 61),
+(39, 62),
+(38, 63),
+(37, 64),
+(36, 65),
+(35, 66),
+(34, 67),
+(33, 68),
+(32, 69),
+(31, 70),
+(30, 71),
+(29, 72),
+(28, 73),
+(27, 74),
+(26, 75),
+(25, 76),
+(24, 77),
+(23, 78),
+(22, 79),
+(21, 80),
+(20, 81),
+(19, 82),
+(18, 83),
+(17, 84),
+(16, 85),
+(15, 86),
+(14, 87),
+(13, 88),
+(12, 89),
+(11, 90),
+(10, 91),
+(9, 92),
+(8, 93),
+(7, 94),
+(6, 95),
+(5, 96),
+(4, 97),
+(3, 98),
+(2, 99),
+(1, 100),
+(100, 101),
+(99, 102),
+(98, 103),
+(97, 104),
+(96, 105),
+(95, 106),
+(94, 107),
+(93, 108),
+(92, 109),
+(91, 110),
+(90, 111),
+(89, 112),
+(88, 113),
+(87, 114),
+(86, 115),
+(85, 116),
+(84, 117),
+(83, 118),
+(82, 119),
+(81, 120),
+(80, 121),
+(79, 122),
+(78, 123),
+(77, 124),
+(76, 125),
+(75, 126),
+(74, 127),
+(73, 128),
+(72, 129),
+(71, 130),
+(70, 131),
+(69, 132),
+(68, 133),
+(67, 134),
+(66, 135),
+(65, 136),
+(64, 137),
+(63, 138),
+(62, 139),
+(61, 140),
+(60, 141),
+(59, 142),
+(58, 143),
+(57, 144),
+(56, 145),
+(55, 146),
+(54, 147),
+(53, 148),
+(52, 149),
+(51, 150),
+(50, 151),
+(49, 152),
+(48, 153),
+(47, 154),
+(46, 155),
+(45, 156),
+(44, 157),
+(43, 158),
+(42, 159),
+(41, 160),
+(40, 161),
+(39, 162),
+(38, 163),
+(37, 164),
+(36, 165),
+(35, 166),
+(34, 167),
+(33, 168),
+(32, 169),
+(31, 170),
+(30, 171),
+(29, 172),
+(28, 173),
+(27, 174),
+(26, 175),
+(25, 176),
+(24, 177),
+(23, 178),
+(22, 179),
+(21, 180),
+(20, 181),
+(19, 182),
+(18, 183),
+(17, 184),
+(16, 185),
+(15, 186),
+(14, 187),
+(13, 188),
+(12, 189),
+(11, 190),
+(10, 191),
+(9, 192),
+(8, 193),
+(7, 194),
+(6, 195),
+(5, 196),
+(4, 197),
+(3, 198),
+(2, 199),
+(1, 200),
+(20, 203);
 
 -- --------------------------------------------------------
 
@@ -383,11 +544,14 @@ INSERT INTO `pessoa_telefone` (`cd_pessoa`, `cd_telefone`) VALUES
 -- Estrutura da tabela `tb_administrador`
 --
 
-CREATE TABLE `tb_administrador` (
-  `cd_administrador` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `tb_administrador` (
+  `cd_administrador` int(11) NOT NULL AUTO_INCREMENT,
   `cd_pessoa` int(11) DEFAULT NULL,
-  `cd_login` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `cd_login` int(11) DEFAULT NULL,
+  PRIMARY KEY (`cd_administrador`),
+  KEY `fk_administrador_login` (`cd_login`),
+  KEY `pk_administrador_pessoa` (`cd_pessoa`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=7 ;
 
 --
 -- Extraindo dados da tabela `tb_administrador`
@@ -398,7 +562,8 @@ INSERT INTO `tb_administrador` (`cd_administrador`, `cd_pessoa`, `cd_login`) VAL
 (2, 19, 19),
 (3, 18, 18),
 (4, 17, 17),
-(5, 16, 16);
+(5, 16, 16),
+(6, 109, 107);
 
 -- --------------------------------------------------------
 
@@ -406,10 +571,12 @@ INSERT INTO `tb_administrador` (`cd_administrador`, `cd_pessoa`, `cd_login`) VAL
 -- Estrutura da tabela `tb_animal`
 --
 
-CREATE TABLE `tb_animal` (
+CREATE TABLE IF NOT EXISTS `tb_animal` (
   `cd_animal` int(11) NOT NULL,
   `cd_tipo_animal` int(11) DEFAULT NULL,
-  `ds_animal` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `ds_animal` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`cd_animal`),
+  KEY `fk_animal_tipo` (`cd_tipo_animal`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -470,10 +637,12 @@ INSERT INTO `tb_animal` (`cd_animal`, `cd_tipo_animal`, `ds_animal`) VALUES
 -- Estrutura da tabela `tb_bairro`
 --
 
-CREATE TABLE `tb_bairro` (
+CREATE TABLE IF NOT EXISTS `tb_bairro` (
   `cd_bairro` int(11) NOT NULL,
   `ds_bairro` varchar(80) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `cd_cidade` int(11) DEFAULT NULL
+  `cd_cidade` int(11) DEFAULT NULL,
+  PRIMARY KEY (`cd_bairro`),
+  KEY `fk_bairro_cidade` (`cd_cidade`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -523,7 +692,7 @@ INSERT INTO `tb_bairro` (`cd_bairro`, `ds_bairro`, `cd_cidade`) VALUES
 (40, 'Mazowieckie', 26),
 (41, 'Piemonte', 35),
 (42, 'V', 54),
-(43, 'VII', 71),
+(43, 'Gonzaga', 71),
 (44, 'IL', 8),
 (45, 'Luik', 91),
 (46, 'ON', 83),
@@ -588,10 +757,12 @@ INSERT INTO `tb_bairro` (`cd_bairro`, `ds_bairro`, `cd_cidade`) VALUES
 -- Estrutura da tabela `tb_cidade`
 --
 
-CREATE TABLE `tb_cidade` (
+CREATE TABLE IF NOT EXISTS `tb_cidade` (
   `cd_cidade` int(11) NOT NULL,
   `ds_cidade` varchar(70) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `sg_uf` char(2) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `sg_uf` char(2) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`cd_cidade`),
+  KEY `fk_cidade_uf` (`sg_uf`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -625,7 +796,7 @@ INSERT INTO `tb_cidade` (`cd_cidade`, `ds_cidade`, `sg_uf`) VALUES
 (24, 'Pınarbaşı', 'PI'),
 (25, 'Quarona', 'MT'),
 (26, 'Montpelier', 'PI'),
-(27, 'Villafranca d\'Asti', 'MS'),
+(27, 'Villafranca d''Asti', 'MS'),
 (28, 'Weyburn', 'PE'),
 (29, 'Tielrode', 'RJ'),
 (30, 'Buxton', 'AP'),
@@ -669,7 +840,7 @@ INSERT INTO `tb_cidade` (`cd_cidade`, `ds_cidade`, `sg_uf`) VALUES
 (68, 'Vilna', 'RR'),
 (69, 'Rodez', 'RO'),
 (70, 'Fermont', 'SE'),
-(71, 'Marsciano', 'AC'),
+(71, 'Santos', 'SP'),
 (72, 'Northumberland', 'RS'),
 (73, 'Paraíso', 'ES'),
 (74, 'Kimberly', 'PI'),
@@ -690,7 +861,7 @@ INSERT INTO `tb_cidade` (`cd_cidade`, `ds_cidade`, `sg_uf`) VALUES
 (89, 'Huntsville', 'AP'),
 (90, 'Crieff', 'MS'),
 (91, 'Husum', 'SP'),
-(92, 'Santa Croce sull\'Arno', 'SE'),
+(92, 'Santa Croce sull''Arno', 'SE'),
 (93, 'Viggianello', 'AP'),
 (94, 'Oberhausen', 'AC'),
 (95, 'Clare', 'SP'),
@@ -706,10 +877,13 @@ INSERT INTO `tb_cidade` (`cd_cidade`, `ds_cidade`, `sg_uf`) VALUES
 -- Estrutura da tabela `tb_cliente`
 --
 
-CREATE TABLE `tb_cliente` (
+CREATE TABLE IF NOT EXISTS `tb_cliente` (
   `cd_cliente` int(11) NOT NULL,
   `cd_pessoa` int(11) DEFAULT NULL,
-  `cd_login` int(11) DEFAULT NULL
+  `cd_login` int(11) DEFAULT NULL,
+  PRIMARY KEY (`cd_cliente`),
+  KEY `fk_cliente_pessoa` (`cd_pessoa`),
+  KEY `fk_cliente_login` (`cd_login`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -717,6 +891,21 @@ CREATE TABLE `tb_cliente` (
 --
 
 INSERT INTO `tb_cliente` (`cd_cliente`, `cd_pessoa`, `cd_login`) VALUES
+(1, 61, 61),
+(2, 62, 62),
+(3, 63, 63),
+(4, 64, 64),
+(5, 65, 65),
+(6, 66, 66),
+(7, 67, 67),
+(8, 68, 68),
+(9, 69, 69),
+(10, 70, 70),
+(11, 71, 71),
+(12, 72, 72),
+(13, 73, 73),
+(14, 74, 74),
+(15, 75, 75),
 (16, 76, 76),
 (17, 77, 77),
 (18, 78, 78),
@@ -745,7 +934,9 @@ INSERT INTO `tb_cliente` (`cd_cliente`, `cd_pessoa`, `cd_login`) VALUES
 (41, 101, 101),
 (42, 102, 102),
 (43, 103, 103),
-(44, 105, 104);
+(44, 105, 104),
+(45, 106, 105),
+(46, 108, 106);
 
 -- --------------------------------------------------------
 
@@ -753,14 +944,20 @@ INSERT INTO `tb_cliente` (`cd_cliente`, `cd_pessoa`, `cd_login`) VALUES
 -- Estrutura da tabela `tb_denuncia`
 --
 
-CREATE TABLE `tb_denuncia` (
+CREATE TABLE IF NOT EXISTS `tb_denuncia` (
   `cd_denuncia` int(11) NOT NULL,
   `cd_passeio` int(11) DEFAULT NULL,
   `cd_passeador` int(11) DEFAULT NULL,
   `cd_cliente` int(11) DEFAULT NULL,
   `cd_pet` int(11) DEFAULT NULL,
   `cd_tipo_denuncia` int(11) DEFAULT NULL,
-  `ds_denuncia` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `ds_denuncia` mediumtext COLLATE utf8mb4_unicode_ci,
+  PRIMARY KEY (`cd_denuncia`),
+  KEY `fk_denuncia_passeio` (`cd_passeio`),
+  KEY `fk_denuncia_passeador` (`cd_passeador`),
+  KEY `fk_denuncia_cliente` (`cd_cliente`),
+  KEY `fk_denuncia_pet` (`cd_pet`),
+  KEY `fk_denuncia_tipo` (`cd_tipo_denuncia`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -769,12 +966,14 @@ CREATE TABLE `tb_denuncia` (
 -- Estrutura da tabela `tb_endereco`
 --
 
-CREATE TABLE `tb_endereco` (
+CREATE TABLE IF NOT EXISTS `tb_endereco` (
   `cd_endereco` int(11) NOT NULL,
   `ds_endereco` varchar(120) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `cd_cep` char(8) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `ds_complemento` varchar(70) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `cd_bairro` int(11) DEFAULT NULL
+  `cd_bairro` int(11) DEFAULT NULL,
+  PRIMARY KEY (`cd_endereco`),
+  KEY `fk_endereco_bairro` (`cd_bairro`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -862,7 +1061,7 @@ INSERT INTO `tb_endereco` (`cd_endereco`, `ds_endereco`, `cd_cep`, `ds_complemen
 (78, 'Ap #794-7489 Augue Av.', '11364887', NULL, 7),
 (79, '2024 Nibh. Ave', '11945963', NULL, 97),
 (80, 'P.O. Box 834, 5032 Ligula. St.', '11517818', NULL, 19),
-(81, 'Ap #134-8447 Nec Rd.', '11157221', NULL, 43),
+(81, 'R. Dr. Manoel Victorino', '11060430', 'apto 23', 43),
 (82, 'P.O. Box 466, 8189 Risus. St.', '11413029', NULL, 25),
 (83, 'Ap #602-1953 Laoreet Road', '11752555', NULL, 85),
 (84, '5551 Enim. St.', '11056558', NULL, 45),
@@ -889,10 +1088,13 @@ INSERT INTO `tb_endereco` (`cd_endereco`, `ds_endereco`, `cd_cep`, `ds_complemen
 -- Estrutura da tabela `tb_grupo_passeio`
 --
 
-CREATE TABLE `tb_grupo_passeio` (
+CREATE TABLE IF NOT EXISTS `tb_grupo_passeio` (
   `cd_passeio` int(11) NOT NULL,
   `cd_cliente` int(11) NOT NULL,
-  `cd_pet` int(11) NOT NULL
+  `cd_pet` int(11) NOT NULL,
+  PRIMARY KEY (`cd_passeio`,`cd_cliente`,`cd_pet`),
+  KEY `fk_grupo_cliente` (`cd_cliente`),
+  KEY `fk_grupo_pet` (`cd_pet`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -901,11 +1103,12 @@ CREATE TABLE `tb_grupo_passeio` (
 -- Estrutura da tabela `tb_login`
 --
 
-CREATE TABLE `tb_login` (
-  `cd_login` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `tb_login` (
+  `cd_login` int(11) NOT NULL AUTO_INCREMENT,
   `cd_email` varchar(80) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `cd_senha` varchar(80) COLLATE utf8mb4_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `cd_senha` varchar(80) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`cd_login`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=109 ;
 
 --
 -- Extraindo dados da tabela `tb_login`
@@ -931,7 +1134,7 @@ INSERT INTO `tb_login` (`cd_login`, `cd_email`, `cd_senha`) VALUES
 (17, 'justo@Suspendissealiquetmolestie.org', '233c107662549e8de9868d0b88b12d37'),
 (18, 'molestie.orci.tincidunt@perinceptos.ca', '02a26e063a87557099ffdb11728178c0'),
 (19, 'scelerisque.mollis.Phasellus@facilisis.edu', '51d4d5a0b58edc3e1b6980c66a3c6590'),
-(20, 'arthur.costa32@etec.sp.gov.br', '81dc9bdb52d04dc20036dbd8313ed055'),
+(20, 'arthur.costa32@etec.sp.gov.br', 'e8fe547e1a016acdc23b7428b14cc5fe'),
 (21, 'Curabitur@eleifendnon.co.uk', 'cddc093258c8cd7d80f6841a5ce31593'),
 (22, 'libero.et@Infaucibus.co.uk', 'abb76edf4c8e505c707480b6a0736845'),
 (23, 'magna.Suspendisse@ac.co.uk', '9a542566b6928398ba2a87390d9d895b'),
@@ -1015,7 +1218,11 @@ INSERT INTO `tb_login` (`cd_login`, `cd_email`, `cd_senha`) VALUES
 (101, 'atabon@gmail.com', 'f3b2cb3a442a9131b75898b7aaf4d4dc'),
 (102, 'b@b.com', '698dc19d489c4e4db73e28a713eab07b'),
 (103, 'algumemail@live.com', '0c7d2830d586c7a2946b484e68eb2754'),
-(104, 'alaagumemail@live.com', '0c7d2830d586c7a2946b484e68eb2754');
+(104, 'alaagumemail@live.com', '0c7d2830d586c7a2946b484e68eb2754'),
+(105, 'abc@abc.com', '202cb962ac59075b964b07152d234b70'),
+(106, 'abc@abc.com', 'caf1a3dfb505ffed0d024130f58c5cfa'),
+(107, 'algum@teste.com', '698dc19d489c4e4db73e28a713eab07b'),
+(108, 'passeadorteste@teste.com', '698dc19d489c4e4db73e28a713eab07b');
 
 -- --------------------------------------------------------
 
@@ -1023,9 +1230,10 @@ INSERT INTO `tb_login` (`cd_login`, `cd_email`, `cd_senha`) VALUES
 -- Estrutura da tabela `tb_nivel`
 --
 
-CREATE TABLE `tb_nivel` (
+CREATE TABLE IF NOT EXISTS `tb_nivel` (
   `cd_nivel` int(11) NOT NULL,
-  `ds_nivel` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `ds_nivel` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`cd_nivel`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -1045,12 +1253,16 @@ INSERT INTO `tb_nivel` (`cd_nivel`, `ds_nivel`) VALUES
 -- Estrutura da tabela `tb_passeador`
 --
 
-CREATE TABLE `tb_passeador` (
+CREATE TABLE IF NOT EXISTS `tb_passeador` (
   `cd_passeador` int(11) NOT NULL,
   `cd_pessoa` int(11) DEFAULT NULL,
   `cd_nivel` int(11) DEFAULT NULL,
   `qt_viagens` int(11) DEFAULT NULL,
-  `cd_login` int(11) DEFAULT NULL
+  `cd_login` int(11) DEFAULT NULL,
+  PRIMARY KEY (`cd_passeador`),
+  KEY `fk_passeador_pessoa` (`cd_pessoa`),
+  KEY `fk_passeador_nivel` (`cd_nivel`),
+  KEY `fk_passeador_login` (`cd_login`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -1097,7 +1309,8 @@ INSERT INTO `tb_passeador` (`cd_passeador`, `cd_pessoa`, `cd_nivel`, `qt_viagens
 (37, 57, 1, 140, 57),
 (38, 58, 5, 49, 58),
 (39, 59, 1, 246, 59),
-(40, 60, 5, 30, 60);
+(40, 60, 5, 30, 60),
+(41, 110, 1, 0, 108);
 
 -- --------------------------------------------------------
 
@@ -1105,10 +1318,12 @@ INSERT INTO `tb_passeador` (`cd_passeador`, `cd_pessoa`, `cd_nivel`, `qt_viagens
 -- Estrutura da tabela `tb_passeio`
 --
 
-CREATE TABLE `tb_passeio` (
+CREATE TABLE IF NOT EXISTS `tb_passeio` (
   `cd_passeio` int(11) NOT NULL,
   `cd_passeador` int(11) DEFAULT NULL,
-  `ds_trajeto` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `ds_trajeto` mediumtext COLLATE utf8mb4_unicode_ci,
+  PRIMARY KEY (`cd_passeio`),
+  KEY `fk_passeio_passeador` (`cd_passeador`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -1117,10 +1332,11 @@ CREATE TABLE `tb_passeio` (
 -- Estrutura da tabela `tb_permissao`
 --
 
-CREATE TABLE `tb_permissao` (
-  `cd_permissao` int(11) NOT NULL,
-  `ds_permissao` text COLLATE utf8mb4_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE IF NOT EXISTS `tb_permissao` (
+  `cd_permissao` int(11) NOT NULL AUTO_INCREMENT,
+  `ds_permissao` text COLLATE utf8mb4_unicode_ci,
+  PRIMARY KEY (`cd_permissao`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=17 ;
 
 --
 -- Extraindo dados da tabela `tb_permissao`
@@ -1140,7 +1356,8 @@ INSERT INTO `tb_permissao` (`cd_permissao`, `ds_permissao`) VALUES
 (11, 'ADICIONAR ADMINISTRADOR'),
 (12, 'ADICIONAR PERMISSÃO'),
 (13, 'ALTERAR PERMISSÃO'),
-(14, 'GERENCIAR PERMISSÃO');
+(14, 'GERENCIAR PERMISSÃO'),
+(16, 'teste2');
 
 -- --------------------------------------------------------
 
@@ -1148,19 +1365,35 @@ INSERT INTO `tb_permissao` (`cd_permissao`, `ds_permissao`) VALUES
 -- Estrutura da tabela `tb_pessoa`
 --
 
-CREATE TABLE `tb_pessoa` (
-  `cd_pessoa` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `tb_pessoa` (
+  `cd_pessoa` int(11) NOT NULL AUTO_INCREMENT,
   `cd_cpf` char(11) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `cd_rg` char(9) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `nm_pessoa` varchar(70) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `dt_nascimento` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `dt_nascimento` date DEFAULT NULL,
+  PRIMARY KEY (`cd_pessoa`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=111 ;
 
 --
 -- Extraindo dados da tabela `tb_pessoa`
 --
 
 INSERT INTO `tb_pessoa` (`cd_pessoa`, `cd_cpf`, `cd_rg`, `nm_pessoa`, `dt_nascimento`) VALUES
+(1, '50118655937', '58121381', 'Colorado', NULL),
+(2, '50199245362', '58443979', 'Nehru', NULL),
+(3, '50122619108', '58508609', 'Jade', NULL),
+(4, '50139954908', '58066383', 'Melanie', NULL),
+(5, '50148638676', '58280720', 'Colby', NULL),
+(6, '50136037728', '58064378', 'Inga', NULL),
+(7, '50163866772', '58964055', 'Zeph', NULL),
+(8, '50136776665', '58095326', 'Theodore', NULL),
+(9, '50174604805', '58273885', 'Carol', NULL),
+(10, '50143945589', '58862735', 'Cruz', NULL),
+(11, '50103301783', '58147578', 'Karleigh', NULL),
+(12, '50198020453', '58545328', 'Allegra', NULL),
+(13, '50110112504', '58248452', 'Kareem', NULL),
+(14, '50133911527', '58625507', 'Stuart', NULL),
+(15, '50168677751', '58226645', 'Aiko', NULL),
 (16, '50197256491', '58135945', 'Drew', NULL),
 (17, '50126288674', '58508012', 'Lavinia', NULL),
 (18, '50196788311', '58495306', 'Quintessa', NULL),
@@ -1245,7 +1478,17 @@ INSERT INTO `tb_pessoa` (`cd_pessoa`, `cd_cpf`, `cd_rg`, `nm_pessoa`, `dt_nascim
 (97, '50153276238', '58890570', 'Nevada', NULL),
 (98, '50162922325', '58212190', 'Gay', NULL),
 (99, '50195193403', '58352017', 'Hanae', NULL),
-(100, '50107034130', '58645782', 'Yvette', NULL);
+(100, '50107034130', '58645782', 'Yvette', NULL),
+(101, '60166365881', '521352580', 'TESTERRR', NULL),
+(102, '50199365883', '58135258X', 'Arthur teste', '2002-05-03'),
+(103, '50166365932', '521683259', 'Arthur TESTE 4', NULL),
+(104, '50166365932', '521683259', 'Arthur TESTE 4', '2000-08-26'),
+(105, '50136521545', '521888259', 'Arthur TESTE 4', '2000-08-26'),
+(106, '536.664.270', '43.124.31', 'testeeeeeeeee', NULL),
+(107, '536.664.270', '43.124.31', 'testeeeeeeeee', NULL),
+(108, '130.208.520', '43.124.31', 'testeeeee331', NULL),
+(109, '50199654812', '121352583', 'ARTHUR TESTE', '2002-07-06'),
+(110, '50142130518', '789321522', 'Passeador Teste', '2002-10-04');
 
 -- --------------------------------------------------------
 
@@ -1253,11 +1496,13 @@ INSERT INTO `tb_pessoa` (`cd_pessoa`, `cd_cpf`, `cd_rg`, `nm_pessoa`, `dt_nascim
 -- Estrutura da tabela `tb_pet`
 --
 
-CREATE TABLE `tb_pet` (
+CREATE TABLE IF NOT EXISTS `tb_pet` (
   `cd_pet` int(11) NOT NULL,
   `nm_pet` varchar(70) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `cd_animal` int(11) DEFAULT NULL,
-  `dt_nascimento` date DEFAULT NULL
+  `dt_nascimento` date DEFAULT NULL,
+  PRIMARY KEY (`cd_pet`),
+  KEY `fk_pet_animal` (`cd_animal`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -1265,6 +1510,21 @@ CREATE TABLE `tb_pet` (
 --
 
 INSERT INTO `tb_pet` (`cd_pet`, `nm_pet`, `cd_animal`, `dt_nascimento`) VALUES
+(1, 'Jael', 46, '2016-10-19'),
+(2, 'Owen', 45, '2016-04-20'),
+(3, 'Madison', 44, '2016-05-28'),
+(4, 'Adara', 43, '2017-02-28'),
+(5, 'Alexander', 42, '2017-05-15'),
+(6, 'Sylvia', 41, '2017-12-16'),
+(7, 'Kennedy', 40, '2018-01-05'),
+(8, 'Phyllis', 39, '2018-08-18'),
+(9, 'Acton', 38, '2016-02-07'),
+(10, 'Jaime', 37, '2018-06-15'),
+(11, 'Basil', 36, '2017-01-12'),
+(12, 'Zoe', 35, '2016-01-20'),
+(13, 'Nehru', 34, '2016-03-23'),
+(14, 'Miranda', 33, '2017-10-19'),
+(15, 'Iola', 32, '2016-05-30'),
 (16, 'Frances', 31, '2016-12-11'),
 (17, 'Ethan', 30, '2018-02-14'),
 (18, 'Hyatt', 29, '2017-05-12'),
@@ -1303,9 +1563,10 @@ INSERT INTO `tb_pet` (`cd_pet`, `nm_pet`, `cd_animal`, `dt_nascimento`) VALUES
 -- Estrutura da tabela `tb_porte`
 --
 
-CREATE TABLE `tb_porte` (
+CREATE TABLE IF NOT EXISTS `tb_porte` (
   `cd_porte` int(11) NOT NULL,
-  `ds_porte` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `ds_porte` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`cd_porte`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -1325,9 +1586,10 @@ INSERT INTO `tb_porte` (`cd_porte`, `ds_porte`) VALUES
 -- Estrutura da tabela `tb_situacao`
 --
 
-CREATE TABLE `tb_situacao` (
+CREATE TABLE IF NOT EXISTS `tb_situacao` (
   `cd_situacao` int(11) NOT NULL,
-  `ds_sitaacao` varchar(70) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `ds_sitaacao` varchar(70) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`cd_situacao`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -1336,14 +1598,18 @@ CREATE TABLE `tb_situacao` (
 -- Estrutura da tabela `tb_sos`
 --
 
-CREATE TABLE `tb_sos` (
+CREATE TABLE IF NOT EXISTS `tb_sos` (
   `cd_sos` int(11) NOT NULL,
   `cd_passeio` int(11) DEFAULT NULL,
   `cd_pet` int(11) DEFAULT NULL,
   `cd_cliente` int(11) DEFAULT NULL,
   `dt_sos` datetime DEFAULT NULL,
-  `ds_sos` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `ds_localizacao` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `ds_sos` mediumtext COLLATE utf8mb4_unicode_ci,
+  `ds_localizacao` mediumtext COLLATE utf8mb4_unicode_ci,
+  PRIMARY KEY (`cd_sos`),
+  KEY `fk_sos_passeio` (`cd_passeio`),
+  KEY `fk_sos_pet` (`cd_pet`),
+  KEY `fk_sos_cliente` (`cd_cliente`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -1352,10 +1618,12 @@ CREATE TABLE `tb_sos` (
 -- Estrutura da tabela `tb_telefone`
 --
 
-CREATE TABLE `tb_telefone` (
+CREATE TABLE IF NOT EXISTS `tb_telefone` (
   `cd_telefone` int(11) NOT NULL,
   `ds_telefone` char(11) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `cd_tipo_telefone` int(11) DEFAULT NULL
+  `cd_tipo_telefone` int(11) DEFAULT NULL,
+  PRIMARY KEY (`cd_telefone`),
+  KEY `fk_telefone_tipo` (`cd_tipo_telefone`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -1562,7 +1830,10 @@ INSERT INTO `tb_telefone` (`cd_telefone`, `ds_telefone`, `cd_tipo_telefone`) VAL
 (197, '13330123869', 4),
 (198, '13331632297', 1),
 (199, '13330116961', 2),
-(200, '13331639639', 2);
+(200, '13331639639', 2),
+(201, '13982207209', 1),
+(202, '13982207209', 1),
+(203, '13982207509', 1);
 
 -- --------------------------------------------------------
 
@@ -1570,10 +1841,12 @@ INSERT INTO `tb_telefone` (`cd_telefone`, `ds_telefone`, `cd_tipo_telefone`) VAL
 -- Estrutura da tabela `tb_tipo_animal`
 --
 
-CREATE TABLE `tb_tipo_animal` (
+CREATE TABLE IF NOT EXISTS `tb_tipo_animal` (
   `cd_tipo_animal` int(11) NOT NULL,
   `cd_porte` int(11) DEFAULT NULL,
-  `ds_tipo_animal` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `ds_tipo_animal` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`cd_tipo_animal`),
+  KEY `fk_tipo_animal_porte` (`cd_porte`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -1626,7 +1899,8 @@ INSERT INTO `tb_tipo_animal` (`cd_tipo_animal`, `cd_porte`, `ds_tipo_animal`) VA
 (43, 1, 'Shih tzu'),
 (44, 5, 'Staffordshire bull terrier'),
 (45, 5, 'Weimaraner'),
-(46, 3, 'Yorkshire');
+(46, 3, 'Yorkshire'),
+(47, 2, 'Raça do animal teste');
 
 -- --------------------------------------------------------
 
@@ -1634,9 +1908,10 @@ INSERT INTO `tb_tipo_animal` (`cd_tipo_animal`, `cd_porte`, `ds_tipo_animal`) VA
 -- Estrutura da tabela `tb_tipo_denuncia`
 --
 
-CREATE TABLE `tb_tipo_denuncia` (
+CREATE TABLE IF NOT EXISTS `tb_tipo_denuncia` (
   `cd_tipo_denuncia` int(11) NOT NULL,
-  `ds_tipo_denuncia` varchar(80) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `ds_tipo_denuncia` varchar(80) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`cd_tipo_denuncia`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -1645,9 +1920,10 @@ CREATE TABLE `tb_tipo_denuncia` (
 -- Estrutura da tabela `tb_tipo_endereco`
 --
 
-CREATE TABLE `tb_tipo_endereco` (
+CREATE TABLE IF NOT EXISTS `tb_tipo_endereco` (
   `cd_tipo_endereco` int(11) NOT NULL,
-  `ds_tipo_endereco` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `ds_tipo_endereco` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`cd_tipo_endereco`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -1665,9 +1941,10 @@ INSERT INTO `tb_tipo_endereco` (`cd_tipo_endereco`, `ds_tipo_endereco`) VALUES
 -- Estrutura da tabela `tb_tipo_pagamento`
 --
 
-CREATE TABLE `tb_tipo_pagamento` (
+CREATE TABLE IF NOT EXISTS `tb_tipo_pagamento` (
   `cd_tipo_pagamento` int(11) NOT NULL,
-  `ds_tipo_pagamento` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `ds_tipo_pagamento` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`cd_tipo_pagamento`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -1687,9 +1964,10 @@ INSERT INTO `tb_tipo_pagamento` (`cd_tipo_pagamento`, `ds_tipo_pagamento`) VALUE
 -- Estrutura da tabela `tb_tipo_telefone`
 --
 
-CREATE TABLE `tb_tipo_telefone` (
+CREATE TABLE IF NOT EXISTS `tb_tipo_telefone` (
   `cd_tipo_telefone` int(11) NOT NULL,
-  `ds_tipo_telefone` varchar(15) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `ds_tipo_telefone` varchar(15) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`cd_tipo_telefone`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -1708,9 +1986,10 @@ INSERT INTO `tb_tipo_telefone` (`cd_tipo_telefone`, `ds_tipo_telefone`) VALUES
 -- Estrutura da tabela `tb_uf`
 --
 
-CREATE TABLE `tb_uf` (
+CREATE TABLE IF NOT EXISTS `tb_uf` (
   `sg_uf` char(2) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `ds_uf` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `ds_uf` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`sg_uf`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -1745,242 +2024,6 @@ INSERT INTO `tb_uf` (`sg_uf`, `ds_uf`) VALUES
 ('SE', 'Sergipe'),
 ('SP', 'São Paulo'),
 ('TO', 'Tocantins');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `administrador_permissao`
---
-ALTER TABLE `administrador_permissao`
-  ADD PRIMARY KEY (`cd_permissao`,`cd_administrador`),
-  ADD KEY `pk_permissao_administrador` (`cd_administrador`);
-
---
--- Indexes for table `cliente_pet`
---
-ALTER TABLE `cliente_pet`
-  ADD PRIMARY KEY (`cd_cliente`,`cd_pet`),
-  ADD KEY `fk_cliente_pet` (`cd_pet`);
-
---
--- Indexes for table `pessoa_endereco`
---
-ALTER TABLE `pessoa_endereco`
-  ADD PRIMARY KEY (`cd_pessoa`,`cd_endereco`),
-  ADD KEY `pk_pessoa_endereco` (`cd_endereco`),
-  ADD KEY `pk_pessoa_tipo_endereco` (`cd_tipo_endereco`);
-
---
--- Indexes for table `pessoa_telefone`
---
-ALTER TABLE `pessoa_telefone`
-  ADD PRIMARY KEY (`cd_pessoa`,`cd_telefone`),
-  ADD KEY `fk_pessoa_telefone` (`cd_telefone`);
-
---
--- Indexes for table `tb_administrador`
---
-ALTER TABLE `tb_administrador`
-  ADD PRIMARY KEY (`cd_administrador`),
-  ADD KEY `fk_administrador_login` (`cd_login`),
-  ADD KEY `pk_administrador_pessoa` (`cd_pessoa`);
-
---
--- Indexes for table `tb_animal`
---
-ALTER TABLE `tb_animal`
-  ADD PRIMARY KEY (`cd_animal`),
-  ADD KEY `fk_animal_tipo` (`cd_tipo_animal`);
-
---
--- Indexes for table `tb_bairro`
---
-ALTER TABLE `tb_bairro`
-  ADD PRIMARY KEY (`cd_bairro`),
-  ADD KEY `fk_bairro_cidade` (`cd_cidade`);
-
---
--- Indexes for table `tb_cidade`
---
-ALTER TABLE `tb_cidade`
-  ADD PRIMARY KEY (`cd_cidade`),
-  ADD KEY `fk_cidade_uf` (`sg_uf`);
-
---
--- Indexes for table `tb_cliente`
---
-ALTER TABLE `tb_cliente`
-  ADD PRIMARY KEY (`cd_cliente`),
-  ADD KEY `fk_cliente_pessoa` (`cd_pessoa`),
-  ADD KEY `fk_cliente_login` (`cd_login`);
-
---
--- Indexes for table `tb_denuncia`
---
-ALTER TABLE `tb_denuncia`
-  ADD PRIMARY KEY (`cd_denuncia`),
-  ADD KEY `fk_denuncia_passeio` (`cd_passeio`),
-  ADD KEY `fk_denuncia_passeador` (`cd_passeador`),
-  ADD KEY `fk_denuncia_cliente` (`cd_cliente`),
-  ADD KEY `fk_denuncia_pet` (`cd_pet`),
-  ADD KEY `fk_denuncia_tipo` (`cd_tipo_denuncia`);
-
---
--- Indexes for table `tb_endereco`
---
-ALTER TABLE `tb_endereco`
-  ADD PRIMARY KEY (`cd_endereco`),
-  ADD KEY `fk_endereco_bairro` (`cd_bairro`);
-
---
--- Indexes for table `tb_grupo_passeio`
---
-ALTER TABLE `tb_grupo_passeio`
-  ADD PRIMARY KEY (`cd_passeio`,`cd_cliente`,`cd_pet`),
-  ADD KEY `fk_grupo_cliente` (`cd_cliente`),
-  ADD KEY `fk_grupo_pet` (`cd_pet`);
-
---
--- Indexes for table `tb_login`
---
-ALTER TABLE `tb_login`
-  ADD PRIMARY KEY (`cd_login`);
-
---
--- Indexes for table `tb_nivel`
---
-ALTER TABLE `tb_nivel`
-  ADD PRIMARY KEY (`cd_nivel`);
-
---
--- Indexes for table `tb_passeador`
---
-ALTER TABLE `tb_passeador`
-  ADD PRIMARY KEY (`cd_passeador`),
-  ADD KEY `fk_passeador_pessoa` (`cd_pessoa`),
-  ADD KEY `fk_passeador_nivel` (`cd_nivel`),
-  ADD KEY `fk_passeador_login` (`cd_login`);
-
---
--- Indexes for table `tb_passeio`
---
-ALTER TABLE `tb_passeio`
-  ADD PRIMARY KEY (`cd_passeio`),
-  ADD KEY `fk_passeio_passeador` (`cd_passeador`);
-
---
--- Indexes for table `tb_permissao`
---
-ALTER TABLE `tb_permissao`
-  ADD PRIMARY KEY (`cd_permissao`);
-
---
--- Indexes for table `tb_pessoa`
---
-ALTER TABLE `tb_pessoa`
-  ADD PRIMARY KEY (`cd_pessoa`);
-
---
--- Indexes for table `tb_pet`
---
-ALTER TABLE `tb_pet`
-  ADD PRIMARY KEY (`cd_pet`),
-  ADD KEY `fk_pet_animal` (`cd_animal`);
-
---
--- Indexes for table `tb_porte`
---
-ALTER TABLE `tb_porte`
-  ADD PRIMARY KEY (`cd_porte`);
-
---
--- Indexes for table `tb_situacao`
---
-ALTER TABLE `tb_situacao`
-  ADD PRIMARY KEY (`cd_situacao`);
-
---
--- Indexes for table `tb_sos`
---
-ALTER TABLE `tb_sos`
-  ADD PRIMARY KEY (`cd_sos`),
-  ADD KEY `fk_sos_passeio` (`cd_passeio`),
-  ADD KEY `fk_sos_pet` (`cd_pet`),
-  ADD KEY `fk_sos_cliente` (`cd_cliente`);
-
---
--- Indexes for table `tb_telefone`
---
-ALTER TABLE `tb_telefone`
-  ADD PRIMARY KEY (`cd_telefone`),
-  ADD KEY `fk_telefone_tipo` (`cd_tipo_telefone`);
-
---
--- Indexes for table `tb_tipo_animal`
---
-ALTER TABLE `tb_tipo_animal`
-  ADD PRIMARY KEY (`cd_tipo_animal`),
-  ADD KEY `fk_tipo_animal_porte` (`cd_porte`);
-
---
--- Indexes for table `tb_tipo_denuncia`
---
-ALTER TABLE `tb_tipo_denuncia`
-  ADD PRIMARY KEY (`cd_tipo_denuncia`);
-
---
--- Indexes for table `tb_tipo_endereco`
---
-ALTER TABLE `tb_tipo_endereco`
-  ADD PRIMARY KEY (`cd_tipo_endereco`);
-
---
--- Indexes for table `tb_tipo_pagamento`
---
-ALTER TABLE `tb_tipo_pagamento`
-  ADD PRIMARY KEY (`cd_tipo_pagamento`);
-
---
--- Indexes for table `tb_tipo_telefone`
---
-ALTER TABLE `tb_tipo_telefone`
-  ADD PRIMARY KEY (`cd_tipo_telefone`);
-
---
--- Indexes for table `tb_uf`
---
-ALTER TABLE `tb_uf`
-  ADD PRIMARY KEY (`sg_uf`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `tb_administrador`
---
-ALTER TABLE `tb_administrador`
-  MODIFY `cd_administrador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `tb_login`
---
-ALTER TABLE `tb_login`
-  MODIFY `cd_login` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
-
---
--- AUTO_INCREMENT for table `tb_permissao`
---
-ALTER TABLE `tb_permissao`
-  MODIFY `cd_permissao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
---
--- AUTO_INCREMENT for table `tb_pessoa`
---
-ALTER TABLE `tb_pessoa`
-  MODIFY `cd_pessoa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
 
 --
 -- Constraints for dumped tables
@@ -2110,7 +2153,6 @@ ALTER TABLE `tb_telefone`
 --
 ALTER TABLE `tb_tipo_animal`
   ADD CONSTRAINT `fk_tipo_animal_porte` FOREIGN KEY (`cd_porte`) REFERENCES `tb_porte` (`cd_porte`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
