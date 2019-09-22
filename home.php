@@ -141,7 +141,7 @@
                 <section class="row">
 
                     <section class="col-md-7">
-                    <video id="videoPitch" scr="media/pitch.mp4"></video>
+                 <!--   <video id="videoPitch" scr="media/pitch.mp4"></video> -->
                     </section>
                     <section class="col-md-5 chocolate">
                         <h3>

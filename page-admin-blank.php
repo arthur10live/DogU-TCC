@@ -11,49 +11,51 @@ if($_SESSION['tpLogin'] != "adm"){
 <?php
 include_once("page-pattern/head-pattern.php");
 ?>
+
 <body>
-     
-           
-          
+
+
+
     <div id="wrapper">
-         <!-- ENTRADA NO NAV PADRÃO  -->
+        <!-- ENTRADA NO NAV PADRÃO  -->
         <?php
          include_once("page-pattern/nav-pattern.php");
         ?>
-         <!-- SAIDA DO NAV PADÃO  -->
-        <div id="page-wrapper" >
+        <!-- SAIDA DO NAV PADÃO  -->
+        <div id="page-wrapper">
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                     <h2>BLANK PAGE </h2>   
+                        <h2>BLANK PAGE </h2>
                     </div>
-                </div>              
-                 <!-- /. ROW  -->
-                  <hr />
-              
-                 <!-- /. ROW  -->           
-    </div>
-             <!-- /. PAGE INNER  -->
+                </div>
+                <!-- /. ROW  -->
+                <hr />
+
+                <!-- /. ROW  -->
             </div>
-         <!-- /. PAGE WRAPPER  -->
+            <!-- /. PAGE INNER  -->
         </div>
-        <?php
+        <!-- /. PAGE WRAPPER  -->
+    </div>
+    <?php
             include_once("page-pattern/footer-pattern.php");
         ?>
-          
 
-     <!-- /. WRAPPER  -->
+
+    <!-- /. WRAPPER  -->
     <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
     <script>
-        document.getElementById("page-blank").classList.add("active-link");
+    document.getElementById("page-blank").classList.add("active-link");
     </script>
     <!-- JQUERY SCRIPTS -->
     <script src="assets/js/jquery-1.10.2.js"></script>
-      <!-- BOOTSTRAP SCRIPTS -->
+    <!-- BOOTSTRAP SCRIPTS -->
     <script src="assets/js/bootstrap.min.js"></script>
-      <!-- CUSTOM SCRIPTS -->
+    <!-- CUSTOM SCRIPTS -->
     <script src="assets/js/custom.js"></script>
-    
-   
+
+
 </body>
+
 </html>

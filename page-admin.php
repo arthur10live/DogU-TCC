@@ -1,13 +1,14 @@
 ﻿<!DOCTYPE html>
 <html lang="PT-BR">
+
 <head>
-<!-- STYLE.CSS DOGU -->
-<link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
-<style>
-body {
+    <!-- STYLE.CSS DOGU -->
+    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+    <style>
+    body {
         background-color: #F6705D;
     }
- </style>
+    </style>
 </head>
 <?php
 $_SESSION['perm'] = array();
@@ -24,22 +25,23 @@ if ($busca_permissao->num_rows > 0) {
 include_once("page-pattern/head-pattern.php");
 include_once("config/conecta_banco.php");
 ?>
-<body>                   
+
+<body>
     <div id="wrapper">
-         <!-- ENTRADA NO NAV PADRÃO  -->
+        <!-- ENTRADA NO NAV PADRÃO  -->
         <?php
          include_once("page-pattern/nav-pattern.php");
         ?>
-         <!-- SAIDA DO NAV PADÃO  -->
+        <!-- SAIDA DO NAV PADÃO  -->
         <div id="page-wrapper" style="background-color: #F6705D;">
             <div id="page-inner">
                 <div class="row">
                     <div class="col-lg-12" style="border-radius: 2em;">
-                     <h2>FUNÇÕES ADMINISTRADOR</h2>   
+                        <h2>FUNÇÕES ADMINISTRADOR</h2>
                     </div>
-                </div>              
-                 <!-- /. ROW  -->
-                  <hr />
+                </div>
+                <!-- /. ROW  -->
+                <hr />
                 <div class="row">
                     <div class="col-lg-12 ">
                         <div class="alert alert-info">
@@ -49,7 +51,7 @@ include_once("config/conecta_banco.php");
                         </div>
                     </div>
                 </div>
-<?php
+                <?php
 $fun_buttons = array(
 array("2", "page-admin-funcoes.php?funcao=addcli", "Adicionar Cliente", "fa-user-plus"),
 array("3", "page-admin-funcoes.php?funcao=altcli", "Alterar Cliente", "fa-address-card"),
@@ -134,28 +136,29 @@ if($_SESSION['perm'][0][1] == 1){
 }
 ?>
             </div>
-             <!-- /. PAGE INNER  -->
-            </div>
-         <!-- /. PAGE WRAPPER  -->
+            <!-- /. PAGE INNER  -->
         </div>
-<?php
+        <!-- /. PAGE WRAPPER  -->
+    </div>
+    <?php
     include_once("page-pattern/footer-pattern.php");
 ?>
-          
 
-     <!-- /. WRAPPER  -->
+
+    <!-- /. WRAPPER  -->
     <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
     <script>
-        document.getElementById("painel-funcoes").classList.add("active-link");
+    document.getElementById("painel-funcoes").classList.add("active-link");
     </script>
     <script src="https://use.fontawesome.com/5cda576476.js"></script>
     <!-- JQUERY SCRIPTS -->
     <script src="assets/js/jquery-1.10.2.js"></script>
-      <!-- BOOTSTRAP SCRIPTS -->
+    <!-- BOOTSTRAP SCRIPTS -->
     <script src="assets/js/bootstrap.min.js"></script>
-      <!-- CUSTOM SCRIPTS -->
+    <!-- CUSTOM SCRIPTS -->
     <script src="assets/js/custom.js"></script>
-    
-   
+
+
 </body>
+
 </html>
