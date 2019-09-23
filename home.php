@@ -16,12 +16,12 @@
     <link href="assets/css/font-awesome.css" rel="stylesheet" />
     <!--ANIMATE.CSS-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-    <script src="js/myscripts.js"></script>
+    <script src="js/myscripts.js">
+    </script>
     <style>
     body {
         background-color: #F3F2F0;
     }
-
     </style>
 </head>
 
@@ -129,7 +129,7 @@
                             Seu pet não precisa sentir por sua falta de tempo, conheça a DogU!</h3>
                     </section>
                     <section class="col-md-4 text-center">
-                        <img id="img-mobile" src="media/mobile1.png" >
+                        <img id="img-mobile" src="media/mobile1.png">
                     </section>
                 </section>
             </section>
@@ -140,11 +140,60 @@
             <section class="container">
                 <section class="row">
 
-                    <section class="col-md-7">
-                 <!--   <video id="videoPitch" scr="media/pitch.mp4"></video> -->
+                    <section class="col-md-5">
+                        <!--   <video id="videoPitch" scr="media/pitch.mp4"></video> -->
+
+                        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <!-- CARD 1 -->
+                                    <div class="card ">
+                                        <img src="media/img-card1.jpg" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <p class="card-text chocolate">"Ótima iniciativa para região. Às
+                                                vezes depois de um dia corrido, posso chamar alguém para passear com o
+                                                Taz e acompanhar pelo cel, super tranquilo."
+                                            </p>
+                                            <strong class="chocolate"><em>Ana - Santos/SP</em></strong>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END CARD 1 -->
+                                <div class="carousel-item">
+                                    <!-- CARD 2 -->
+                                    <div class="card">
+                                        <img src="media/img-card2.jpg" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <p class="card-text chocolate">"Tempo pra mim é difícil durante a
+                                                semana, pois trabalho e estudo. Então quando estou em casa, enquanto
+                                                estudo, posso chamar alguém pelo app facilmente."
+                                            </p>
+                                            <strong class="chocolate"><em>Roberta - Santos/SP</em></strong>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END CARD 2 -->
+                                <div class="carousel-item">
+                                    <!-- CARD 3 -->
+                                    <div class="card">
+                                        <img src="media/img-card3.jpg" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <p class="card-text chocolate">"A Mabel adora passear com outros cães, como
+                                                não conheço muitas pessoas aqui na região, optei por baixar o aplicativo
+                                                e experimentar. Já virou rotina!"
+                                            </p>
+                                            <strong class="chocolate"><em>Pedro - Santos/SP</em></strong>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END CARD 3 -->
+                            </div>
+                        </div>
                     </section>
-                    <section class="col-md-5 chocolate">
-                        <h3>
+                    <section class="col-md-7 chocolate" >
+                                            
+                                                
+                    <h3 style="margin-top: 100px;">
                             Passear com seu cão além de gastar sua energia e acalmá-lo também pode trazer diversos
                             outros benefícios como ensinar seu cão a ter paciência e não sair correndo e puxando a
                             coleira, o ajuda também a socializar com outros cães e aprender a respeitar o espaço do
@@ -168,7 +217,7 @@
                                 frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
                         </li>
                         <br>
-                        <li><a href="#">Quem somos</a></li>
+                        <!-- <li><a href="#">Quem somos</a></li> -->
                     </ul>
                 </section>
                 <section class="col-md-4">
@@ -205,6 +254,7 @@
     <!-- JQUERY / POPPER / BOOTSTRAP.JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+ 
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
@@ -212,7 +262,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
- 
+
+    <script type="text/javascript" scr="js/jquery-3.4.1.min.js"></script>
+    
+
 </body>
 
 </html>
