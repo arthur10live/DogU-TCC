@@ -99,7 +99,7 @@
                     <section class="col-md-3 text-center ">
                         <div class="dog-circles hover01"><i class="fa fa-paw icons-circles" aria-hidden="true"></i>
                         </div>
-                        <span class="desc-icon"><b>Todas as raças</b></span>
+                        <span class="desc-icon"><b>Todas as raças*</b></span>
                     </section>
                     <section class="col-md-3 text-center ">
                         <div class="dog-circles hover01"> <i class="fa fa-map-marker icons-circles"
@@ -118,7 +118,7 @@
                         </div>
                         <span class="desc-icon"><b>Avaliações</b></span>
                     </section>
-              
+
                 </section>
             </section>
         </section>
@@ -163,6 +163,7 @@
                                             <p class="card-text chocolate">"Ótima iniciativa para região. Às
                                                 vezes depois de um dia corrido, posso chamar alguém para passear com o
                                                 Taz e acompanhar pelo cel, super tranquilo."
+                                                <br>
                                             </p>
                                             <strong class="chocolate"><em>Ana - Santos/SP</em></strong>
                                         </div>
@@ -174,7 +175,7 @@
                                     <div class="card">
                                         <img src="media/img-card2.jpg" class="card-img-top" alt="...">
                                         <div class="card-body">
-                                            <p class="card-text chocolate">"Tempo pra mim é difícil durante a
+                                            <p class="card-text chocolate">"Tempo pra mim é difícil na
                                                 semana, pois trabalho e estudo. Então quando estou em casa, enquanto
                                                 estudo, posso chamar alguém pelo app facilmente."
                                             </p>
@@ -191,6 +192,7 @@
                                             <p class="card-text chocolate">"A Mabel adora passear com outros cães, como
                                                 não conheço muitas pessoas aqui na região, optei por baixar o aplicativo
                                                 e experimentar. Já virou rotina!"
+                                                <br>
                                             </p>
                                             <strong class="chocolate"><em>Pedro - Santos/SP</em></strong>
                                         </div>
@@ -201,8 +203,6 @@
                         </div>
                     </section>
                     <section class="col-md-7 chocolate">
-
-
                         <h3 style="margin-top: 100px;">
                             Passear com seu cão além de gastar sua energia e acalmá-lo também pode trazer diversos
                             outros benefícios como ensinar seu cão a ter paciência e não sair correndo e puxando a
@@ -253,7 +253,7 @@
                 </section>
             </section>
         </section>
-        <div><a href="#"><i class="fa fa-arrow-circle-up toTop" aria-hidden="true"></i></a></div>
+        <button onclick="topFunction()" id="myBtn" title="Ir para o top">Top</button>
     </footer>
 
 
@@ -264,7 +264,6 @@
     <!-- JQUERY / POPPER / BOOTSTRAP.JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
@@ -273,8 +272,7 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
 
-    <script type="text/javascript" scr="js/jquery-3.4.1.min.js">
-    </script>
+    <script type="text/javascript" scr="js/myscripts.js"></script>
 
 
 </body>
