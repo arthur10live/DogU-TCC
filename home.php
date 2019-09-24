@@ -92,23 +92,33 @@
     </header>
     <article>
         <!-- SECTION PARA PETS -->
-        <section class="div-parapets" id="paraPets">
+        <section class="div-parapets  " id="paraPets">
             <section class="container">
                 <section class="row">
+
                     <section class="col-md-3 text-center ">
-                        <div class="dog-circles"><i class="fa fa-paw icons-circles" aria-hidden="true"></i> </div>
-                    </section>
-                    <section class="col-md-3 text-center ">
-                        <div class="dog-circles"> <i class="fa fa-map-marker icons-circles" aria-hidden="true"></i>
+                        <div class="dog-circles hover01"><i class="fa fa-paw icons-circles" aria-hidden="true"></i>
                         </div>
+                        <span class="desc-icon"><b>Todas as raças</b></span>
                     </section>
                     <section class="col-md-3 text-center ">
-                        <div class="dog-circles"> <i class="fa fa-heart-o icons-circles" aria-hidden="true"></i></div>
-                    </section>
-                    <section class="col-md-3 text-center ">
-                        <div class="dog-circles"> <i class="fa fa-quote-left icons-circles" aria-hidden="true"></i>
+                        <div class="dog-circles hover01"> <i class="fa fa-map-marker icons-circles"
+                                aria-hidden="true"></i>
                         </div>
+                        <span class="desc-icon"><b>Localização</b></span>
                     </section>
+                    <section class="col-md-3 text-center ">
+                        <div class="dog-circles hover01"> <i class="fa fa-heart-o icons-circles" aria-hidden="true"></i>
+                        </div>
+                        <span class="desc-icon"><b>Saúde</b></span>
+                    </section>
+                    <section class="col-md-3 text-center ">
+                        <div class="dog-circles hover01"> <i class="fa fa-quote-left icons-circles"
+                                aria-hidden="true"></i>
+                        </div>
+                        <span class="desc-icon"><b>Avaliações</b></span>
+                    </section>
+              
                 </section>
             </section>
         </section>

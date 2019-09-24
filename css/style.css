@@ -199,6 +199,8 @@
 .div-parapets{
     background-color: #F3F2F0;
     padding: 30px;
+    padding-bottom: 180px;
+    padding-left: 70px;
     width: 100%;
 }
 
@@ -209,18 +211,64 @@
     width: 200px;
     height: 200px;
     margin-top:100px;
-    margin-bottom:100px;
-    padding-top: 35px;
+    margin-bottom:10px;
+    padding-top: 45px;
     padding-bottom: 20px;
    
 }
 
-
 .icons-circles{
-    font-size: 140px;
+    font-size: 100px;
     color: #594946;
     text-align: center;
 }
+
+.desc-icon{
+   margin-bottom: 90px;
+    font-size: 20px;
+    margin-right: 40px;
+    color: #F6705D;
+}
+
+/* EFEITO ICONS */
+
+.hover01 i {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.hover01:hover i {
+	-webkit-transform: scale(1.3);
+	transform: scale(1.3);
+}
+
+.hover01 span {
+    
+        position: absolute;
+        bottom: -20px;
+        left: 0;
+        z-index: -1;
+        display: block;
+        width: 300px;
+        margin: 0;
+        padding: 0;
+        color: #444;
+        font-size: 18px;
+        text-decoration: none;
+        text-align: center;
+        -webkit-transition: .3s ease-in-out;
+        transition: .3s ease-in-out;
+        opacity: 0;
+}
+
+.hover01 i:hover+span {
+	bottom: -36px;
+	opacity: 1;
+}
+
+
+/* END EFEITO ICONS */
 
 .div-conhecaDogu{
     background-color: #F6705D;
