@@ -40,14 +40,24 @@
      display: flex;
      flex-wrap: nowrap;
  }
-
- #img-mobile{
+ 
+ #img-mobile {
      padding: 40px;
      width: 290px;
  }
  
+ .div-porqueDogu {
+     background-color: #F3F2F0;
+     padding: 80px;
+     width: 100%;
+ }
  
-
+ .div-conhecaDogu {
+     background-color: #F6705D;
+     padding: 70px;
+     width: 100%;
+ }
+ 
  @media only screen and (max-width: 700px) {
      #box-download {
          background-color: #F3F2F0;
@@ -82,12 +92,16 @@
          min-height: 600px;
          width: 100%;
      }
-
-     #img-mobile{
-        padding: 30px;
-        width: 260px;
-    }
-    
+     #img-mobile {
+         padding: 30px;
+         width: 260px;
+     }
+     .div-porqueDogu {
+         padding: 30px;
+     }
+     .div-conhecaDogu {
+         padding: 30px;
+     }
  }
  
  @media only screen and (max-width: 410px) {
@@ -99,7 +113,7 @@
          height: 500px;
          position: absolute;
          margin-top: 40px;
-         margin-left: 30px;
+         margin-left: 45px;
          margin-right: 30px;
          padding: 30px;
          display: flex;
@@ -124,17 +138,11 @@
          min-height: 600px;
          width: 100%;
      }
-    
-        
-    .div-porqueDogu{
-        background-color: #F3F2F0;
-        padding: 50px;
-        width: 100%;
-    }
-     
-
-     
-     
+     .div-porqueDogu {
+         padding-top: 0px;
+         padding: 20px;
+         padding-bottom: 70px;
+     }
  }
  
  @media only screen and (max-width: 320px) {
@@ -146,7 +154,7 @@
          height: 400px;
          position: absolute;
          margin-top: 40px;
-         margin-left: 30px;
+         margin-left: 22px;
          margin-right: 30px;
          padding: 30px;
          display: flex;
@@ -171,12 +179,11 @@
          min-height: 500px;
          width: 100%;
      }
-     #img-mobile{
-        padding: 15px;
-        width: 230px;
-        align-content: center;
-    }
-    
+     #img-mobile {
+         padding: 15px;
+         width: 230px;
+         align-content: center;
+     }
  }
  
  #qrcode-box {
@@ -196,135 +203,144 @@
      margin: 10px;
  }
  
-.div-parapets{
-    background-color: #F3F2F0;
-    padding: 30px;
-    padding-bottom: 180px;
-    padding-left: 70px;
-    width: 100%;
-}
+ .div-parapets {
+     background-color: #F3F2F0;
+     padding: 30px;
+     padding-bottom: 180px;
+     padding-left: 70px;
+     width: 100%;
+ }
+ 
+ .dog-circles {
+     background-color: #F6705D;
+     color: #594946;
+     border-radius: 10em;
+     width: 200px;
+     height: 200px;
+     margin-top: 100px;
+     margin-bottom: 10px;
+     padding-top: 45px;
+     padding-bottom: 20px;
+     
+ }
+ 
+ .icons-circles {
+     font-size: 100px;
+     color: #594946;
+     text-align: center;
+ }
+ 
+ .desc-icon {
+     margin-bottom: 90px;
+     font-size: 20px;
+     margin-right: 40px;
+     color: #F6705D;
+ }
+ @media only screen and (max-width: 410px){
+    .desc-icon {
+        margin-bottom: 90px;
+        margin-right: 70px;
+    }
+ } 
 
-.dog-circles{
-    background-color: #F6705D;
-    color: #594946;
-    border-radius: 10em;
-    width: 200px;
-    height: 200px;
-    margin-top:100px;
-    margin-bottom:10px;
-    padding-top: 45px;
-    padding-bottom: 20px;
-   
-}
+ @media only screen and (max-width: 320px){
+    .desc-icon {
+        font-size: 16px;
+        margin-right: 30px;
+    }
+ } 
 
-.icons-circles{
-    font-size: 100px;
-    color: #594946;
-    text-align: center;
-}
-
-.desc-icon{
-   margin-bottom: 90px;
-    font-size: 20px;
-    margin-right: 40px;
-    color: #F6705D;
-}
-
-/* EFEITO ICONS */
-
-.hover01 i {
-	-webkit-transform: scale(1);
-	transform: scale(1);
-	-webkit-transition: .3s ease-in-out;
-	transition: .3s ease-in-out;
-}
-.hover01:hover i {
-	-webkit-transform: scale(1.3);
-	transform: scale(1.3);
-}
-
-.hover01 span {
-    
-        position: absolute;
-        bottom: -20px;
-        left: 0;
-        z-index: -1;
-        display: block;
-        width: 300px;
-        margin: 0;
-        padding: 0;
-        color: #444;
-        font-size: 18px;
-        text-decoration: none;
-        text-align: center;
-        -webkit-transition: .3s ease-in-out;
-        transition: .3s ease-in-out;
-        opacity: 0;
-}
-
-.hover01 i:hover+span {
-	bottom: -36px;
-	opacity: 1;
-}
-
-
-/* END EFEITO ICONS */
-
-.div-conhecaDogu{
-    background-color: #F6705D;
-    padding: 70px;
-    width: 100%;
-}
-
-.div-porqueDogu{
-    background-color: #F3F2F0;
-    padding: 100px;
-    width: 100%;
-}
-
-
-
-.rodape-home{
-    background-color: #F6705D;
-    width: 100%;
-    padding: 30px;
-    bottom: 0 !important;
-}
-
-.rodape-mapa{
-    list-style: none;
-    text-decoration: none;
-    color: #594946;
-    font-size: 26;
-}
-
-
-/* BOTAO TOP */
-#myBtn {
-    display: none; /* Hidden by default */
-    position: fixed; /* Fixed/sticky position */
-    bottom: 20px; /* Place the button at the bottom of the page */
-    right: 30px; /* Place the button 30px from the right */
-    z-index: 99; /* Make sure it does not overlap */
-    border: none; /* Remove borders */
-    outline: none; /* Remove outline */
-    background-color: #594946; /* Set a background color */
-    color: white; /* Text color */
-    cursor: pointer; /* Add a mouse pointer on hover */
-    padding: 15px; /* Some padding */
-    border-radius: 10px; /* Rounded corners */
-    font-size: 14px; /* Increase font size */
-    opacity: 0.3;
-    border-radius: 5em;
-  }
-  
-  #myBtn:hover {
-    background-color: #555; /* Add a dark-grey background on hover */
-    opacity: 0.9;
-    transition: opacity 0.4s linear;
-  }
-
-/* END BOTAO TOP */
+ /* EFEITO ICONS */
+ 
+ .hover01 i {
+     -webkit-transform: scale(1);
+     transform: scale(1);
+     -webkit-transition: .3s ease-in-out;
+     transition: .3s ease-in-out;
+ }
+ 
+ .hover01:hover i {
+     -webkit-transform: scale(1.3);
+     transform: scale(1.3);
+ }
+ 
+ .hover01 span {
+     position: absolute;
+     bottom: -20px;
+     left: 0;
+     z-index: -1;
+     display: block;
+     width: 300px;
+     margin: 0;
+     padding: 0;
+     color: #444;
+     font-size: 18px;
+     text-decoration: none;
+     text-align: center;
+     -webkit-transition: .3s ease-in-out;
+     transition: .3s ease-in-out;
+     opacity: 0;
+ }
+ 
+ .hover01 i:hover+span {
+     bottom: -36px;
+     opacity: 1;
+ }
+ /* END EFEITO ICONS */
+ 
+ .rodape-home {
+     background-color: #F6705D;
+     width: 100%;
+     padding: 30px;
+     bottom: 0 !important;
+ }
+ 
+ .rodape-mapa {
+     list-style: none;
+     text-decoration: none;
+     color: #594946;
+     font-size: 26;
+ }
+ /* BOTAO TOP */
+ 
+ #myBtn {
+     display: none;
+     /* Hidden by default */
+     position: fixed;
+     /* Fixed/sticky position */
+     bottom: 20px;
+     /* Place the button at the bottom of the page */
+     right: 30px;
+     /* Place the button 30px from the right */
+     z-index: 99;
+     /* Make sure it does not overlap */
+     border: none;
+     /* Remove borders */
+     outline: none;
+     /* Remove outline */
+     background-color: #594946;
+     /* Set a background color */
+     color: white;
+     /* Text color */
+     cursor: pointer;
+     /* Add a mouse pointer on hover */
+     padding: 15px;
+     /* Some padding */
+     border-radius: 10px;
+     /* Rounded corners */
+     font-size: 14px;
+     /* Increase font size */
+     opacity: 0.3;
+     border-radius: 5em;
+ }
+ 
+ #myBtn:hover {
+     background-color: #555;
+     /* Add a dark-grey background on hover */
+     opacity: 0.9;
+     transition: opacity 0.4s linear;
+ }
+ /* END BOTAO TOP */
  
  #box-minhaconta {
      background-color: #F3F2F0;
@@ -343,72 +359,69 @@
      flex-wrap: nowrap;
      text-align: center;
  }
-
-
-
- @media only screen and (max-width: 380px){
-    #box-minhaconta {
-        background-color: #F3F2F0;
-        opacity: 0.9;
-        border-radius: 1rem;
-        width: 350px;
-        height: 520px;
-        position: relative;
-        margin: 0 auto;
-        margin-top: 30px;
-        padding-top: 50px;
-        padding-bottom: 50px;
-        padding-left: 50px;
-        padding-right: 60px;
-        display: flex;
-        flex-wrap: nowrap;
-        text-align: center;
-    }
+ 
+ @media only screen and (max-width: 380px) {
+     #box-minhaconta {
+         background-color: #F3F2F0;
+         opacity: 0.9;
+         border-radius: 1rem;
+         width: 350px;
+         height: 520px;
+         position: relative;
+         margin: 0 auto;
+         margin-top: 30px;
+         padding-top: 50px;
+         padding-bottom: 50px;
+         padding-left: 50px;
+         padding-right: 60px;
+         display: flex;
+         flex-wrap: nowrap;
+         text-align: center;
+     }
  }
-
- @media only screen and (max-width: 330px){
-    #box-minhaconta {
-        background-color: #F3F2F0;
-        opacity: 0.9;
-        border-radius: 1rem;
-        width: 320px;
-        height: 500px;
-        position: relative;
-        margin: 0 auto;
-        margin-top: 10px;
-        padding-top: 50px;
-        padding-bottom: 40px;
-        padding-left: 30px;
-        padding-right: 60px;
-        display: flex;
-        flex-wrap: nowrap;
-        text-align: center;
-    }
+ 
+ @media only screen and (max-width: 330px) {
+     #box-minhaconta {
+         background-color: #F3F2F0;
+         opacity: 0.9;
+         border-radius: 1rem;
+         width: 320px;
+         height: 500px;
+         position: relative;
+         margin: 0 auto;
+         margin-top: 10px;
+         padding-top: 50px;
+         padding-bottom: 40px;
+         padding-left: 30px;
+         padding-right: 60px;
+         display: flex;
+         flex-wrap: nowrap;
+         text-align: center;
+     }
  }
-
+ 
  #box-cadastro {
-    background-color: #F3F2F0;
-    opacity: 0.9;
-    border-radius: 1rem;
-    margin: 0 auto;
-    margin-top: 15px; 
-    width: 500px;
-    position: relative;
-    padding: 70px;
-    padding-top:50px;
-    padding-bottom:50px;
-    display: flex;
-    flex-wrap: nowrap; 
-}
-
-.input-cadastro{
-    margin: 3px !important;
-    margin-bottom: 4px !important; 
-}
-
-/*PAGE ADMIN*/
-#page-inner{
-    border-radius: 15px;
-    background-color: #F3F2F0;
-}
-
+     background-color: #F3F2F0;
+     opacity: 0.9;
+     border-radius: 1rem;
+     margin: 0 auto;
+     margin-top: 15px;
+     width: 500px;
+     position: relative;
+     padding: 70px;
+     padding-top: 50px;
+     padding-bottom: 50px;
+     display: flex;
+     flex-wrap: nowrap;
+ }
+ 
+ .input-cadastro {
+     margin: 3px !important;
+     margin-bottom: 4px !important;
+ }
+ /*PAGE ADMIN*/
+ 
+ #page-inner {
+     border-radius: 15px;
+     background-color: #F3F2F0;
+ }

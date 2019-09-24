@@ -27,7 +27,6 @@
 
 <body>
     <header>
-
         <!-- BEGIN NAV -->
         <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#F3F2F0;">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -63,7 +62,6 @@
             </div>
         </nav>
         <!-- END NAV -->
-
         <!-- BEGIN BOX -->
         <section>
             <div id="box-download">
@@ -122,8 +120,6 @@
                 </section>
             </section>
         </section>
-
-
         <!-- SECTION CONHEÇA A DOGU -->
         <section class="div-conhecaDogu" id="conhecaDogu">
             <section class="container">
@@ -218,7 +214,7 @@
     <footer class="rodape-home">
         <section class="container">
             <section class="row">
-                <section class="col-md-4">
+                <section class="col-md-5">
                     <ul class="rodape-mapa">
                         <li>
                             <iframe
@@ -226,11 +222,16 @@
                                 width="152" height="46" style="border:none;overflow:hidden" scrolling="no"
                                 frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
                         </li>
+                        <li><small>Ao cadastrar-se, você concorda com a nossa <a href="media/termo_de_uso_dogu.pdf"
+                                    target="_blank" onMouseOver="this.style.color='#594946'"
+                                    onMouseOut="this.style.color='#01A58D'" style="color: #01A58D;">Política de
+                                    Privacidade e Termos de Uso.</a></small></li>
                         <br>
-                        <!-- <li><a href="#">Quem somos</a></li> -->
+                        <li><small class="chocolate">*De acordo com a disponilibilidade de passeadores na
+                                região.</small></li>
                     </ul>
                 </section>
-                <section class="col-md-4">
+                <section class="col-md-3">
                 </section>
                 <section class="col-md-4">
                     <h4 class="chocolate">Newsletter</h4>
@@ -247,19 +248,16 @@
                                 onMouseOver="this.style.color='#04e0c0'" onMouseOut="this.style.color='#F3F2F0'">
                                 Assinar
                             </button>
-
                         </div>
                     </form>
                 </section>
             </section>
         </section>
         <button onclick="topFunction()" id="myBtn" title="Ir para o top">Top</button>
+        <div class="text-center">
+            <span class="chocolate text-center" style="bottom: 5px;"><small>DogU ® Copyright 2019</small><span>
+        </div>
     </footer>
-
-
-
-
-
 
     <!-- JQUERY / POPPER / BOOTSTRAP.JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -271,9 +269,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
-
     <script type="text/javascript" scr="js/myscripts.js"></script>
-
 
 </body>
 
