@@ -76,14 +76,7 @@ session_start();
         <!-- BEGIN BOX -->
         <div id="box-minhaconta">
             <form class="form-group" action="index.php" method="POST">
-                <?php
-          if(isset($_SESSION['errocad'])){
-            echo '<div class="alert alert-danger" role="alert">';
-            echo $_SESSION['errocad'];
-            echo '</div>';
-            unset($_SESSION['errocad']);
-          }
-        ?>
+            
                 <h4 class="coral">Minha conta</h4>
                 <br />
                 <input class="form-control" type="email" name="email" placeholder="E-mail" style="margin: 5px;" />
@@ -107,14 +100,27 @@ session_start();
                         onMouseOut="this.style.color='#01A58D'" style="color: #01A58D;">Cadastre-se!</a>
                 </p>
                 <br>
-                <p class="coral" style="font-size: 14px;">
+                <!-- <p class="coral" style="font-size: 14px;">
                     Quer solicitar passeios e não possui cadastro?
                     <a href="cadastro-usuario.php" onMouseOver="this.style.color='#594946'"
                         onMouseOut="this.style.color='#01A58D'" style="color: #01A58D;">Clique aqui!</a>
-                </p>
+                </p> -->
             </form>
+            
         </div>
+      <div style="margin-top: 5px; margin: 0 auto;">
+      <br>
+        <?php
+          if(isset($_SESSION['errocad'])){
+            echo '<div class="alert alert-danger text-center"" role="alert">';
+            echo $_SESSION['errocad'];
+            echo '</div>';
+            unset($_SESSION['errocad']);
+          }
+        ?>
+     </div>
         <!-- END BOX -->
+      
     </header>
 
     <!-- JQUERY / POPPER / BOOTSTRAP.JS -->
