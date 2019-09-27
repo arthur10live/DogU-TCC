@@ -199,7 +199,7 @@
                         </div>
                     </section>
                     <section class="col-md-7 chocolate">
-                        <h3 style="margin-top: 100px;">
+                        <h3 class="txt-pqdogu">
                             Passear com seu cão além de gastar sua energia e acalmá-lo também pode trazer diversos
                             outros benefícios como ensinar seu cão a ter paciência e não sair correndo e puxando a
                             coleira, o ajuda também a socializar com outros cães e aprender a respeitar o espaço do

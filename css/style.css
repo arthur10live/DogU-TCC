@@ -102,6 +102,7 @@
      .div-conhecaDogu {
          padding: 30px;
      }
+    
  }
  
  @media only screen and (max-width: 410px) {
@@ -205,9 +206,7 @@
  
  .div-parapets {
      background-color: #F3F2F0;
-     padding: 30px;
-     padding-bottom: 180px;
-     padding-left: 70px;
+     padding: 100px 20px 180px 20px;
      width: 100%;
  }
  
@@ -217,6 +216,7 @@
      border-radius: 10em;
      width: 200px;
      height: 200px;
+     margin: 0 auto;
      margin-top: 100px;
      margin-bottom: 10px;
      padding-top: 45px;
@@ -230,26 +230,40 @@
      text-align: center;
  }
  
+ @media only screen and (max-width: 995px){
+    .dog-circles {
+        background-color: #F6705D;
+        color: #594946;
+        border-radius: 10em;
+        width: 150px;
+        height: 150px;
+        margin: 0 auto;
+        margin-top: 80px;
+        margin-bottom: 10px;
+        padding-top: 40px;
+        padding-bottom: 10px;
+    }
+    
+    .icons-circles {
+        font-size: 70px;
+        color: #594946;
+        text-align: center;
+    }
+
+    .txt-pqdogu{
+        margin-top: 10px;
+    }
+
+ }
+
  .desc-icon {
      margin-bottom: 90px;
      font-size: 20px;
-     margin-right: 40px;
+     font-style: bold;
      color: #F6705D;
  }
- @media only screen and (max-width: 410px){
-    .desc-icon {
-        margin-bottom: 90px;
-        margin-right: 70px;
-    }
- } 
 
- @media only screen and (max-width: 320px){
-    .desc-icon {
-        font-size: 16px;
-        margin-right: 30px;
-    }
- } 
-
+ 
  /* EFEITO ICONS */
  
  .hover01 i {
@@ -288,6 +302,10 @@
  }
  /* END EFEITO ICONS */
  
+ .txt-pqdogu{
+    margin-top: 75px; 
+}
+
  .rodape-home {
      background-color: #F6705D;
      width: 100%;
@@ -301,6 +319,7 @@
      color: #594946;
      font-size: 26;
  }
+
  /* BOTAO TOP */
  
  #myBtn {
