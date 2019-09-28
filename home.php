@@ -120,7 +120,7 @@
             </section>
         </section>
         <!-- SECTION CONHEÇA A DOGU -->
-        <section class="div-conhecaDogu" id="conhecaDogu">
+        <section class="div-conhecaDogu " id="conhecaDogu" onMouseOver="slideCel()">
             <section class="container">
                 <section class="row">
 
@@ -134,7 +134,9 @@
                             Seu pet não precisa sentir por sua falta de tempo, conheça a DogU!</h3>
                     </section>
                     <section class="col-md-4 text-center">
-                        <img id="img-mobile" src="media/mobile1.png">
+                    <div id="fade01">    
+                    <img id="img-mobile" src="media/mobile1.png">
+</div>
                     </section>
                 </section>
             </section>
