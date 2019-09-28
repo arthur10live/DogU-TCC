@@ -14,6 +14,7 @@ session_start();
     <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.css">
     <!-- STYLE.CSS DOGU -->
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <style>
     body {
@@ -112,7 +113,7 @@ session_start();
       <br>
         <?php
           if(isset($_SESSION['errocad'])){
-            echo '<div class="alert alert-danger text-center"" role="alert">';
+            echo '<div class="alert alert-danger text-center" style="margin-left: 20%; margin-right: 20%; min-width: 150" role="alert">';
             echo $_SESSION['errocad'];
             echo '</div>';
             unset($_SESSION['errocad']);

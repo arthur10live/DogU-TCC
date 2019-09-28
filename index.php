@@ -50,11 +50,11 @@ if(isset($_POST['email'])){
             }       
         }
         else{
-            erroLogin("Erro ao realizar o Login! Combinação de Login e Senha inválida! ");
+            erroLogin("Senha e/ou Usuário inválidos. Tente novamente! ");
         }
     }
     else{
-        erroLogin("Erro ao realizar o Login! Combinação de Login e Senha inválida! ");
+        erroLogin("Senha e/ou Usuário inválidos. Tente novamente!");
     }
 }
 if(isset($_GET['sair'])){

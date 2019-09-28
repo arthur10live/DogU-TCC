@@ -452,9 +452,9 @@
      position: relative;
      padding: 70px;
      padding-top: 50px;
-     padding-bottom: 50px;
+     padding-bottom: 30px;
      display: flex;
-     flex-wrap: nowrap;
+     flex-wrap: wrap;
  }
 
  .input-cadastro {

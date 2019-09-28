@@ -7,6 +7,7 @@
     <title>Cadastro Passeador ◦ DogU</title>
     <link rel="icon" type="image/png" href="media/paws-dogu.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- BOOTSTRAP.CSS -->
     <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.css">
@@ -16,7 +17,31 @@
 
     <style>
     body {
-        background-color: #FDDAAE;
+
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100vh;
+        background-image: linear-gradient(125deg, #F6705D, #FDDAAE);
+        background-size: 400%;
+        animation: bganimation 15s infinite;
+
+    }
+
+    @keyframes bganimation {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+
+        }
+
     }
     </style>
 </head>
