@@ -12,15 +12,6 @@ function scrollFunction() {
 function topFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
-};
-
-
-function slideCel() {
-    var mobile = document.getElementById("img-mobile");
-    var div = document.getElementById("fade01");
-    div.className += "fadeMobile";
-    mobile.className += "animated slideInRight";
-  }
-
+}
 
 

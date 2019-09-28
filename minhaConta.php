@@ -14,7 +14,6 @@ session_start();
     <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.css">
     <!-- STYLE.CSS DOGU -->
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <style>
@@ -58,21 +57,16 @@ session_start();
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                <a class="navbar-brand" >
-            
-        
-                    
+                    <li class="nav-item">
                         <a class="nav-link" onMouseOver="this.style.color='#594946'"
-                            onMouseOut="this.style.color='#F6705D'" style="color: #F6705D;" href="home.php"><img src="assets/img/logo.png" style="margin-top:-15px; width: 68px;"/></a>
-                            </a>
-                    
-                    
-                
+                            onMouseOut="this.style.color='#F6705D'" style="color: #F6705D;" href="home.php">Home</a>
+                    </li>
+                </ul>
                 <form class="form-group form-inline my-4 my-lg-1">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#" onMouseOver="this.style.color='#594946'"
-                                onMouseOut="this.style.color='#01A58D'" style="color: #01A58D;"> </a>
+                            <a class="nav-link" href="minhaConta.php" onMouseOver="this.style.color='#594946'"
+                                onMouseOut="this.style.color='#01A58D'" style="color: #01A58D;">Minha conta</a>
                         </li>
                     </ul>
                 </form>

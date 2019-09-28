@@ -43,14 +43,8 @@
  #img-mobile {
      padding: 40px;
      width: 290px;
-     opacity: 0.9;
-     margin-right: 50px;
  }
 
-.fadeMobile{
-    opacity: 0.4;
-    transition: opacity 0.4s linear;
-}
  .div-porqueDogu {
      background-color: #F3F2F0;
      padding: 80px;
