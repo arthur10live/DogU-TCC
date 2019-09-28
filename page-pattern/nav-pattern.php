@@ -17,7 +17,7 @@ body {
         
     </div>
     <span class="logout-spn" >
-      <a href="index.php?sair=sim" style="color:#fff;">LOGOUT</a>  
+      <a href="index.php?sair=sim" style="color:#fff;">Sair</a>  
     </span>
 </div>
 </div>

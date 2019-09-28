@@ -37,7 +37,7 @@ include_once("config/conecta_banco.php");
             <div id="page-inner">
                 <div class="row">
                     <div class="col-lg-12" style="border-radius: 2em;">
-                        <h2>FUNÇÕES ADMINISTRADOR</h2>
+                        <h2>Bem-vindo, Administrador.</h2>
                     </div>
                 </div>
                 <!-- /. ROW  -->
