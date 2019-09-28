@@ -1,5 +1,5 @@
 <?php 
-$con_ip = "sql255.main-hosting.eu";
+$con_ip = " 127.0.0.1:3306";
 //$con_ip = "localhost";
 $con_login = "u765863036_dogu";
 //$con_login = "root";
