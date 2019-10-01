@@ -57,7 +57,7 @@ include_once("page-pattern/head-pattern.php");
          include_once("page-pattern/nav-pattern.php");
         ?>
         <!-- SAIDA DO NAV PADÃO  -->
-        <div id="page-wrapper" style="background-color: #F6705D;">
+        <div id="page-wrapper" style="background-color: #F3F2F0;">
             <div id="page-inner" style="background-color: #F3F2F0; border-radius: 15px;">
                 <?php           
                 if($_GET['page'] == "alterar-senha"){

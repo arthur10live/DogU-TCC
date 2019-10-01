@@ -33,11 +33,11 @@ include_once("config/conecta_banco.php");
          include_once("page-pattern/nav-pattern.php");
         ?>
         <!-- SAIDA DO NAV PADÃO  -->
-        <div id="page-wrapper" style="background-color: #F6705D;">
+        <div id="page-wrapper" style="background-color: #F3F2F0;">
             <div id="page-inner">
                 <div class="row">
                     <div class="col-lg-12" style="border-radius: 2em;">
-                        <h2>Bem-vindo, Administrador.</h2>
+                        <h2>Painel Administrador</h2>
                     </div>
                 </div>
                 <!-- /. ROW  -->

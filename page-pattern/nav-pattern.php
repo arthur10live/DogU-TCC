@@ -1,8 +1,3 @@
-<style>
-body {
-        background-color: #F6705D;
-    }
- </style>
 <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:#F3F2F0;>
 <div class="adjust-nav">
     <div class="navbar-header">
@@ -17,12 +12,12 @@ body {
         
     </div>
     <span class="logout-spn" >
-      <a href="index.php?sair=sim" style="color:#fff;">Sair</a>  
+      <a href="index.php?sair=sim" style="color:#F6705D;margin: 25px; font-size: 16px !important;">Sair</a>  
     </span>
 </div>
 </div>
 
-<nav class="navbar-default navbar-side" role="navigation" style="border-radius: 15px; background-color: #F3F2F0;">
+<nav class="navbar-default navbar-side" role="navigation" style="border-radius: 15px; background-color: #F3F2F0; margin-bottom: 50px;">
 <div class="sidebar-collapse">
     <ul class="nav" id="main-menu">
         <li id="painel-funcoes">

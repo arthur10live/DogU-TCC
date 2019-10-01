@@ -468,3 +468,14 @@
      border-radius: 15px;
      background-color: #F3F2F0;
  }
+
+ .footer-pattern{
+     bottom: 0 !important;
+     height: 80px;
+     padding: 20px;
+     background-color: #F3F2F0;
+     color: #F6705D;
+     width: 100%;
+     text-align: center;
+ }
+

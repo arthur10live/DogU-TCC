@@ -234,15 +234,15 @@
                 </section>
                 <section class="col-md-4">
                     <h4 class="chocolate">Newsletter</h4>
-                    <form>
+                    <form action="enviarNewsletter.php" name="newsletter" method="post">
                         <div class="form-group">
                             <input class="form-control" type="email" data-toggle="tooltip" data-placement="top"
                                 title="E-mail" id="exampleInputEmail1" placeholder="Digite seu e-mail"
-                                style="margin-bottom: 0px;">
+                                style="margin-bottom: 0px;" name="email">
                             <small class="chocolate" style="margin-top:0px; margin-bottom: 10px;">
                                 Digite seu e-mail e
                                 fique por dentro das novidades. É grátis!</small><br>
-                            <button type="submit" name="entrar" class="btn"
+                            <button type="submit" class="btn"
                                 style="margin-top:20px;padding-left: 40px; padding-right: 40px;background-color: #01A58D;color: #F3F2F0;"
                                 onMouseOver="this.style.color='#04e0c0'" onMouseOut="this.style.color='#F3F2F0'">
                                 Assinar
