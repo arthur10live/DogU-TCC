@@ -10,12 +10,12 @@ $to = "contato@system2002.com";
 
 $subject = "Newsletter | DogU";
 
-$message = "Olá! Desejo assinar a Newsletter da DogU. Poderia me cadastrar? <br> Email: ". $from;
+$message = "Ola! Desejo assinar a Newsletter da DogU. Poderia me cadastrar? \n Email: ". $from;
 
 $headers = "De:". $from;
 
 mail($to, $subject, $message, $headers);
-header("refresh:2;home.php"); 
+header("refresh:1;home.php"); 
 
 ?>
 <script>
