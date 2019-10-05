@@ -8,17 +8,16 @@ $from = $_POST['email'];
 
 $to = "contato@system2002.com";
 
-$subject = "Olá! Desejo assinar a Newsletter da DogU.". $from;
+$subject = "Newsletter | DogU"
 
-$message = "O correio do PHP funciona bem";
+$message = "Olá! Desejo assinar a Newsletter da DogU. Poderia me cadastrar? <br> Email: ". $from;
 
 $headers = "De:". $from;
 
 mail($to, $subject, $message, $headers);
-
+header("refresh:2;home.php"); 
 
 ?>
 <script>
 alert('Parabéns! Você acabar de assinar nossa Newsletter.')
 </script>
-<?php header("home.php"); ?>
