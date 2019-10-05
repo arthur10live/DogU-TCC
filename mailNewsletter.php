@@ -8,7 +8,7 @@ $from = $_POST['email'];
 
 $to = "contato@system2002.com";
 
-$subject = "Newsletter | DogU"
+$subject = "Newsletter | DogU";
 
 $message = "Olá! Desejo assinar a Newsletter da DogU. Poderia me cadastrar? <br> Email: ". $from;
 
