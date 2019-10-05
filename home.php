@@ -234,7 +234,7 @@
                 </section>
                 <section class="col-md-4">
                     <h4 class="chocolate">Newsletter</h4>
-                    <form action="testemail.php" name="newsletter" method="post">
+                    <form action="mailNewsletter.php" name="newsletter" method="post">
                         <div class="form-group">
                             <input class="form-control" type="email" data-toggle="tooltip" data-placement="top"
                                 title="E-mail" id="exampleInputEmail1" placeholder="Digite seu e-mail"
