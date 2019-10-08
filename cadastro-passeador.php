@@ -78,7 +78,7 @@
     <!-- BEGIN BOX -->
 
     <div id="box-cadastro">
-        <form action="cadastroPasseador.php" method="POST">
+        <form action="mailSolicitaCadPasseador.php" name="cadastro" method="post">
             <div class="form-row">
 
                 <div class="form-group col-md-12 text-center">
@@ -87,14 +87,14 @@
                 </div>
 
                 <div class="form-group col-md-6">
-                    <input class="form-control input-cadastro" placeholder="Nome" name="add_first_name">
-                    <input class="form-control input-cadastro" type="text" placeholder="Data Nascimento" name="add_date"
+                    <input class="form-control input-cadastro" placeholder="Nome" name="nome">
+                    <input class="form-control input-cadastro" type="text" placeholder="Data Nascimento" name="dataNasc"
                         data-toggle="tooltip" data-placement="top" title="Data de Nascimento"
                         style="margin-bottom:15px;margin-top:2px;">
                 </div>
 
                 <div class="form-group col-md-6">
-                    <input class="form-control input-cadastro" placeholder="Sobrenome" name="add_last_name"
+                    <input class="form-control input-cadastro" placeholder="Sobrenome" name="sobrenome"
                         data-toggle="tooltip" data-placement="top" title="Sobrenome">
                     <select class="custom-select my-1 mr-sm-2 input-cadastro" data-toggle="tooltip" data-placement="top"
                         title="Gênero">
@@ -110,27 +110,27 @@
                     data-placement="top" title="E-mail" style="margin-bottom:5px;margin-top:5px;"
                     id="exampleInputEmail1">
                 <input class="form-control input-cadastro" type="email" placeholder="Confirme seu e-mail"
-                    name="add_email" id="exampleInputEmail1" data-toggle="tooltip" data-placement="top"
+                    name="name" id="exampleInputEmail1" data-toggle="tooltip" data-placement="top"
                     title="Confirme seu e-mail">
             </div>
             <div class="form-row">
 
                 <div class="form-group col-md-6">
-                    <input class="form-control input-cadastro" type="text" placeholder="Celular" name="add_tel_movel"
+                    <input class="form-control input-cadastro" type="text" placeholder="Celular" name="cel"
                         data-toggle="tooltip" data-placement="top" title="Celular"
                         style="margin-bottom:5px;margin-top:5px;">
                 </div>
 
                 <div class="form-group col-md-6">
                     <input class="form-control input-cadastro" type="text" placeholder="Fixo ou Comercial"
-                        name="add_tel_resid" data-toggle="tooltip" data-placement="top" title="Residencial ou Comercial"
+                        name="tel" data-toggle="tooltip" data-placement="top" title="Residencial ou Comercial"
                         style="margin-bottom:5px;margin-top:5px;">
                 </div>
             </div>
             <div class="form-group">
                 <textarea class="form-control input-cadastro"
                     placeholder="Escreva uma breve mensagem, o porquê gostaria de tornar-se passeador."
-                    name="add_message" style="margin-bottom:15px;margin-top:2px;" id="exampleFormControlTextarea1"
+                    name="msg" style="margin-bottom:15px;margin-top:2px;" id="exampleFormControlTextarea1"
                     rows="4" data-toggle="tooltip" data-placement="top"
                     title="Por que gostaria de tornar-se passeador?"></textarea>
             </div>

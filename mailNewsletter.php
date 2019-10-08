@@ -10,7 +10,7 @@ $to = "contato@system2002.com";
 
 $subject = "Newsletter | DogU";
 
-$message = "Ola! Desejo assinar a Newsletter da DogU. Poderia me cadastrar? \n Email: ". $from;
+$message = "Olá! Desejo assinar a Newsletter da DogU. Poderia me cadastrar? \n Email: ". $from;
 
 $headers = "De:". $from;
 
