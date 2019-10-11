@@ -19,8 +19,16 @@ $to = "contato@system2002.com";
 
 $subject = "Solicitação de Passeador (Análise) | DogU";
 
-$message = "Olá! Possuo interesse em tornar-me Passeador da DogU. Poderia me cadastrar?" \n 
-   $nome $sobrenome, $email, $dataNasc, $cel, $tel, $motivo;
+$message = array(
+    "Saudação" => "Olá! Possuo interesse em tornar-me Passeador da DogU. Poderia me cadastrar?"
+    "Nome" => $nome . $sobrenome,
+    "Nasc" => $dataNasc,
+    "E-mail"=> $email,
+    "Gênero" => $genero,
+    "Celular" => $cel,
+    "Telefone" => $tel,
+    "Motivo" => $msg
+);
 
 $headers = "De:". $from;
 
