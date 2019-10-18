@@ -1,29 +1,29 @@
-use db_cprds2sv;
-create table auditoria(
-usuario varchar(70),
-acao varchar(15),
-data_acao date,
-hora_acao time,
-codigo int);
+use `u765863036_dogu`;
 
-create table auditoria_salario(
-usuario varchar(40),
-data_auditoria date,
-hora_auditoria time,
-codigo integer,
-salario_atual decimal(10,2),
-salario_novo decimal(10,2));
+create table tb_tipo_auditoria(
+sg_tipo_auditoria char(3),
+nm_tipo_auditoria varchar(30),
+constraint pk_tipo_auditoria
+	primary key (sg_tipo_auditoria));
+insert into tb_tipo_auditoria values 
+('INS','Insert'),
+('UPD','Update');
+select * from tb_tipo_auditoria;
 
-select * from auditoria;
-
-select * from auditoria_salario;
-select * from tb_revendedor;
-update tb_revendedor set vl_salario = '1001.00' where cd_revendedor = 60;
-
-drop trigger tr_MonitoraUpdate_salario;
-insert into tb_revendedor values 
-(60,'Godofredo da Silva', 'e', '897564545612','1000,00');
-
-
-desc tb_revendedor;
-select user()
+create table tb_auditoria(
+cd_auditoria int,
+nm_usuario varchar(70),
+sg_tipo_auditoria char(3),
+dt_acao date,
+hr_acao time,
+ds_acao text,
+constraint pk_auditoria
+	primary key (cd_auditoria),
+constraint fk_tipo_auditoria
+	foreign key (sg_tipo_auditoria)
+		references tb_tipo_auditoria(sg_tipo_auditoria));
+insert into tb_auditoria values
+(1,'TESTE','INS',curdate(),curtime(),'TESTE');
+select user();
+select max(cd_auditoria)+1 from tb_auditoria;
+select * from tb_auditoria;
