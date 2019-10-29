@@ -34,15 +34,17 @@ if (mysqli_connect_errno())
         $senha = mysqli_real_escape_string($conexao, $obj['senha']);
         $nascimento = mysqli_real_escape_string($conexao, $obj['nascimento']);
         $sql = "CALL criarUsuario( '$cpf','$rg','$nome','$email','$senha','$nascimento');";
-        try{  
-          mysqli_query($conexao, $sql) or die ($_SESSION['error'] = 1);
+        try{
+          mysqli_query($conexao, $sql);
         } catch (Exception $e){}
-        if(isset($_SESSION['error'])){
-          $results = array('sucesso' => 0, 'error' => 'Erro ao cadastrar usuário!');            
-        } else {
-          $results = array('sucesso' => 1);
-        }            
-        unset($_SESSION['error']);
+        $sql = "SELECT cd_login FROM tb_login WHERE cd_email = '$email' AND cd_senha = MD5('$senha') LIMIT 1;";
+        $resultado_usuario = mysqli_query($conexao, $sql);
+        $resultado = mysqli_fetch_assoc($resultado_usuario);
+        if(isset($resultado)){
+            $results = array('sucesso' => 1);
+        }else{	
+            $results = array('sucesso' => 0);
+        }
     } else{
         $results = array('error' => 'Função não encontrada!');
     }
