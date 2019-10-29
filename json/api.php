@@ -36,7 +36,7 @@ if (mysqli_connect_errno())
         $sql = "CALL criarUsuario( '$cpf','$rg','$nome','$email','$senha','$nascimento');";
         try{
             mysqli_query($conexao, $sql);            
-            $results = array('sucesso' => 0);
+            $results = array('sucesso' => 1);
         } catch(Exception $e){
             $results = array('sucesso' => 0, 'error' => 'Erro ao cadastrar usuário!');            
         }
