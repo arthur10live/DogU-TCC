@@ -60,6 +60,7 @@ if (mysqli_connect_errno())
       } else{
         $results = array('error' => 'Função não encontrada!');
     }
+  }
 
 echo json_encode($results);
 
