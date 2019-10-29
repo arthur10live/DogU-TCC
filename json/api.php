@@ -34,12 +34,12 @@ if (mysqli_connect_errno())
         $senha = mysqli_real_escape_string($conexao, $obj['senha']);
         $nascimento = mysqli_real_escape_string($conexao, $obj['nascimento']);
         $sql = "CALL criarUsuario( '$cpf','$rg','$nome','$email','$senha','$nascimento');";
-        try{
-            mysqli_query($conexao, $sql);            
-            $results = array('sucesso' => 1);
-        } catch(Exception $e){
-            $results = array('sucesso' => 0, 'error' => 'Erro ao cadastrar usuário!');            
-        }
+        mysqli_query($conexao, $sql) or die ($erro = 1);
+        if($erro == 1){
+          $results = array('sucesso' => 0, 'error' => 'Erro ao cadastrar usuário!');            
+        } else {
+          $results = array('sucesso' => 1);
+        }            
     } else{
         $results = array('error' => 'Função não encontrada!');
     }
