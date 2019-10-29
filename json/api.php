@@ -64,7 +64,7 @@ if (mysqli_connect_errno())
 
 echo json_encode($results);
 
-function verificarLogin($val_email){
+function bool verificarLogin($val_email){
   $email = mysqli_real_escape_string($conexao, $val_email);
   $sql = "SELECT cd_login FROM tb_login WHERE cd_email = '$email' LIMIT 1;";
   $resultado_usuario = mysqli_query($conexao, $sql);
@@ -75,7 +75,7 @@ function verificarLogin($val_email){
       return false;
    }
 }
-function verificarRG($val_rg){
+function bool verificarRG($val_rg){
   $rg = mysqli_real_escape_string($conexao, $val_rg);
   $sql = "SELECT cd_pessoa FROM tb_pessoa WHERE cd_rg = '$rg' LIMIT 1;";
   $resultado_usuario = mysqli_query($conexao, $sql);
@@ -86,7 +86,7 @@ function verificarRG($val_rg){
       return false;
    }
 }
-function verificarCPF($val_cpf){
+function bool verificarCPF($val_cpf){
   $cpf = mysqli_real_escape_string($conexao, $val_cpf);
   $sql = "SELECT cd_pessoa FROM tb_pessoa WHERE cd_cpf = '$cpf' LIMIT 1;";
   $resultado_usuario = mysqli_query($conexao, $sql);
