@@ -16,12 +16,12 @@ if (mysqli_connect_errno())
     $obj = json_decode($obj, true); // transformar json em objeto
 
     if($obj['action'] == "logar"){
-      if(
+      /*if(
         $obj['email']) == ""||
         $obj['senha']) == ""
       ){
         $results = array('error' => 'Preencha todos os campos!');
-      }else{
+      }else{*/
         $email = mysqli_real_escape_string($conexao, $obj['email']);
         $senha = mysqli_real_escape_string($conexao, $obj['senha']);
         $sql = "SELECT cd_login FROM tb_login WHERE cd_email = '$email' AND cd_senha = MD5('$senha') LIMIT 1;";
@@ -32,7 +32,7 @@ if (mysqli_connect_errno())
         }else{	
             $results = array('error' => 'Credenciais Incorretas!');
         }
-      }
+      /*}*/
     }else if($obj['action'] == "cadastrar"){
         if (
           $obj['cpf'] == "" ||
