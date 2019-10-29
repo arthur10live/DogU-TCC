@@ -65,7 +65,7 @@ if (mysqli_connect_errno())
 echo json_encode($results);
 
 function bool verificarLogin($val_email){
-  $email = mysqli_real_escape_string($conexao, $val_email);
+  /*$email = mysqli_real_escape_string($conexao, $val_email);
   $sql = "SELECT cd_login FROM tb_login WHERE cd_email = '$email' LIMIT 1;";
   $resultado_usuario = mysqli_query($conexao, $sql);
   $resultado = mysqli_fetch_assoc($resultado_usuario);
@@ -73,7 +73,8 @@ function bool verificarLogin($val_email){
       return true;
   }else{	
       return false;
-   }
+   }*/
+   return true;
 }
 function bool verificarRG($val_rg){
   $rg = mysqli_real_escape_string($conexao, $val_rg);
