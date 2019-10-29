@@ -27,9 +27,9 @@ if (mysqli_connect_errno())
             $results = array('error' => 'Credenciais Incorretas!');
         }
     }else if($obj['action'] == "cadastrar"){
-        if (!verificarLogin($obj['email'])) {
-          if (!verificarRG($obj['rg'])){
-            if (!verificarRG($obj['cpf'])){
+        if (verificarLogin($obj['email']) == false) {
+          if (verificarRG($obj['rg']) == false){
+            if (verificarRG($obj['cpf']) == false){
               $cpf = mysqli_real_escape_string($conexao, $obj['cpf']);
               $rg = mysqli_real_escape_string($conexao, $obj['rg']);
               $nome = mysqli_real_escape_string($conexao, $obj['nome']);
