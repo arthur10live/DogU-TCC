@@ -26,7 +26,21 @@ if (mysqli_connect_errno())
         }else{	
             $results = array('error' => 'Credenciais Incorretas!');
         }
-    }else{
+    }else if($obj['action'] == "cadastrar"){
+        $cpf = mysqli_real_escape_string($conexao, $obj['cpf']);
+        $rg = mysqli_real_escape_string($conexao, $obj['rg']);
+        $nome = mysqli_real_escape_string($conexao, $obj['nome']);
+        $email = mysqli_real_escape_string($conexao, $obj['email']);
+        $senha = mysqli_real_escape_string($conexao, $obj['senha']);
+        $nascimento = mysqli_real_escape_string($conexao, $obj['nascimento']);
+        $sql = "CALL criarUsuario( '$cpf','$rg','$nome','$email','$senha','$nascimento');";
+        try{
+            mysqli_query($conexao, $sql);            
+            $results = array('sucesso' => 1);
+        } catch(Exception $e){
+            $results = array('error' => 'Erro ao cadastrar usuário!');            
+        }
+    } else{
         $results = array('error' => 'Função não encontrada!');
     }
 }
