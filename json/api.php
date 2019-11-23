@@ -18,11 +18,11 @@ if (mysqli_connect_errno())
     if($obj['action'] == "logar"){
         $email = mysqli_real_escape_string($conexao, $obj['email']);
         $senha = mysqli_real_escape_string($conexao, $obj['senha']);
-        $sql = "SELECT cd_login FROM tb_login WHERE cd_email = '$email' AND cd_senha = MD5('$senha') LIMIT 1;";
+        $sql = "SELECT cd_login, nm_pessoa FROM tb_passeador AS pa, tb_pessoa AS pe WHERE cd_login = (SELECT cd_login FROM tb_login WHERE cd_email = '$email' AND cd_senha = MD5('$senha') LIMIT 1) AND pa.cd_pessoa = pe.cd_pessoa;";
         $resultado_usuario = mysqli_query($conexao, $sql);
         $resultado = mysqli_fetch_assoc($resultado_usuario);
         if(isset($resultado)){
-            $results = array('logado' => 1, 'cdLogin' => $resultado['cd_login']);
+            $results = array('logado' => 1, 'cdLogin' => $resultado['cd_login'], 'nmPessoa' => $resultado['nm_pessoa'], 'tpLogin' => 'PAS');
         }else{	
             $results = array('error' => 'Credenciais Incorretas!');
         }
