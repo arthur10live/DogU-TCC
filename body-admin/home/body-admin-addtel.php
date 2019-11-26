@@ -92,7 +92,7 @@ if(isset($_POST['btnAdicionar'])){
                 <input name="cdCpf" class="form-control" type="text" onKeyPress="MascaraCPF(addusuario.cdCpf);" maxlength="14" autocomplete="off" required/>
             </div>
             <div class="form-group">
-                <button type="submit" name="btnAdicionar" class="btn btn-danger btn-lg btn-block" >Adicionar Administrador</button>
+                <button type="submit" name="btnAdicionar" class="btn btn-danger btn-lg btn-block" >Adicionar Telefone</button>
             </div>
 
             <datalist id="PessoasAtivas">

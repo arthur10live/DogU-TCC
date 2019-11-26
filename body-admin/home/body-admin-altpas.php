@@ -10,9 +10,9 @@ function validaCPF($cpf = null) {
 		return false;
 	}
 
-	// Elimina possivel mascara
-	$cpf = preg_replace("/[^0-9]/", "", $cpf);
-	$cpf = str_pad($cpf, 11, '0', STR_PAD_LEFT);
+	// // Elimina possivel mascara
+	// $cpf = preg_replace("/[^0-9]/", "", $cpf);
+	// $cpf = str_pad($cpf, 11, '0', STR_PAD_LEFT);
 	
 	// Verifica se o numero de digitos informados é igual a 11 
 	if (strlen($cpf) != 11) {
@@ -106,25 +106,26 @@ function limpaCPF_RG($valor){
     $valor = str_replace("/", "", $valor);
     return $valor;
 }
-
+if(isset($_POST['btnBusca'])){
+    $select_busca = 'SELECT cd_pessoa, nm_pessoa, dt_nascimento,cd_cpf,cd_rg FROM tb_pessoa WHERE cd_cpf = "'.$_POST['cpf'].'"';
+    $result = mysqli_query($conexao,$select_busca)
+    or die ("<script language=javascript>alert('Erro');window.location.href='page-admin-funcoes.php?funcao=altcli';</script>");
+    while ($row = mysqli_fetch_array($result)){
+        $idbusca = $row['cd_pessoa'];
+    }
+    };
 if(isset($_POST['btnAlterar'])){
     if(validaDados()){
         unset($_POST['btnAlterar']);
         $rg = limpaCPF_RG($_POST['cdRg']);
         $cpf = limpaCPF_RG($_POST['cdCpf']);
-        //$sql = 'CALL criarUsuario("'.$cpf.'", "'.$rg.'", "'.$_POST['nmPessoa'].'", "'.$_POST['cdEmail'].'", "'.$_POST['novasenha1'].'", "'.$_POST['dtNascimento'].'");';
-        //mysqli_query($conexao,$sql) or die(header("Location: index.php"));
-        $sql = mysqli_query('UPDATE tb_pessoa SET cd_cpf = "'.$cpf.'", cd_rg = "'.$rg.'", nm_pessoa =  "'.$_POST['nmPessoa'].'", "'.$_POST['cdEmail'].'", "'.$_POST['novasenha1'].'",dt_nascimento = "'.$_POST['dtNascimento'].'", $conexao ') 
-        or die ("<script language=javascript>alert( 'Erro no update!' );window.location.href='inedx.php';</script>");
-        mysqli_result($conexao,$sql);
-        $_SESSION['sucesso'] = "Cadatro realizado com sucesso!";
-        apagarDados();        
+        
+        $sql = "UPDATE tb_pessoa SET cd_cpf = '$cpf', cd_rg = '$rg', nm_pessoa =  '".$_POST['nmPessoa']."', '".$_POST['cdEmail']."', '".$_POST['novasenha1']."',dt_nascimento = '".$_POST['dtNascimento']."' WHERE cd_pessoa = '$idbusca'"; 
+        $result_sql = mysqli_query($conexao,$sql)
+        or die ("<script language=javascript>alert( 'Erro no update!' );window.location.href='page-admin-funcoes.php?funcao=altcli';</script>");
+        mysqli_result($conexao,$sql);      
     }
 }
-
-
-
-
 ?>
 <div class="row">
     <div class="col-md-2">
@@ -140,8 +141,8 @@ if(isset($_POST['btnAlterar'])){
     <div class="col-lg-4 col-md-4">
         <form class="form-group" name="altusuario" action="page-admin-funcoes.php?funcao=altpass" method="POST">
         <div class="form-group">
-                <input name="nmbusca" class="form-control" type="text" autocomplete="off"/>
-                <button type="submit" name="btnBusca" class="btn btn-danger" >Buscar</button>
+                <input placeholder="Digite o CPF" name="cpf" class="form-control" type="text" autocomplete="off"/></br>
+                <button type="submit" name="btnBusca" class="btn btn-danger" style='margin-left:40%;'>Buscar</button>
             </div>
             <div class="form-group">
                 <label>Nome da pessoa:</label>
