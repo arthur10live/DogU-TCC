@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 26-Nov-2019 às 16:46
+-- Tempo de geração: 26-Nov-2019 às 23:55
 -- Versão do servidor: 10.4.6-MariaDB
 -- versão do PHP: 7.3.8
 
@@ -29,7 +29,7 @@ DELIMITER $$
 -- Procedimentos
 --
 DROP PROCEDURE IF EXISTS `addTelefone`$$
-CREATE PROCEDURE `addTelefone` (`vlcd_tipo_telefone` INT, `vlds_telefone` CHAR(11), `vlcd_pessoa` INT)  begin
+CREATE DEFINER=`root`@`localhost` PROCEDURE `addTelefone` (`vlcd_tipo_telefone` INT, `vlds_telefone` CHAR(11), `vlcd_pessoa` INT)  begin
     declare idtelefone int;
     
     select count(cd_telefone)+1 into idtelefone from tb_telefone;	
@@ -38,15 +38,21 @@ CREATE PROCEDURE `addTelefone` (`vlcd_tipo_telefone` INT, `vlds_telefone` CHAR(1
 END$$
 
 DROP PROCEDURE IF EXISTS `addtpanimal`$$
-CREATE PROCEDURE `addtpanimal` (`vlds_tipo_animal` VARCHAR(50), `vlcd_porte` INT)  begin
+CREATE DEFINER=`root`@`localhost` PROCEDURE `addtpanimal` (`vlds_tipo_animal` VARCHAR(50), `vlcd_porte` INT)  begin
     declare idtpanimal int;
     
     select count(cd_tipo_animal)+1 into idtpanimal from tb_tipo_animal;	
     INSERT tb_tipo_animal (cd_tipo_animal, ds_tipo_animal, cd_porte) VALUES (idtpanimal, vlds_tipo_animal, vlcd_porte);
 END$$
 
+DROP PROCEDURE IF EXISTS `atualizarPasseio`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `atualizarPasseio` (IN `vlcd_passeador` INT)  begin
+   UPDATE tb_passeio SET cd_status = 'CAN' WHERE dt_passeio <= DATE_SUB(NOW(), INTERVAL 1 MINUTE) AND cd_status = 'ONL'; 
+	UPDATE tb_passeio SET dt_passeio=CURRENT_TIMESTAMP() WHERE  cd_passeador=vlcd_passeador AND dt_passeio >= DATE_SUB(NOW(), INTERVAL 40 SECOND);
+END$$
+
 DROP PROCEDURE IF EXISTS `criarAdministrador`$$
-CREATE PROCEDURE `criarAdministrador` (`vlcd_cpf` CHAR(11), `vlcd_rg` CHAR(9), `vlnm_pessoa` VARCHAR(70), `vlcd_email` VARCHAR(80), `vlcd_senha` VARCHAR(80), `vldt_nascimento` DATE)  begin
+CREATE DEFINER=`root`@`localhost` PROCEDURE `criarAdministrador` (`vlcd_cpf` CHAR(11), `vlcd_rg` CHAR(9), `vlnm_pessoa` VARCHAR(70), `vlcd_email` VARCHAR(80), `vlcd_senha` VARCHAR(80), `vldt_nascimento` DATE)  begin
     declare idpessoa int;
     declare idadministrador int;
     declare idlogin int;
@@ -61,7 +67,7 @@ CREATE PROCEDURE `criarAdministrador` (`vlcd_cpf` CHAR(11), `vlcd_rg` CHAR(9), `
 END$$
 
 DROP PROCEDURE IF EXISTS `criarPasseador`$$
-CREATE PROCEDURE `criarPasseador` (IN `vlcd_cpf` CHAR(11), IN `vlcd_rg` CHAR(9), IN `vlnm_pessoa` VARCHAR(70), IN `vlcd_email` VARCHAR(80), IN `vlcd_senha` VARCHAR(80), IN `vldt_nascimento` DATE)  begin
+CREATE DEFINER=`root`@`localhost` PROCEDURE `criarPasseador` (IN `vlcd_cpf` CHAR(11), IN `vlcd_rg` CHAR(9), IN `vlnm_pessoa` VARCHAR(70), IN `vlcd_email` VARCHAR(80), IN `vlcd_senha` VARCHAR(80), IN `vldt_nascimento` DATE)  begin
     declare idpessoa int;
     declare idpasseador int;
     declare idlogin int;
@@ -74,8 +80,16 @@ CREATE PROCEDURE `criarPasseador` (IN `vlcd_cpf` CHAR(11), IN `vlcd_rg` CHAR(9),
 	insert tb_passeador(cd_passeador, cd_pessoa, cd_login, cd_nivel) values (idpasseador, idpessoa, idlogin, 1);
 END$$
 
+DROP PROCEDURE IF EXISTS `criarPasseio`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `criarPasseio` (IN `vlcd_passeador` INT, IN `vlcd_status` CHAR(3), IN `vllat_passeador` FLOAT, IN `vllon_passeador` FLOAT)  begin
+    declare idpasseio int;
+    
+   select count(cd_passeio)+1 into idpasseio from tb_passeio;	
+	insert tb_passeio(cd_passeio, cd_passeador, cd_status, lat_passeador, lon_passeador, dt_passeio) values (idpasseio, vlcd_passeador, vlcd_status, vllat_passeador, vllon_passeador, CURRENT_TIMESTAMP());
+END$$
+
 DROP PROCEDURE IF EXISTS `criarPermissao`$$
-CREATE PROCEDURE `criarPermissao` (IN `vlds_permissao` TEXT)  begin
+CREATE DEFINER=`root`@`localhost` PROCEDURE `criarPermissao` (IN `vlds_permissao` TEXT)  begin
     declare numadm INT;
     declare idPermissao INT;
     declare contador INT;
@@ -91,7 +105,7 @@ CREATE PROCEDURE `criarPermissao` (IN `vlds_permissao` TEXT)  begin
 END$$
 
 DROP PROCEDURE IF EXISTS `criarUsuario`$$
-CREATE PROCEDURE `criarUsuario` (`vlcd_cpf` CHAR(11), `vlcd_rg` CHAR(9), `vlnm_pessoa` VARCHAR(70), `vlcd_email` VARCHAR(80), `vlcd_senha` VARCHAR(80), `vldt_nascimento` DATE)  begin
+CREATE DEFINER=`root`@`localhost` PROCEDURE `criarUsuario` (`vlcd_cpf` CHAR(11), `vlcd_rg` CHAR(9), `vlnm_pessoa` VARCHAR(70), `vlcd_email` VARCHAR(80), `vlcd_senha` VARCHAR(80), `vldt_nascimento` DATE)  begin
     declare idpessoa int;
     declare idcliente int;
     declare idlogin int;
@@ -105,22 +119,22 @@ CREATE PROCEDURE `criarUsuario` (`vlcd_cpf` CHAR(11), `vlcd_rg` CHAR(9), `vlnm_p
 END$$
 
 DROP PROCEDURE IF EXISTS `permTotal`$$
-CREATE PROCEDURE `permTotal` (IN `vlcd_administrador` INT)  begin
+CREATE DEFINER=`root`@`localhost` PROCEDURE `permTotal` (IN `vlcd_administrador` INT)  begin
     UPDATE administrador_permissao SET ic_permitir=1 WHERE cd_administrador = vlcd_administrador;
 END$$
 
 DROP PROCEDURE IF EXISTS `remPermissaoTodos`$$
-CREATE PROCEDURE `remPermissaoTodos` (IN `vlcd_permissao` INT)  begin
+CREATE DEFINER=`root`@`localhost` PROCEDURE `remPermissaoTodos` (IN `vlcd_permissao` INT)  begin
     UPDATE administrador_permissao SET ic_permitir=0 WHERE cd_permissao = vlcd_permissao;
 END$$
 
 DROP PROCEDURE IF EXISTS `remPermissoes`$$
-CREATE PROCEDURE `remPermissoes` (IN `vlcd_administrador` INT)  begin
+CREATE DEFINER=`root`@`localhost` PROCEDURE `remPermissoes` (IN `vlcd_administrador` INT)  begin
     UPDATE administrador_permissao SET ic_permitir=0 WHERE cd_administrador = vlcd_administrador;
 END$$
 
 DROP PROCEDURE IF EXISTS `setarPermissoes`$$
-CREATE PROCEDURE `setarPermissoes` (IN `vlcd_administrador` INT)  begin
+CREATE DEFINER=`root`@`localhost` PROCEDURE `setarPermissoes` (IN `vlcd_administrador` INT)  begin
     declare numperms INT;
     declare contador INT;
 
@@ -1410,7 +1424,9 @@ CREATE TABLE `tb_passeio` (
 --
 
 INSERT INTO `tb_passeio` (`cd_passeio`, `cd_passeador`, `cd_pet`, `ds_observacao`, `lat_passeador`, `lon_passeador`, `lat_cliente`, `lon_cliente`, `cd_status`, `dt_passeio`, `vl_passeio`, `cd_tipo_pagamento`) VALUES
-(1, 41, 1, '1 Hora de passseio', 0, 0, 0, 0, 'FIN', '2019-11-19 08:15:06', '40.00', 1);
+(1, 41, 1, '1 Hora de passseio', 0, 0, 0, 0, 'FIN', '2019-11-19 08:15:06', '40.00', 1),
+(2, 42, NULL, NULL, -23.9631, -46.3358, NULL, NULL, 'CAN', '2019-11-26 17:05:13', NULL, NULL),
+(3, 42, NULL, NULL, -23.963, -46.3358, NULL, NULL, 'ONL', '2019-11-26 17:08:03', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -2243,7 +2259,7 @@ CREATE TABLE `vwtipoenderecospessoas` (
 --
 DROP TABLE IF EXISTS `vwadministradorinfo`;
 
-CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `vwadministradorinfo`  AS  select `a`.`cd_administrador` AS `cd_administrador`,`p`.`nm_pessoa` AS `nm_pessoa`,`p`.`cd_cpf` AS `cd_cpf` from (`tb_administrador` `a` join `tb_pessoa` `p`) where `a`.`cd_pessoa` = `p`.`cd_pessoa` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vwadministradorinfo`  AS  select `a`.`cd_administrador` AS `cd_administrador`,`p`.`nm_pessoa` AS `nm_pessoa`,`p`.`cd_cpf` AS `cd_cpf` from (`tb_administrador` `a` join `tb_pessoa` `p`) where `a`.`cd_pessoa` = `p`.`cd_pessoa` ;
 
 -- --------------------------------------------------------
 
@@ -2252,7 +2268,7 @@ CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `vwadministradorinfo`  AS  
 --
 DROP TABLE IF EXISTS `vwcidadeadministradores`;
 
-CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `vwcidadeadministradores`  AS  select `ad`.`cd_administrador` AS `cd_administrador`,`p`.`nm_pessoa` AS `nm_pessoa`,`c`.`ds_cidade` AS `ds_cidade` from (((((`tb_administrador` `ad` join `tb_pessoa` `p`) join `pessoa_endereco` `pe`) join `tb_endereco` `e`) join `tb_bairro` `b`) join `tb_cidade` `c`) where `ad`.`cd_pessoa` = `p`.`cd_pessoa` and `p`.`cd_pessoa` = `pe`.`cd_pessoa` and `pe`.`cd_endereco` = `e`.`cd_endereco` and `e`.`cd_bairro` = `b`.`cd_bairro` and `b`.`cd_cidade` = `c`.`cd_cidade` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vwcidadeadministradores`  AS  select `ad`.`cd_administrador` AS `cd_administrador`,`p`.`nm_pessoa` AS `nm_pessoa`,`c`.`ds_cidade` AS `ds_cidade` from (((((`tb_administrador` `ad` join `tb_pessoa` `p`) join `pessoa_endereco` `pe`) join `tb_endereco` `e`) join `tb_bairro` `b`) join `tb_cidade` `c`) where `ad`.`cd_pessoa` = `p`.`cd_pessoa` and `p`.`cd_pessoa` = `pe`.`cd_pessoa` and `pe`.`cd_endereco` = `e`.`cd_endereco` and `e`.`cd_bairro` = `b`.`cd_bairro` and `b`.`cd_cidade` = `c`.`cd_cidade` ;
 
 -- --------------------------------------------------------
 
@@ -2261,7 +2277,7 @@ CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `vwcidadeadministradores`  
 --
 DROP TABLE IF EXISTS `vwcidadeclientes`;
 
-CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `vwcidadeclientes`  AS  select `cl`.`cd_cliente` AS `cd_cliente`,`p`.`nm_pessoa` AS `nm_pessoa`,`c`.`ds_cidade` AS `ds_cidade` from (((((`tb_cliente` `cl` join `tb_pessoa` `p`) join `pessoa_endereco` `pe`) join `tb_endereco` `e`) join `tb_bairro` `b`) join `tb_cidade` `c`) where `cl`.`cd_pessoa` = `p`.`cd_pessoa` and `p`.`cd_pessoa` = `pe`.`cd_pessoa` and `pe`.`cd_endereco` = `e`.`cd_endereco` and `e`.`cd_bairro` = `b`.`cd_bairro` and `b`.`cd_cidade` = `c`.`cd_cidade` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vwcidadeclientes`  AS  select `cl`.`cd_cliente` AS `cd_cliente`,`p`.`nm_pessoa` AS `nm_pessoa`,`c`.`ds_cidade` AS `ds_cidade` from (((((`tb_cliente` `cl` join `tb_pessoa` `p`) join `pessoa_endereco` `pe`) join `tb_endereco` `e`) join `tb_bairro` `b`) join `tb_cidade` `c`) where `cl`.`cd_pessoa` = `p`.`cd_pessoa` and `p`.`cd_pessoa` = `pe`.`cd_pessoa` and `pe`.`cd_endereco` = `e`.`cd_endereco` and `e`.`cd_bairro` = `b`.`cd_bairro` and `b`.`cd_cidade` = `c`.`cd_cidade` ;
 
 -- --------------------------------------------------------
 
@@ -2270,7 +2286,7 @@ CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `vwcidadeclientes`  AS  sel
 --
 DROP TABLE IF EXISTS `vwcidadepasseadores`;
 
-CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `vwcidadepasseadores`  AS  select `pa`.`cd_passeador` AS `cd_passeador`,`p`.`nm_pessoa` AS `nm_pessoa`,`c`.`ds_cidade` AS `ds_cidade` from (((((`tb_passeador` `pa` join `tb_pessoa` `p`) join `pessoa_endereco` `pe`) join `tb_endereco` `e`) join `tb_bairro` `b`) join `tb_cidade` `c`) where `pa`.`cd_pessoa` = `p`.`cd_pessoa` and `p`.`cd_pessoa` = `pe`.`cd_pessoa` and `pe`.`cd_endereco` = `e`.`cd_endereco` and `e`.`cd_bairro` = `b`.`cd_bairro` and `b`.`cd_cidade` = `c`.`cd_cidade` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vwcidadepasseadores`  AS  select `pa`.`cd_passeador` AS `cd_passeador`,`p`.`nm_pessoa` AS `nm_pessoa`,`c`.`ds_cidade` AS `ds_cidade` from (((((`tb_passeador` `pa` join `tb_pessoa` `p`) join `pessoa_endereco` `pe`) join `tb_endereco` `e`) join `tb_bairro` `b`) join `tb_cidade` `c`) where `pa`.`cd_pessoa` = `p`.`cd_pessoa` and `p`.`cd_pessoa` = `pe`.`cd_pessoa` and `pe`.`cd_endereco` = `e`.`cd_endereco` and `e`.`cd_bairro` = `b`.`cd_bairro` and `b`.`cd_cidade` = `c`.`cd_cidade` ;
 
 -- --------------------------------------------------------
 
@@ -2279,7 +2295,7 @@ CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `vwcidadepasseadores`  AS  
 --
 DROP TABLE IF EXISTS `vwclienteinfo`;
 
-CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `vwclienteinfo`  AS  select `c`.`cd_cliente` AS `cd_cliente`,`pe`.`nm_pessoa` AS `nm_pessoa`,`pe`.`cd_cpf` AS `cd_cpf` from (`tb_cliente` `c` join `tb_pessoa` `pe`) where `c`.`cd_pessoa` = `pe`.`cd_pessoa` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vwclienteinfo`  AS  select `c`.`cd_cliente` AS `cd_cliente`,`pe`.`nm_pessoa` AS `nm_pessoa`,`pe`.`cd_cpf` AS `cd_cpf` from (`tb_cliente` `c` join `tb_pessoa` `pe`) where `c`.`cd_pessoa` = `pe`.`cd_pessoa` ;
 
 -- --------------------------------------------------------
 
@@ -2288,7 +2304,7 @@ CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `vwclienteinfo`  AS  select
 --
 DROP TABLE IF EXISTS `vwenderecossp`;
 
-CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `vwenderecossp`  AS  select `e`.`cd_endereco` AS `cd_endereco`,`e`.`ds_endereco` AS `ds_endereco`,`e`.`cd_cep` AS `cd_cep` from ((`tb_endereco` `e` join `tb_bairro` `b`) join `tb_cidade` `c`) where `e`.`cd_bairro` = `b`.`cd_bairro` and `b`.`cd_cidade` = `c`.`cd_cidade` and `c`.`sg_uf` = 'SP' ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vwenderecossp`  AS  select `e`.`cd_endereco` AS `cd_endereco`,`e`.`ds_endereco` AS `ds_endereco`,`e`.`cd_cep` AS `cd_cep` from ((`tb_endereco` `e` join `tb_bairro` `b`) join `tb_cidade` `c`) where `e`.`cd_bairro` = `b`.`cd_bairro` and `b`.`cd_cidade` = `c`.`cd_cidade` and `c`.`sg_uf` = 'SP' ;
 
 -- --------------------------------------------------------
 
@@ -2297,7 +2313,7 @@ CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `vwenderecossp`  AS  select
 --
 DROP TABLE IF EXISTS `vwpasseadorinfo`;
 
-CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `vwpasseadorinfo`  AS  select `pa`.`cd_passeador` AS `cd_passeador`,`pe`.`nm_pessoa` AS `nm_pessoa`,`pe`.`cd_cpf` AS `cd_cpf` from (`tb_passeador` `pa` join `tb_pessoa` `pe`) where `pa`.`cd_pessoa` = `pe`.`cd_pessoa` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vwpasseadorinfo`  AS  select `pa`.`cd_passeador` AS `cd_passeador`,`pe`.`nm_pessoa` AS `nm_pessoa`,`pe`.`cd_cpf` AS `cd_cpf` from (`tb_passeador` `pa` join `tb_pessoa` `pe`) where `pa`.`cd_pessoa` = `pe`.`cd_pessoa` ;
 
 -- --------------------------------------------------------
 
@@ -2306,7 +2322,7 @@ CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `vwpasseadorinfo`  AS  sele
 --
 DROP TABLE IF EXISTS `vwpermissaototal`;
 
-CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `vwpermissaototal`  AS  select `a`.`cd_administrador` AS `cd_administrador`,`p`.`nm_pessoa` AS `nm_pessoa` from ((`tb_pessoa` `p` join `tb_administrador` `a`) join `administrador_permissao` `ap`) where `a`.`cd_pessoa` = `p`.`cd_pessoa` and `a`.`cd_administrador` = `ap`.`cd_administrador` and `ap`.`cd_permissao` = 1 and `ap`.`ic_permitir` = 1 ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vwpermissaototal`  AS  select `a`.`cd_administrador` AS `cd_administrador`,`p`.`nm_pessoa` AS `nm_pessoa` from ((`tb_pessoa` `p` join `tb_administrador` `a`) join `administrador_permissao` `ap`) where `a`.`cd_pessoa` = `p`.`cd_pessoa` and `a`.`cd_administrador` = `ap`.`cd_administrador` and `ap`.`cd_permissao` = 1 and `ap`.`ic_permitir` = 1 ;
 
 -- --------------------------------------------------------
 
@@ -2315,7 +2331,7 @@ CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `vwpermissaototal`  AS  sel
 --
 DROP TABLE IF EXISTS `vwpetdono`;
 
-CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `vwpetdono`  AS  select `p`.`cd_pet` AS `cd_pet`,`p`.`nm_pet` AS `nm_pet`,`pe`.`nm_pessoa` AS `nm_pessoa` from (((`tb_pessoa` `pe` join `tb_cliente` `c`) join `cliente_pet` `cp`) join `tb_pet` `p`) where `pe`.`cd_pessoa` = `c`.`cd_pessoa` and `cp`.`cd_cliente` = `c`.`cd_cliente` and `cp`.`cd_pet` = `p`.`cd_pet` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vwpetdono`  AS  select `p`.`cd_pet` AS `cd_pet`,`p`.`nm_pet` AS `nm_pet`,`pe`.`nm_pessoa` AS `nm_pessoa` from (((`tb_pessoa` `pe` join `tb_cliente` `c`) join `cliente_pet` `cp`) join `tb_pet` `p`) where `pe`.`cd_pessoa` = `c`.`cd_pessoa` and `cp`.`cd_cliente` = `c`.`cd_cliente` and `cp`.`cd_pet` = `p`.`cd_pet` ;
 
 -- --------------------------------------------------------
 
@@ -2324,7 +2340,7 @@ CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `vwpetdono`  AS  select `p`
 --
 DROP TABLE IF EXISTS `vwporteracas`;
 
-CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `vwporteracas`  AS  select `ta`.`ds_tipo_animal` AS `RacasAnimais`,`p`.`ds_porte` AS `Porte` from (`tb_tipo_animal` `ta` join `tb_porte` `p`) where `ta`.`cd_porte` = `p`.`cd_porte` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vwporteracas`  AS  select `ta`.`ds_tipo_animal` AS `RacasAnimais`,`p`.`ds_porte` AS `Porte` from (`tb_tipo_animal` `ta` join `tb_porte` `p`) where `ta`.`cd_porte` = `p`.`cd_porte` ;
 
 -- --------------------------------------------------------
 
@@ -2333,7 +2349,7 @@ CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `vwporteracas`  AS  select 
 --
 DROP TABLE IF EXISTS `vwtipoenderecospessoas`;
 
-CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `vwtipoenderecospessoas`  AS  select `p`.`cd_pessoa` AS `cd_pessoa`,`p`.`nm_pessoa` AS `nm_pessoa`,`te`.`ds_tipo_endereco` AS `ds_tipo_endereco` from (((`tb_endereco` `e` join `tb_tipo_endereco` `te`) join `tb_pessoa` `p`) join `pessoa_endereco` `pe`) where `pe`.`cd_pessoa` = `p`.`cd_pessoa` and `pe`.`cd_endereco` = `e`.`cd_endereco` and `pe`.`cd_tipo_endereco` = `te`.`cd_tipo_endereco` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vwtipoenderecospessoas`  AS  select `p`.`cd_pessoa` AS `cd_pessoa`,`p`.`nm_pessoa` AS `nm_pessoa`,`te`.`ds_tipo_endereco` AS `ds_tipo_endereco` from (((`tb_endereco` `e` join `tb_tipo_endereco` `te`) join `tb_pessoa` `p`) join `pessoa_endereco` `pe`) where `pe`.`cd_pessoa` = `p`.`cd_pessoa` and `pe`.`cd_endereco` = `e`.`cd_endereco` and `pe`.`cd_tipo_endereco` = `te`.`cd_tipo_endereco` ;
 
 --
 -- Índices para tabelas despejadas
