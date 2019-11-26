@@ -1,10 +1,10 @@
 <?php
-$con_ip = "sql255.main-hosting.eu";
-//$con_ip = "localhost";
-$con_login = "u765863036_dogu";
-//$con_login = "root";
-$con_senha = "123123asd";
-//$con_senha = "";
+//$con_ip = "sql255.main-hosting.eu";
+$con_ip = "localhost";
+//$con_login = "u765863036_dogu";
+$con_login = "root";
+//$con_senha = "123123asd";
+$con_senha = "";
 $con_db = "u765863036_dogu";
 $conexao = mysqli_connect($con_ip, $con_login, $con_senha, $con_db);
 
@@ -18,13 +18,20 @@ if (mysqli_connect_errno())
     if($obj['action'] == "logar"){
         $email = mysqli_real_escape_string($conexao, $obj['email']);
         $senha = mysqli_real_escape_string($conexao, $obj['senha']);
-        $sql = "SELECT cd_login, nm_pessoa FROM tb_passeador AS pa, tb_pessoa AS pe WHERE cd_login = (SELECT cd_login FROM tb_login WHERE cd_email = '$email' AND cd_senha = MD5('$senha') LIMIT 1) AND pa.cd_pessoa = pe.cd_pessoa;";
+        $sql = "SELECT cd_login, nm_pessoa, cd_passeador FROM tb_passeador AS pa, tb_pessoa AS pe WHERE cd_login = (SELECT cd_login FROM tb_login WHERE cd_email = '$email' AND cd_senha = MD5('$senha') LIMIT 1) AND pa.cd_pessoa = pe.cd_pessoa;";
         $resultado_usuario = mysqli_query($conexao, $sql);
         $resultado = mysqli_fetch_assoc($resultado_usuario);
         if(isset($resultado)){
-            $results = array('logado' => 1, 'cdLogin' => $resultado['cd_login'], 'nmPessoa' => $resultado['nm_pessoa'], 'tpLogin' => 'PAS');
+            $results = array('logado' => 1, 'cdLogin' => $resultado['cd_login'], 'nmPessoa' => $resultado['nm_pessoa'], 'tpLogin' => 'PAS', 'cdPasseador' => $resultado['cd_passeador']);
         }else{	
+          $sql = "SELECT cd_login, nm_pessoa, cd_cliente FROM tb_cliente AS cl, tb_pessoa AS pe WHERE cd_login = (SELECT cd_login FROM tb_login WHERE cd_email = '$email' AND cd_senha = MD5('$senha') LIMIT 1) AND cl.cd_pessoa = pe.cd_pessoa;";
+          $resultado_usuario = mysqli_query($conexao, $sql);
+          $resultado = mysqli_fetch_assoc($resultado_usuario);
+          if(isset($resultado)){
+            $results = array('logado' => 1, 'cdLogin' => $resultado['cd_login'], 'nmPessoa' => $resultado['nm_pessoa'], 'tpLogin' => 'CLI', 'cdCliente' => $resultado['cd_cliente']);
+          }else{
             $results = array('error' => 'Credenciais Incorretas!');
+          }
         }
     }else if($obj['action'] == "cadastrar"){
         if (verificarLogin($obj['email']) == false) {
@@ -57,7 +64,24 @@ if (mysqli_connect_errno())
         }else{
           $results = array('sucesso' => 0, 'msg' => 'E-mail já cadastrado!');
         } 
-      } else{
+      }else if($obj['action'] == "passear"){
+        $cdPasseador = mysqli_real_escape_string($conexao, $obj['cdPasseador']);
+        $cdStatus = mysqli_real_escape_string($conexao, $obj['cdStatus']);
+        $latPasseador = mysqli_real_escape_string($conexao, $obj['latPasseador']);
+        $lonPasseador = mysqli_real_escape_string($conexao, $obj['lonPasseador']);
+        $sql = "SELECT cd_passeio, dt_passeio FROM tb_passeio WHERE cd_passeador = '$cdPasseador' AND cd_status = '$cdStatus';";
+        $resultado_usuario = mysqli_query($conexao, $sql);
+        $resultado = mysqli_fetch_assoc($resultado_usuario);
+        if(isset($resultado)){
+            $sql = "CALL atualizarPasseio('".$cdPasseador."');";
+            mysqli_query($conexao, $sql); 
+            $results = array('sucesso' => 'Dado Atualizado', 'data' => $sql);
+        }else{	
+          $sql = "call criarPasseio('$cdPasseador', '$cdStatus','$latPasseador','$lonPasseador');";
+          mysqli_query($conexao, $sql);
+          $results = array('sucesso' => 'Criado o novo passeio!');
+        }
+      }else{
         $results = array('error' => 'Função não encontrada!');
     }
   }
