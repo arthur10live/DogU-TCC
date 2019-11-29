@@ -120,12 +120,12 @@
             </section>
         </section>
         <!-- SECTION CONHEÇA A DOGU -->
-        <section class="div-conhecaDogu" id="conhecaDogu">
+        <section class="div-conhecaDogu white" id="conhecaDogu">
             <section class="container">
                 <section class="row">
 
-                    <section class="col-md-8 chocolate" style="margin-top: 70px;">
-                        <h3>Você sabia que os animais precisam passear e caminhar ao ar livre,
+                    <section class="col-md-8" style="margin-top: 70px;">
+                        <h3 class="ice">Você sabia que os animais precisam passear e caminhar ao ar livre,
                             mesmo com uma casa ou um grande quintal?
                             Na rotina normal dos cães em seu habitat natural, eles mesmos procuram sua própria
                             água e comida. Na natureza, os cães caminham em média 8h a 12h por dia, seguindo o
