@@ -22,27 +22,12 @@ margin: 0;
 padding: 0;
 width: 100%;
 height: 100vh;
-background-image: linear-gradient(125deg, #F6705D, #FDDAAE);
-background-size: 400%;
-animation: bganimation 15s infinite;
+background: rgb(253,218,174);
+background: linear-gradient(0deg, rgba(253,218,174,1) 36%, rgba(246,112,93,0.6222864145658263) 80%);background-size: 400%;
 
 }
 
-@keyframes bganimation {
-0% {
-background-position: 0% 50%;
-}
 
-50% {
-background-position: 100% 50%;
-}
-
-100% {
-background-position: 0% 50%;
-
-}
-
-}
 </style>
 </head>
 

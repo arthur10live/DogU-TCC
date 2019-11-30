@@ -210,7 +210,7 @@
         </section>
     </article>
     <!-- FOOTER -->
-    <footer class="rodape-home">
+    <footer class="rodape-home ice">
         <section class="container">
             <section class="row">
                 <section class="col-md-5">
@@ -218,28 +218,27 @@
                         <li>
                             <iframe
                                 src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fappdogu%2F&width=152&layout=button_count&action=like&size=small&show_faces=true&share=true&height=46&appId"
-                                width="152" height="46" style="border:none;overflow:hidden" scrolling="no"
+                                width="170" height="46" style="border:none;overflow:hidden" scrolling="no"
                                 frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
                         </li>
                         <li><small>Ao cadastrar-se, você concorda com a nossa <a href="media/termo_de_uso_dogu.pdf"
-                                    target="_blank" onMouseOver="this.style.color='#594946'"
-                                    onMouseOut="this.style.color='#01A58D'" style="color: #01A58D;">Política de
+                                    target="_blank" style="color: #F3F2F0;">Política de
                                     Privacidade e Termos de Uso.</a></small></li>
                         <br>
-                        <li><small class="chocolate">*De acordo com a disponilibilidade de passeadores na
+                        <li><small class="ice">*De acordo com a disponilibilidade de passeadores na
                                 região.</small></li>
                     </ul>
                 </section>
                 <section class="col-md-3">
                 </section>
                 <section class="col-md-4">
-                    <h4 class="chocolate">Newsletter</h4>
+                    <h4 class="ice" style="text-shadow: 4px 4px 5px rgba(150, 149, 150, 1);">Newsletter</h4>
                     <form action="mailNewsletter.php" name="newsletter" method="post">
                         <div class="form-group">
                             <input class="form-control" type="email" data-toggle="tooltip" data-placement="top"
                                 title="E-mail" id="exampleInputEmail1" placeholder="Digite seu e-mail"
                                 style="margin-bottom: 0px;" name="email">
-                            <small class="chocolate" style="margin-top:0px; margin-bottom: 10px;">
+                            <small class="ice" style="margin-top:0px; margin-bottom: 10px;">
                                 Digite seu e-mail e
                                 fique por dentro das novidades. É grátis!</small><br>
                             <button type="submit" class="btn"
@@ -254,7 +253,7 @@
         </section>
         <button onclick="topFunction()" id="myBtn" title="Ir para o top">Top</button>
         <div class="text-center">
-            <span class="chocolate text-center" style="bottom: 5px;"><small>DogU ® Copyright 2019</small><span>
+            <span class="ice text-center" style="bottom: 5px;"><small>DogU ® Copyright 2019</small><span>
         </div>
     </footer>
 

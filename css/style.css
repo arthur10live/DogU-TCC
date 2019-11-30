@@ -30,6 +30,7 @@
      width: 100%;
  }
 
+ 
  #box-download {
      background-color: #F3F2F0;
      opacity: 0.9;
@@ -42,6 +43,9 @@
      padding: 40px;
      display: flex;
      flex-wrap: nowrap;
+     -webkit-box-shadow: 8px 8px 14px 0px rgba(50, 76, 50, 0.42);
+     -moz-box-shadow:    8px 8px 14px 0px rgba(50, 76, 50, 0.42);
+     box-shadow:         8px 8px 14px 0px rgba(50, 76, 50, 0.42);
  }
 
  #img-mobile {
@@ -75,6 +79,9 @@
          padding: 30px;
          display: flex;
          flex-wrap: nowrap;
+         -webkit-box-shadow: 8px 8px 14px 0px rgba(50, 76, 50, 0.42);
+-moz-box-shadow:    8px 8px 14px 0px rgba(50, 76, 50, 0.42);
+box-shadow:         8px 8px 14px 0px rgba(50, 76, 50, 0.42);
      }
      #qrcode-box {
          width: 150px !important;
@@ -121,6 +128,9 @@
          padding: 30px;
          display: flex;
          flex-wrap: nowrap;
+         -webkit-box-shadow: 8px 8px 14px 0px rgba(50, 76, 50, 0.42);
+-moz-box-shadow:    8px 8px 14px 0px rgba(50, 76, 50, 0.42);
+box-shadow:         8px 8px 14px 0px rgba(50, 76, 50, 0.42);
      }
      #qrcode-box {
          width: 150px !important;
@@ -161,6 +171,7 @@
          margin-top: 30px;
          margin-left: 32px;
          margin-right: 40px;
+         
      }
  }
 
@@ -267,14 +278,16 @@
      }
      .desc-icon {
          font-size: 18px;
+         text-shadow: 4px 4px 5px rgba(150, 149, 150, 1);
      }
  }
 
  .desc-icon {
      margin-bottom: 90px;
-     font-size: 24px;
+     font-size: 28px;
      font-style: bold;
-     color: #F6705D;
+     color: #594946;
+     text-shadow: 4px 4px 5px rgba(150, 149, 150, 1);
  }
 
  /* EFEITO ICONS */
@@ -342,7 +355,7 @@
  .rodape-mapa {
      list-style: none;
      text-decoration: none;
-     color: #594946;
+     color: #F3F2F0;
      font-size: 26;
  }
 
@@ -404,6 +417,9 @@
      display: flex;
      flex-wrap: nowrap;
      text-align: center;
+     -webkit-box-shadow: 8px 8px 14px 0px rgba(50, 76, 50, 0.42);
+-moz-box-shadow:    8px 8px 14px 0px rgba(50, 76, 50, 0.42);
+box-shadow:         8px 8px 14px 0px rgba(50, 76, 50, 0.42);
  }
 
  @media only screen and (max-width: 380px) {
@@ -423,6 +439,9 @@
          display: flex;
          flex-wrap: nowrap;
          text-align: center;
+         -webkit-box-shadow: 8px 8px 14px 0px rgba(50, 76, 50, 0.42);
+-moz-box-shadow:    8px 8px 14px 0px rgba(50, 76, 50, 0.42);
+box-shadow:         8px 8px 14px 0px rgba(50, 76, 50, 0.42);
      }
  }
 
@@ -443,6 +462,9 @@
          display: flex;
          flex-wrap: nowrap;
          text-align: center;
+         -webkit-box-shadow: 8px 8px 14px 0px rgba(50, 76, 50, 0.42);
+-moz-box-shadow:    8px 8px 14px 0px rgba(50, 76, 50, 0.42);
+box-shadow:         8px 8px 14px 0px rgba(50, 76, 50, 0.42);
      }
  }
 
@@ -459,6 +481,9 @@
      padding-bottom: 30px;
      display: flex;
      flex-wrap: wrap;
+     -webkit-box-shadow:8px 8px 14px 0px rgba(50, 76, 50, 0.42);
+     -moz-box-shadow:8px 8px 14px 0px rgba(50, 76, 50, 0.42);
+     box-shadow:8px 8px 14px 0px rgba(50, 76, 50, 0.42);
  }
 
  .input-cadastro {
