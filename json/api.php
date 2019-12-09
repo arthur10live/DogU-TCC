@@ -81,7 +81,22 @@ if (mysqli_connect_errno())
           mysqli_query($conexao, $sql);
           $results = array('sucesso' => 'Criado o novo passeio!');
         }
-      }else{
+      }else if($obj['action'] == "parametros-client"){
+        $cdCliente = mysqli_real_escape_string($conexao, $obj['cdCliente']);
+        $sql = "SELECT pet.cd_pet, pet.nm_pet, ta.ds_tipo_animal, an.ds_animal FROM tb_cliente AS cli, cliente_pet AS cp, tb_pet AS pet, tb_tipo_animal AS ta, tb_porte AS po, tb_animal as an WHERE cli.cd_cliente = cp.cd_cliente AND cp.cd_pet = pet.cd_pet AND pet.cd_tipo_animal = ta.cd_tipo_animal AND ta.cd_porte = po.cd_porte AND po.cd_animal = an.cd_animal AND cli.cd_cliente = $cdCliente ;";
+        $resultados_pets = mysqli_query($conexao, $sql);
+        $resultado = mysqli_fetch_assoc($resultados_pets);
+        if(isset($resultado)){
+          $querry_pets = $conexao->query($sql);
+          $cont = 1;
+          while($row = $querry_pets->fetch_assoc()) {
+            $results[$cont] = array('cdPet' => utf8_encode($row['cd_pet']), 'nmPet' => utf8_encode($row['nm_pet']), 'dsTipoAnimal' => utf8_encode($row['ds_tipo_animal']), 'dsAnimal' => utf8_encode($row['ds_animal']));
+            $cont++;
+          }
+        }else{
+          $results = array('erro' => 'Sem registros de PET!');
+        }
+      } else{
         $results = array('error' => 'Função não encontrada!');
     }
   }
